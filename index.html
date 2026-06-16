@@ -198,7 +198,10 @@
 
   /* ===== HERO ===== */
   .hero {
-    background: linear-gradient(135deg, var(--black) 0%, var(--black-soft) 100%);
+    background-image: url('hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--cream);
     padding: 7rem 2rem 6rem;
     position: relative;
@@ -208,53 +211,41 @@
     align-items: center;
   }
 
+  /* Dark gradient overlay — readable text on left, photo visible on right */
   .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(26, 26, 26, 0.92) 0%, rgba(26, 26, 26, 0.78) 40%, rgba(26, 26, 26, 0.45) 75%, rgba(26, 26, 26, 0.35) 100%),
+      linear-gradient(180deg, rgba(26, 26, 26, 0.3) 0%, transparent 30%, transparent 70%, rgba(26, 26, 26, 0.5) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Subtle gold glow on left for warmth */
+  .hero::after {
     content: '';
     position: absolute;
     top: -30%;
     left: -10%;
-    width: 70%;
+    width: 60%;
     height: 160%;
-    background: radial-gradient(ellipse, rgba(201, 169, 97, 0.18) 0%, transparent 60%);
+    background: radial-gradient(ellipse, rgba(201, 169, 97, 0.12) 0%, transparent 60%);
     pointer-events: none;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -30%;
-    right: -10%;
-    width: 70%;
-    height: 160%;
-    background: radial-gradient(ellipse, rgba(201, 169, 97, 0.1) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  /* Chess pattern overlay */
-  .chess-pattern {
-    position: absolute;
-    inset: 0;
-    opacity: 0.03;
-    background-image:
-      linear-gradient(45deg, var(--gold) 25%, transparent 25%),
-      linear-gradient(-45deg, var(--gold) 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, var(--gold) 75%),
-      linear-gradient(-45deg, transparent 75%, var(--gold) 75%);
-    background-size: 40px 40px;
-    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
-    pointer-events: none;
+    z-index: 1;
   }
 
   .hero-inner {
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 4rem;
-    align-items: center;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+  }
+
+  .hero-content {
+    max-width: 700px;
   }
 
   .hero-eyebrow {
@@ -301,51 +292,9 @@
     flex-wrap: wrap;
   }
 
-  .hero-visual {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .hero-logo-wrap {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    aspect-ratio: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .hero-logo-wrap img {
-    width: 80%;
-    height: 80%;
-    object-fit: contain;
-    position: relative;
-    z-index: 2;
-    filter: drop-shadow(0 20px 40px rgba(201, 169, 97, 0.3));
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .hero-logo-wrap::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border: 2px solid var(--gold);
-    transform: rotate(45deg);
-    opacity: 0.3;
-    animation: rotate-slow 20s linear infinite;
-  }
-
-  .hero-logo-wrap::after {
-    content: '';
-    position: absolute;
-    inset: 15%;
-    border: 1px solid var(--gold);
-    transform: rotate(45deg);
-    opacity: 0.5;
-    animation: rotate-slow 30s linear infinite reverse;
+  /* Subtle text shadow for crisp readability over the photo */
+  .hero h1, .hero p.lead {
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
   }
 
   @keyframes float {
@@ -1151,9 +1100,6 @@
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 1024px) {
-    .hero-inner { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
-    .hero-actions { justify-content: center; }
-    .hero p.lead { margin-left: auto; margin-right: auto; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
     .programs-header { grid-template-columns: 1fr; }
   }
@@ -1198,8 +1144,6 @@
   .hero-content > *:nth-child(3) { animation-delay: 0.4s; }
   .hero-content > *:nth-child(4) { animation-delay: 0.55s; }
 
-  .hero-visual { animation: fadeUp 0.8s ease 0.3s backwards; }
-
   /* Scroll-triggered reveal */
   .reveal {
     opacity: 0;
@@ -1240,20 +1184,14 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="chess-pattern"></div>
   <div class="hero-inner">
     <div class="hero-content">
-      <span class="hero-eyebrow">Lebanon</span>
+      <span class="hero-eyebrow">Beirut · Lebanon</span>
       <h1>Where <em>strategy</em><br>is taught, sharpened,<br>and celebrated.</h1>
       <p class="lead">Fianchetto Chess Center is a home for players of every level — from first-move beginners to seasoned tournament competitors. Step in, sit down, and play your sharpest game yet.</p>
       <div class="hero-actions">
         <a href="#programs" class="btn btn-primary">Explore Programs</a>
         <a href="blog.html" class="btn btn-secondary">Read the Blog</a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-logo-wrap">
-        <img src="logo.png" alt="Fianchetto logo">
       </div>
     </div>
   </div>
