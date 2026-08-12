@@ -996,6 +996,12 @@
     align-items: stretch;
   }
 
+  .sponsors-grid-compact {
+    max-width: 820px;
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
   .sponsor-tile {
     background: var(--paper);
     border: 1px solid var(--cream-dark);
@@ -1007,6 +1013,12 @@
     transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     text-decoration: none;
     position: relative;
+    font-family: inherit;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    color: inherit;
+    outline: none;
   }
 
   .sponsor-tile:hover {
@@ -1057,6 +1069,34 @@
     white-space: nowrap;
   }
 
+  .sponsor-tile-cta {
+    background: var(--black);
+    border-style: dashed;
+    border-color: var(--gold);
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .sponsor-tile-cta:hover {
+    background: var(--black-soft);
+    border-style: solid;
+  }
+
+  .sponsor-cta-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gold);
+  }
+
+  .sponsor-cta-sub {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.7;
+  }
+
   .sponsors-cta {
     text-align: center;
     margin-top: 3rem;
@@ -1069,6 +1109,62 @@
   }
 
   .sponsors-cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ===== SPONSOR DETAIL MODAL ===== */
+  .sponsor-detail-header {
+    text-align: center;
+    margin-bottom: 1.8rem;
+  }
+
+  .sponsor-detail-logo {
+    max-width: 180px;
+    max-height: 70px;
+    object-fit: contain;
+    margin: 0 auto 0.8rem;
+    display: block;
+  }
+
+  .sponsor-detail-tagline {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: 600;
+  }
+
+  .sponsor-detail-body {
+    color: #444;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .sponsor-detail-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .sponsor-detail-body p {
+    margin-bottom: 1rem;
+  }
+
+  .sponsor-detail-body p:last-of-type {
+    font-style: italic;
+    color: var(--gold-dark);
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  .sponsor-detail-actions {
     display: flex;
     gap: 1rem;
     justify-content: center;
@@ -1813,26 +1909,19 @@
     <p class="section-intro">Fianchetto's tournaments, coaching, and community programs are made possible with the support of these partners.</p>
   </div>
 
-  <div class="sponsors-grid">
-    <a href="https://www.colartdigitalmarketingagency.com" target="_blank" rel="noopener" class="sponsor-tile sponsor-tile-featured reveal">
+  <div class="sponsors-grid sponsors-grid-compact">
+    <button type="button" class="sponsor-tile sponsor-tile-featured reveal" data-sponsor="colart">
       <span class="sponsor-badge">Gold Sponsor</span>
       <img src="colart-logo.png" alt="Colart Digital Marketing Agency" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span style=\'font-family:Cormorant Garamond,serif;font-size:1.3rem;color:#8B7340;font-weight:600;\'>Colart</span>')">
-    </a>
-    <a href="https://www.instagram.com/7bastami/" target="_blank" rel="noopener" class="sponsor-tile reveal">
+    </button>
+    <button type="button" class="sponsor-tile sponsor-tile-featured reveal" data-sponsor="bastami">
+      <span class="sponsor-badge">Gold Sponsor</span>
       <span style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:#8B7340;font-weight:600;text-align:center;">7 Bastami Ottawa</span>
+    </button>
+    <a href="https://wa.me/96181239487" target="_blank" rel="noopener" class="sponsor-tile sponsor-tile-cta reveal">
+      <span class="sponsor-cta-text">Want Your Brand Here?</span>
+      <span class="sponsor-cta-sub">Chat with us →</span>
     </a>
-    <div class="sponsor-tile reveal">
-      <img src="sponsor1.png" alt="Sponsor" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-family:Cormorant Garamond,serif;font-size:1.3rem;color:#8B7340;font-weight:600;\'>Sponsor</span>'">
-    </div>
-    <div class="sponsor-tile reveal">
-      <img src="sponsor2.png" alt="Sponsor" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-family:Cormorant Garamond,serif;font-size:1.3rem;color:#8B7340;font-weight:600;\'>Sponsor</span>'">
-    </div>
-    <div class="sponsor-tile reveal">
-      <img src="sponsor3.png" alt="Sponsor" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-family:Cormorant Garamond,serif;font-size:1.3rem;color:#8B7340;font-weight:600;\'>Sponsor</span>'">
-    </div>
-    <div class="sponsor-tile reveal">
-      <img src="sponsor4.png" alt="Sponsor" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-family:Cormorant Garamond,serif;font-size:1.3rem;color:#8B7340;font-weight:600;\'>Sponsor</span>'">
-    </div>
   </div>
 
   <div class="sponsors-cta reveal">
@@ -1843,6 +1932,22 @@
     </div>
   </div>
 </section>
+
+<!-- ============ SPONSOR DETAIL MODAL ============ -->
+<div class="sp-modal-overlay" id="sponsorModalOverlay">
+  <div class="sp-modal sponsor-detail-modal">
+    <button class="sp-modal-close" id="sponsorModalClose" aria-label="Close">✕</button>
+    <div class="sponsor-detail-header">
+      <img id="sponsorModalLogo" src="" alt="" class="sponsor-detail-logo">
+      <span class="sponsor-detail-tagline" id="sponsorModalTagline"></span>
+    </div>
+    <div class="sponsor-detail-body" id="sponsorModalBody"></div>
+    <div class="sponsor-detail-actions">
+      <a id="sponsorModalLearnMore" href="#" target="_blank" rel="noopener" class="btn btn-dark"></a>
+      <a id="sponsorModalWhatsapp" href="#" target="_blank" rel="noopener" class="btn btn-primary">Contact on WhatsApp</a>
+    </div>
+  </div>
+</div>
 
 <!-- ============ SPONSORSHIP OFFERS MODAL ============ -->
 <div class="sp-modal-overlay" id="spModalOverlay">
@@ -1978,6 +2083,89 @@
   nav.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => nav.classList.remove('open'));
   });
+
+  // ===== Sponsor detail modal =====
+  (function initSponsorDetailModal() {
+    const SPONSORS_DATA = {
+      colart: {
+        name: 'Colart Digital Marketing Agency',
+        tagline: 'Gold Sponsor',
+        logo: 'colart-logo.png',
+        body: `
+          <h3>Colart × Fianchetto Chess Center</h3>
+          <p>Colart Digital Marketing Agency is a proud sponsor of Fianchetto Chess Center, supporting its mission to promote chess, develop young talent, and create meaningful educational and competitive opportunities within the community.</p>
+          <p>This partnership brings together strategy, creativity, and chess. While Fianchetto focuses on developing players, organizing tournaments, and expanding the chess community, Colart contributes through its expertise in marketing, creative communication, digital visibility, and media support.</p>
+          <p>The relationship goes beyond traditional sponsorship. It is built around a shared vision of growth, development, and community impact, with Colart supporting Fianchetto in strengthening its presence and communicating its activities, achievements, and events to a wider audience.</p>
+          <p>Together, Colart and Fianchetto Chess Center aim to make every move count — on the board and beyond.</p>
+          <p>Fianchetto plays the move. Colart makes it visible.</p>
+        `,
+        learnMoreLabel: 'Learn More About Colart',
+        learnMoreUrl: 'https://www.colartdigitalmarketingagency.com',
+        whatsapp: 'https://wa.me/96170649423'
+      },
+      bastami: {
+        name: '7 Bastami Ottawa',
+        tagline: 'Gold Sponsor',
+        logo: null,
+        body: `
+          <h3>7 Bastami × Fianchetto Chess Center</h3>
+          <p>7 Bastami Ottawa is a valued partner of Fianchetto Chess Center, joining the club in its mission to build community, patience, and sharp thinking through the game of chess.</p>
+          <p>The partnership is rooted in a shared set of values — precision, discipline, and care in the details — the same qualities that define both a well-played game and a well-run brand. While Fianchetto brings players together over the board, 7 Bastami brings its own craft and character to the partnership, extending its support to the club's players and community events.</p>
+          <p>This collaboration reflects a mutual belief in showing up for the community and investing in the next generation of thinkers and competitors.</p>
+          <p>Together, Fianchetto and 7 Bastami are committed to strengthening the local chess scene — one move, and one connection, at a time.</p>
+        `,
+        learnMoreLabel: 'Follow 7 Bastami',
+        learnMoreUrl: 'https://www.instagram.com/7bastami/',
+        whatsapp: 'https://wa.me/'
+      }
+    };
+
+    const tiles = document.querySelectorAll('[data-sponsor]');
+    const overlay = document.getElementById('sponsorModalOverlay');
+    const closeBtn = document.getElementById('sponsorModalClose');
+    if (!overlay || tiles.length === 0) return;
+
+    const logoEl = document.getElementById('sponsorModalLogo');
+    const taglineEl = document.getElementById('sponsorModalTagline');
+    const bodyEl = document.getElementById('sponsorModalBody');
+    const learnMoreEl = document.getElementById('sponsorModalLearnMore');
+    const whatsappEl = document.getElementById('sponsorModalWhatsapp');
+
+    function open(key) {
+      const data = SPONSORS_DATA[key];
+      if (!data) return;
+
+      if (data.logo) {
+        logoEl.src = data.logo;
+        logoEl.alt = data.name;
+        logoEl.style.display = 'block';
+      } else {
+        logoEl.style.display = 'none';
+      }
+      taglineEl.textContent = data.tagline;
+      bodyEl.innerHTML = data.body;
+      learnMoreEl.textContent = data.learnMoreLabel;
+      learnMoreEl.href = data.learnMoreUrl;
+      whatsappEl.href = data.whatsapp;
+
+      overlay.classList.add('active');
+      document.body.classList.add('modal-open');
+    }
+
+    function close() {
+      overlay.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    }
+
+    tiles.forEach(tile => {
+      tile.addEventListener('click', () => open(tile.dataset.sponsor));
+    });
+    closeBtn.addEventListener('click', close);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('active')) close();
+    });
+  })();
 
   // ===== Sponsorship offers modal =====
   (function initSponsorshipModal() {
