@@ -19,6 +19,25 @@
 */
 
 const FIANCHETTO_ARTICLES = [
+  {
+    slug: 'comunity-event-jounieh',
+    tag: 'Community Event',
+    title: 'Five Days of Chess in Jounieh',
+    date: 'August 15, 2023',
+    excerpt: 'Fianchetto Chess Center collaborated in a five-day chess event in Jounieh, bringing together 60 players for a variety of exciting chess formats.',
+    images: ['article4-1.jpg', 'article4-2.jpg', 'article4-3.jpg', 'article4-4.jpg', 'article4-5.jpg'],
+    body: `
+     <p>Fianchetto Chess Center proudly collaborated in a five-day chess event held in <strong>Jounieh</strong>, bringing together chess enthusiasts for an engaging and enjoyable experience.</p>
+
+    <p>The event featured a variety of chess formats, including <strong>Hand and Brain, Basque Chess, Pairs Chess, Chess960, and Thematic Chess</strong>, offering participants the opportunity to enjoy different styles of play and challenge themselves in new ways.</p>
+
+    <h3>A Strong Chess Community</h3>
+
+    <p>A total of <strong>60 players</strong> took part in the event, contributing to a lively atmosphere filled with competition, learning, and community spirit.</p>
+
+    <p>Fianchetto Chess Center is pleased to have been part of this successful event and looks forward to organizing and supporting more chess activities in the future.</p>
+  `
+  },
     {
     slug: 'comunity-event-2023',
     tag: 'Community Event',
