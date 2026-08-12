@@ -1,6 +1,6 @@
 /*
   FIANCHETTO ARTICLES — shared data source for blog.html and index.html
-  ------------------------------------------------------------------
+  -------------------------------------------------------------------
   HOW TO ADD A NEW ARTICLE:
   1. Copy one of the objects below (from the opening { to the closing },)
   2. Paste it as a NEW FIRST ITEM in the array (right after the opening bracket)
