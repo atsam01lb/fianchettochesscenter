@@ -542,7 +542,7 @@
 
   .modal-images {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.6rem;
     padding: 2rem 3rem 0;
   }
@@ -562,6 +562,40 @@
   }
 
   .modal-image:hover img { transform: scale(1.05); }
+
+  .modal-image-more img {
+    filter: blur(6px);
+    transform: scale(1.1);
+  }
+
+  .modal-image-more:hover img {
+    transform: scale(1.15);
+  }
+
+  .modal-image-more::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 26, 26, 0.55);
+  }
+
+  .modal-image-more-count {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--cream);
+  }
+
+  @media (max-width: 600px) {
+    .modal-images { grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
+    .modal-image-more-count { font-size: 1.3rem; }
+  }
 
   .modal-body {
     padding: 2.5rem 3rem 3rem;
@@ -860,7 +894,6 @@
     .articles-grid { grid-template-columns: 1fr; gap: 2rem; }
     .blog-section { padding: 3rem 1.2rem; }
 
-    .modal-images { grid-template-columns: 1fr; }
     .modal-header, .modal-body { padding-left: 1.3rem; padding-right: 1.3rem; }
     .modal-images { padding: 1.2rem 1.3rem 0; }
     .modal-header { padding-top: 3rem; }
@@ -1064,11 +1097,31 @@
 
     const imagesContainer = document.getElementById('modalImages');
     const imgs = a.images || [];
-    imagesContainer.innerHTML = imgs.map((img, i) => `
-      <div class="modal-image">
-        <img src="${img}" alt="${a.title} — photo ${i + 1}" onerror="this.src='https://images.unsplash.com/photo-1528819622765-d6bcf132f793?w=800&q=80'">
-      </div>
-    `).join('');
+    const fallback = 'https://images.unsplash.com/photo-1528819622765-d6bcf132f793?w=800&q=80';
+
+    if (imgs.length <= 2) {
+      // 2 or fewer photos — just show them all normally
+      imagesContainer.innerHTML = imgs.map((img, i) => `
+        <div class="modal-image">
+          <img src="${img}" alt="${a.title} — photo ${i + 1}" onerror="this.src='${fallback}'">
+        </div>
+      `).join('');
+    } else {
+      // More than 2 — show first 2 clearly, then a blurred tile with a +N count
+      const remaining = imgs.length - 2;
+      const visible = imgs.slice(0, 2).map((img, i) => `
+        <div class="modal-image">
+          <img src="${img}" alt="${a.title} — photo ${i + 1}" onerror="this.src='${fallback}'">
+        </div>
+      `).join('');
+      const moreTile = `
+        <div class="modal-image modal-image-more">
+          <img src="${imgs[2]}" alt="${a.title} — more photos" onerror="this.src='${fallback}'">
+          <span class="modal-image-more-count">+${remaining}</span>
+        </div>
+      `;
+      imagesContainer.innerHTML = visible + moreTile;
+    }
 
     overlay.classList.add('active');
     document.body.classList.add('modal-open');
