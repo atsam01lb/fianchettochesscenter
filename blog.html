@@ -592,9 +592,104 @@
     color: var(--cream);
   }
 
+  .modal-image-more {
+    cursor: pointer;
+  }
+
   @media (max-width: 600px) {
     .modal-images { grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
     .modal-image-more-count { font-size: 1.3rem; }
+  }
+
+  /* ===== GALLERY MODAL (all photos) ===== */
+  .gallery-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.94);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 1100;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-modal-overlay.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  .gallery-modal {
+    max-width: 1100px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .gallery-modal-overlay.active .gallery-modal { transform: translateY(0); }
+
+  .gallery-modal-close {
+    position: absolute;
+    top: -0.5rem;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gallery-modal-close:hover {
+    background: var(--cream);
+    transform: rotate(90deg);
+  }
+
+  .gallery-modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+    padding-right: 3.5rem;
+  }
+
+  .gallery-modal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .gallery-modal-grid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .gallery-modal-grid img:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+  }
+
+  @media (max-width: 600px) {
+    .gallery-modal-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+    .gallery-modal-close { top: -2.6rem; right: 0.5rem; }
   }
 
   .modal-body {
@@ -995,6 +1090,15 @@
   </article>
 </div>
 
+<!-- ============ GALLERY MODAL ============ -->
+<div class="gallery-modal-overlay" id="galleryModalOverlay">
+  <div class="gallery-modal">
+    <button class="gallery-modal-close" id="galleryModalClose" aria-label="Close gallery">✕</button>
+    <h3 class="gallery-modal-title" id="galleryModalTitle" dir="auto"></h3>
+    <div class="gallery-modal-grid" id="galleryModalGrid"></div>
+  </div>
+</div>
+
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="footer-inner">
@@ -1115,12 +1219,17 @@
         </div>
       `).join('');
       const moreTile = `
-        <div class="modal-image modal-image-more">
+        <div class="modal-image modal-image-more" id="modalImageMoreTile">
           <img src="${imgs[2]}" alt="${a.title} — more photos" onerror="this.src='${fallback}'">
           <span class="modal-image-more-count">+${remaining}</span>
         </div>
       `;
       imagesContainer.innerHTML = visible + moreTile;
+
+      const moreTileEl = document.getElementById('modalImageMoreTile');
+      if (moreTileEl) {
+        moreTileEl.addEventListener('click', () => openGallery(a));
+      }
     }
 
     overlay.classList.add('active');
@@ -1152,6 +1261,34 @@
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal(true);
+  });
+
+  // ============ GALLERY MODAL (all photos) ============
+  const galleryOverlay = document.getElementById('galleryModalOverlay');
+  const galleryClose = document.getElementById('galleryModalClose');
+  const galleryTitle = document.getElementById('galleryModalTitle');
+  const galleryGrid = document.getElementById('galleryModalGrid');
+  const galleryFallback = 'https://images.unsplash.com/photo-1528819622765-d6bcf132f793?w=800&q=80';
+
+  function openGallery(article) {
+    const imgs = article.images || [];
+    galleryTitle.textContent = article.title;
+    galleryGrid.innerHTML = imgs.map((img, i) => `
+      <img src="${img}" alt="${article.title} — photo ${i + 1}" onerror="this.src='${galleryFallback}'">
+    `).join('');
+    galleryOverlay.classList.add('active');
+  }
+
+  function closeGallery() {
+    galleryOverlay.classList.remove('active');
+  }
+
+  galleryClose.addEventListener('click', closeGallery);
+  galleryOverlay.addEventListener('click', (e) => {
+    if (e.target === galleryOverlay) closeGallery();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && galleryOverlay.classList.contains('active')) closeGallery();
   });
 
   // Share button — uses native share sheet on mobile, copies link on desktop
