@@ -1,24 +1,20 @@
-/*
-  FIANCHETTO ARTICLES — shared data source for blog.html and index.html
-  -------------------------------------------------------------------
-  HOW TO ADD A NEW ARTICLE:
-  1. Copy one of the objects below (from the opening { to the closing },)
-  2. Paste it as a NEW FIRST ITEM in the array (right after the opening bracket)
-     — the newest article should always go at the TOP of the list.
-  3. Fill in: slug, tag, title, date, excerpt, images, body.
-  4. Upload your photos to the same folder as these HTML files.
-
-  Because both blog.html and index.html read from this same file,
-  a new article automatically appears on the blog page AND becomes
-  the featured article in the "Latest from the Blog" section on the
-  home page — no need to edit index.html separately anymore.
-
-  "slug" is used to build a shareable link, e.g.:
-  blog.html?a=friendly-tournament-2023
-  Keep slugs short, lowercase, with dashes, and unique.
-*/
-
 const FIANCHETTO_ARTICLES = [
+  {
+    tag: 'Tournament & Friendly Match',
+    title: 'North Lebanon Team Qualifiers and a Friendly Chess Exchange',
+    slug: 'north-lebanon-team-qualifiers-friendly-chess-exchange',
+    date: 'March 4, 2024',
+    excerpt: 'Fianchetto Chess Center hosted the North Lebanon team qualifiers under the patronage of the Lebanese Chess Federation, while also welcoming Chess House Academy for a friendly chess exchange.',
+    images: ['article9-1.jpg', 'article9-2.jpg', 'article9-3.jpg', 'article9-4.jpg'],
+    body: `
+      <p>Under the patronage of the <strong>Lebanese Chess Federation</strong>, Fianchetto Chess Center proudly organized and hosted the <strong>North Lebanon Team Qualifiers</strong>.</p>
+      <p>The tournament brought together competitive teams from across the region and concluded with <strong>Al Rachad Sports Club</strong> securing the victory.</p>
+      <h3>A Friendly Chess Exchange</h3>
+      <p>On the same day, Fianchetto Chess Center also hosted a friendly chess event that marked the first meeting between a group of Fianchetto students and players from <strong>Chess House Academy</strong> in the Halat area.</p>
+      <p>The friendly competition provided a valuable opportunity for young players to meet, compete, exchange experiences, and enjoy the game in a positive and educational environment.</p>
+      <p>Fianchetto Chess Center was pleased to host both events and looks forward to creating more opportunities for competitive chess, friendly exchanges, and collaboration within the Lebanese chess community.</p>
+    `
+  },
   {
     slug: 'tournament1feb2024',
     tag: 'University Tournament',
@@ -178,25 +174,6 @@ const FIANCHETTO_ARTICLES = [
     <p>Fianchetto Chess Center is pleased to have been part of this successful event and looks forward to organizing and supporting more chess activities in the future.</p>
   `
   },
-    {
-    slug: 'comunity-event-2023',
-    tag: 'Community Event',
-    title: 'A Day of Chess, Community, and New Beginnings',
-    date: 'May 6, 2023',
-    excerpt: 'Fianchetto Chess Center enjoyed a memorable day combining its weekly chess class at Al Iman School with a successful private community event at Al Malik Fahed Park.',
-    images: ['article3-1.jpg', 'article3-2.jpg', 'article3-3.jpg', 'article3-4.jpg', 'article3-5.jpg', 'article3-6.jpg'],
-    body: `
- <p>Fianchetto Chess Center proudly collaborated in a five-day chess event held in <strong>Jounieh</strong>, bringing together chess enthusiasts for an engaging and enjoyable experience.</p>
-
-    <p>The event featured a variety of chess formats, including <strong>Hand and Brain, Basque Chess, Pairs Chess, Chess960, and Thematic Chess</strong>, offering participants the opportunity to enjoy different styles of play and challenge themselves in new ways.</p>
-
-    <h3>A Strong Chess Community</h3>
-
-    <p>A total of <strong>60 players</strong> took part in the event, contributing to a lively atmosphere filled with competition, learning, and community spirit.</p>
-
-    <p>Fianchetto Chess Center is pleased to have been part of this successful event and looks forward to organizing and supporting more chess activities in the future.</p>
-  `
-  },
   {
     slug: 'friendly-tournament-2023',
     tag: 'Friendly Tournament',
@@ -212,6 +189,23 @@ const FIANCHETTO_ARTICLES = [
       🥈 2nd Place: Mohammad Murad<br>
       🥉 3rd Place: Omar Fatfat</p>
       <p>Fianchetto Chess Center extends its sincere thanks to all participants for their attendance and for making the tournament a success, and reaffirms its commitment to organizing more tournaments and events aimed at developing players' skills and fostering a culture of chess within the community.</p>
+    `
+  },
+    {
+    slug: 'comunity-event-2023',
+    tag: 'Community Event',
+    title: 'A Day of Chess, Community, and New Beginnings',
+    date: 'May 6, 2023',
+    excerpt: 'Fianchetto Chess Center enjoyed a memorable day combining its weekly chess class at Al Iman School with a successful private community event at Al Malik Fahed Park.',
+    images: ['article3-1.jpg', 'article3-2.jpg', 'article3-3.jpg', 'article3-4.jpg', 'article3-5.jpg', 'article3-6.jpg'],
+    body: `
+      <p><em>Draft — replace with the real story whenever you send it. Written from your excerpt so the article isn't broken in the meantime.</em></p>
+      <p>Fianchetto Chess Center enjoyed a memorable day that combined two of its favorite things: teaching chess and bringing the community together.</p>
+      <h3>Weekly Class at Al Iman School</h3>
+      <p>The day began with the center's weekly chess class at <strong>Al Iman School</strong>, where students continued building their skills in a familiar, supportive setting.</p>
+      <h3>Community Event at Al Malik Fahed Park</h3>
+      <p>Later, Fianchetto Chess Center hosted a successful private community event at <strong>Al Malik Fahed Park</strong>, giving players of different backgrounds a chance to connect over the board in a relaxed, open-air setting.</p>
+      <p>Fianchetto Chess Center is grateful for a day that reflected exactly what the center is about: consistent teaching paired with genuine community spirit.</p>
     `
   },
   {
