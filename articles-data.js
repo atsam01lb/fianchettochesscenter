@@ -1,5 +1,41 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'National Championship',
+  title: 'Al Wifak / Fianchetto Competes in Lebanon’s First Division',
+  slug: 'al-wifak-fianchetto-lebanon-first-division-2025',
+  date: 'January 18, 2025',
+  excerpt: 'Fianchetto Chess Center players represented Al Wifak Sports Club in Lebanon’s First Division Club Championship, completing an eight-day competition and successfully maintaining their place in the top division.',
+  images: ['article14-1.jfif', 'article14-2.jfif', 'article14-3.jfif'],
+  body: `
+    <p>Fianchetto Chess Center players proudly represented <strong>Al Wifak Sports Club</strong> in the <strong>Lebanese First Division Club Championship</strong>, following the team's promotion from the Second Division the previous year.</p>
+
+    <p>The championship lasted for <strong>8 days</strong> and brought together strong teams and experienced players from across Lebanon.</p>
+
+    <h3>Team Lineup</h3>
+
+    <ul>
+      <li><strong>Mohamad Hamad</strong></li>
+      <li><strong>Issam Ibrahim</strong></li>
+      <li><strong>Nour Asoum</strong></li>
+      <li><strong>Mohamad Hawshar</strong></li>
+      <li><strong>Mohamad Hassoun</strong></li>
+      <li><strong>Omar Basha</strong></li>
+      <li><strong>Omar Fatfat</strong></li>
+      <li><strong>Mohamad Mourad</strong></li>
+      <li><strong>Osama Ouwaydah</strong></li>
+      <li><strong>Samir Dhahabi</strong></li>
+    </ul>
+
+    <h3>Securing Our Place in the First Division</h3>
+
+    <p>Despite facing several challenges throughout the competition, including limited resources, difficult and lengthy travel, and long tournament rounds, the team showed determination and commitment throughout the championship.</p>
+
+    <p>Through their collective effort, the team successfully <strong>secured its place in Lebanon’s First Division</strong>.</p>
+
+    <p>Fianchetto Chess Center extends its sincere appreciation to everyone who contributed, worked hard, and supported the team throughout this important participation.</p>
+  `
+},
+  {
   tag: 'Rapid Tournament',
   title: 'Fianchetto Returns | Rapid Chess Tournament and Community Activities',
   slug: 'fianchetto-returns-rapid-chess-tournament-community-activities',
