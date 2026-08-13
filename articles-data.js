@@ -1,5 +1,33 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'Friendly Tournament',
+  title: 'Friendly Chess Tournament at Beirut Arab University | Tripoli Branch',
+  slug: 'friendly-chess-tournament-beirut-arab-university-tripoli-2025',
+  date: 'November 21, 2025',
+  excerpt: 'Fianchetto Chess Center collaborated with Beirut Arab University | Tripoli Branch to organize an internal friendly chess tournament featuring 25 players and a competitive atmosphere.',
+  images: ['article24-1.jpg', 'article24-2.jpg', 'article24-3.jpg', 'article24-4.jpg', 'article24-5.jpg'],
+  body: `
+    <p>Fianchetto Chess Center, in collaboration with <strong>Beirut Arab University | Tripoli Branch</strong>, organized an internal friendly chess tournament that brought together <strong>25 players</strong> for an engaging and competitive chess experience.</p>
+
+    <p>The tournament provided participants with an opportunity to test their skills, gain valuable competitive experience, and connect with fellow chess players in a friendly environment.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Akram Khodr</li>
+      <li><strong>2nd Place:</strong> Karim Al Jundi</li>
+      <li><strong>3rd Place:</strong> Mohamad Hassoun</li>
+      <li><strong>Best Female Result:</strong> Sirine Jebs</li>
+    </ul>
+
+    <h3>Supporting University Chess</h3>
+
+    <p>Fianchetto Chess Center is pleased to continue supporting chess activities within universities and creating opportunities for students to experience competitive chess in an encouraging environment.</p>
+
+    <p>We congratulate all the winners and participants and look forward to more successful collaborations and university chess activities in the future.</p>
+  `
+},
+  {
   tag: 'Community Event',
   title: 'Chess, Learning and Community | A Two-Day Social Event',
   slug: 'chess-learning-community-two-day-social-event',
