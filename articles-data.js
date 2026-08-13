@@ -1,5 +1,40 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'Rapid Tournament',
+  title: 'Miziara Friendly Rapid Chess Tournament | Second Edition',
+  slug: 'miziara-friendly-rapid-chess-tournament-second-edition',
+  date: 'July 21, 2025',
+  excerpt: 'Fianchetto Chess Center, in collaboration with Miziara Youth Club, organized the second edition of the Miziara Friendly Rapid Chess Tournament, bringing together 40 players for a competitive and enjoyable chess experience.',
+  images: ['article20-1.jpg', 'article20-2.jpg', 'article20-3.jpg', 'article20-4.jpg', 'article20-5.jpg', 'article20-6.jpg', 'article20-7.jpg', 'article20-8.jpg'],
+  body: `
+    <p>Under the patronage and hosting of <strong>Miziara Youth Club</strong>, and in collaboration with <strong>Fianchetto Chess Center</strong>, the <strong>Miziara Friendly Rapid Chess Tournament</strong> was organized for the second consecutive year.</p>
+
+    <p>The tournament brought together <strong>40 players</strong> competing under the Swiss system, with a time control of <strong>10 minutes + 5 seconds</strong> per player.</p>
+
+    <p>The event featured smooth organization, strong competition, and a welcoming atmosphere, complemented by a variety of enjoyable activities connected to the world of chess.</p>
+
+    <h3>Final Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Akram Khodr</li>
+      <li><strong>2nd Place:</strong> Issam Ibrahim</li>
+      <li><strong>3rd Place:</strong> Youssef Younes</li>
+      <li><strong>Best Female Result:</strong> Rama Hassoun</li>
+      <li><strong>Best Under 14:</strong> Omar Darniqa | also finishing 4th overall in the tournament</li>
+      <li><strong>Best Under 10:</strong> Zaid Skaff</li>
+      <li><strong>Youngest Participant:</strong> Marco Kousa | 7 years old</li>
+    </ul>
+
+    <h3>More Than a Tournament</h3>
+
+    <p>The event concluded with a friendly chess activities session featuring several entertaining chess formats, including <strong>Queen's Gambit, 4Chess, Crazyhouse, Antichess, Bughouse, Simultaneous Chess</strong>, and more.</p>
+
+    <p>Fianchetto Chess Center extends its sincere appreciation to <strong>Miziara Youth Club</strong> for its exceptional hospitality and for hosting the tournament for the second consecutive year.</p>
+
+    <p>We look forward to more activities, collaborations, and memorable chess experiences together in the near future.</p>
+  `
+},
+  {
   tag: 'Classical Championship',
   title: 'North Lebanon Classical Chess Championship 2025 | Final Results',
   slug: 'north-lebanon-classical-chess-championship-2025',
