@@ -1,5 +1,32 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'National Championship',
+  title: 'Akram Khodr Crowned Lebanese Rapid Chess Champion 2025',
+  slug: 'akram-khodr-lebanese-rapid-chess-champion-2025',
+  date: 'September 1, 2025',
+  excerpt: 'Akram Khodr claimed first place at the 2025 Lebanese Rapid Chess Championship, while Fianchetto Chess Academy proudly participated with 33 players.',
+  images: ['article21-1.jpg', 'article21-2.jpg', 'article21-3.jpg', 'article21-4.jpg'],
+  body: `
+    <p><strong>Akram Khodr</strong> has been crowned the <strong>2025 Lebanese Rapid Chess Champion</strong> following an outstanding performance at the Lebanese Rapid Chess Championship.</p>
+
+    <p>The championship was organized by the <strong>Lebanese Chess Federation</strong> under the patronage and hosting of <strong>Miziara Youth Club</strong>.</p>
+
+    <p>The event was distinguished by its smooth organization, warm hospitality, and welcoming atmosphere, bringing together players from across Lebanon for an exciting national competition.</p>
+
+    <h3>Strong Fianchetto Participation</h3>
+
+    <p><strong>Fianchetto Chess Academy</strong> proudly participated in the championship with an impressive delegation of <strong>33 players</strong>, demonstrating the academy's strong presence and commitment to competitive chess in Lebanon.</p>
+
+    <h3>Lebanese Rapid Chess Champion</h3>
+
+    <p>Fianchetto proudly congratulates <strong>Akram Khodr</strong> on securing <strong>1st Place</strong> and becoming the 2025 Lebanese Rapid Chess Champion.</p>
+
+    <p>Congratulations to Akram and all the Lebanese champions who competed in the tournament.</p>
+
+    <p>Fianchetto Chess Academy also extends its sincere appreciation to everyone who contributed to the successful organization of the championship for the second consecutive year.</p>
+  `
+},
+  {
   tag: 'Rapid Tournament',
   title: 'Miziara Friendly Rapid Chess Tournament | Second Edition',
   slug: 'miziara-friendly-rapid-chess-tournament-second-edition',
