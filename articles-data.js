@@ -400,7 +400,7 @@ const FIANCHETTO_ARTICLES = [
 },
   {
   tag: 'Ramadan Chess Festival',
-  title: 'Basatine Ramadan Friendly Chess Festival — Bughouse Tournament',
+  title: 'Basatine Ramadan Friendly Chess Festival | Bughouse Tournament',
   slug: 'basatine-ramadan-friendly-chess-festival-bughouse-tournament',
   date: 'March 31, 2024',
   excerpt: 'The Basatine Ramadan Friendly Chess Festival continued with an exciting Bughouse Tournament, bringing teams together for seven rounds of strategy, teamwork, and competitive chess.',
@@ -430,7 +430,7 @@ const FIANCHETTO_ARTICLES = [
 },
   {
   tag: 'Ramadan Chess Festival',
-  title: 'Basatine Ramadan Friendly Chess Festival — Day One',
+  title: 'Basatine Ramadan Friendly Chess Festival | Day One',
   slug: 'basatine-ramadan-friendly-chess-festival-day-one',
   date: 'March 24, 2024',
   excerpt: 'Fianchetto Chess Center, in collaboration with Basatine Land Team, launched the Ramadan Friendly Chess Festival with an exciting Blitz Tournament featuring 21 players across seven competitive rounds.',
