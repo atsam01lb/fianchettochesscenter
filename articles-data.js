@@ -1,5 +1,56 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'University Championship',
+  title: 'Fianchetto Organizes the First North Lebanon Universities Team Chess Championship',
+  slug: 'first-north-lebanon-universities-team-chess-championship',
+  date: 'April 18, 2025',
+  excerpt: 'Fianchetto Chess Center, in collaboration with Beirut Arab University | Tripoli Branch, organized the first North Lebanon Universities Team Chess Championship, bringing together nine university teams.',
+  images: ['article18-1.jpg', 'article18-2.jpg', 'article18-3.jpg', 'article18-4.jpg', 'article18-5.jpg', 'article18-6.jpg', 'article18-7.jpg', 'article18-8.jpg'],
+  body: `
+    <p>Fianchetto Chess Center, in collaboration with <strong>Beirut Arab University | Tripoli Branch</strong>, successfully organized the <strong>North Lebanon Universities Team Chess Championship</strong>.</p>
+
+    <p>This event marked an important milestone as the <strong>first championship of its kind in North Lebanon</strong>, bringing university students together through competitive chess.</p>
+
+    <p>A total of <strong>9 teams</strong> representing different universities participated in the championship.</p>
+
+    <h3>University Team Results</h3>
+
+    <ul>
+      <li>
+        <strong>1st Place | Lebanese University</strong><br>
+        Team: Issam Ibrahim, Samir Dhahabi, Osama Ouwaydah, Karim Saleh and Safa Imad
+      </li>
+
+      <li>
+        <strong>2nd Place | CNAM University</strong><br>
+        Team: Omar Fatfat, Omar Ismail, Omar Al Najjar and Reem Al Ibrahim
+      </li>
+
+      <li>
+        <strong>3rd Place | Beirut Arab University | Tripoli Branch</strong><br>
+        The team tied for second place but finished third following the tiebreak.<br>
+        Team: Akram Khodr, Nour Assoum, Karim Al Jundi, Youssef Younes and Omar Mustafa
+      </li>
+    </ul>
+
+    <h3>Individual Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Samir Dhahabi</li>
+      <li><strong>2nd Place:</strong> Akram Khodr</li>
+      <li><strong>3rd Place:</strong> Issam Ibrahim</li>
+      <li><strong>4th Place:</strong> Osama Ouwaydah</li>
+      <li><strong>Best Female Result:</strong> Nour Assoum</li>
+    </ul>
+
+    <h3>A Milestone for University Chess in North Lebanon</h3>
+
+    <p>Fianchetto Chess Center is proud to have organized this first-of-its-kind university team championship and to provide a competitive platform connecting university chess players from across North Lebanon.</p>
+
+    <p>We congratulate all the winning teams and individual players and thank everyone who participated and contributed to the success of this championship.</p>
+  `
+},
+  {
   tag: 'Friendly Tournament',
   title: 'A Rainy Day of Chess | Bikaai Eid Festival',
   slug: 'bikaai-eid-festival-friendly-chess-tournament',
