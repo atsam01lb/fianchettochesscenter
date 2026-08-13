@@ -1,11 +1,38 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'Youth Tournament',
+  title: 'Fianchetto Organizes Friendly Chess Tournament at Beirut Arab University',
+  slug: 'fianchetto-friendly-chess-tournament-beirut-arab-university',
+  date: 'February 20, 2025',
+  excerpt: 'Fianchetto Chess Center organized a friendly closed chess tournament at Beirut Arab University | Tripoli Branch, bringing together 19 young players for an exciting and competitive event.',
+  images: ['article15-1.jpg', 'article15-2.jpg', 'article15-3.jpg', 'article15-4.jpg'],
+  body: `
+    <p><strong>Beirut Arab University | Tripoli Branch</strong> hosted a friendly closed chess tournament organized by <strong>Fianchetto Chess Center</strong>, bringing together <strong>19 young players</strong> for an exciting day of chess.</p>
+
+    <p>The tournament featured strong competition and an enthusiastic atmosphere, creating a memorable experience for the participating students and providing them with an opportunity to develop their competitive chess skills.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Akram Khodr | 7 points out of 7</li>
+      <li><strong>2nd Place:</strong> Nour Asoum | 6 points out of 7</li>
+      <li><strong>3rd Place:</strong> Omar Mustafa | 5 points out of 7</li>
+    </ul>
+
+    <h3>Building Chess Through Collaboration</h3>
+
+    <p>Fianchetto Chess Center congratulates the winners and all the young players who participated and contributed to the positive and competitive spirit of the tournament.</p>
+
+    <p>We look forward to announcing more collaborative and engaging chess activities in the near future.</p>
+  `
+},
+  {
   tag: 'National Championship',
   title: 'Al Wifak / Fianchetto Competes in Lebanon’s First Division',
   slug: 'al-wifak-fianchetto-lebanon-first-division-2025',
   date: 'January 18, 2025',
   excerpt: 'Fianchetto Chess Center players represented Al Wifak Sports Club in Lebanon’s First Division Club Championship, completing an eight-day competition and successfully maintaining their place in the top division.',
-  images: ['article14-1.jfif', 'article14-2.jfif', 'article14-3.jfif'],
+  images: ['article14-1.jpg', 'article14-2.jpg', 'article14-3.jpg'],
   body: `
     <p>Fianchetto Chess Center players proudly represented <strong>Al Wifak Sports Club</strong> in the <strong>Lebanese First Division Club Championship</strong>, following the team's promotion from the Second Division the previous year.</p>
 
