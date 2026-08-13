@@ -1,5 +1,47 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'University Tournament',
+  title: 'Fianchetto Collaborates with ISSAE-Cnam Liban | First Friendly Rapid Chess Tournament',
+  slug: 'fianchetto-issae-cnam-liban-friendly-rapid-chess-tournament',
+  date: 'December 14, 2025',
+  excerpt: 'Fianchetto Chess Center collaborated with ISSAE-Cnam Liban | Tripoli Center to organize its first friendly Rapid Chess Tournament, bringing together 40 players from different age groups.',
+  images: ['article25-1.jpg', 'article25-2.jpg', 'article25-3.jpg', 'article25-4.jpg', 'article25-5.jpg', 'article25-6.jpg'],
+  body: `
+    <p>Fianchetto Chess Center, in collaboration with <strong>ISSAE-Cnam Liban | Tripoli Center</strong>, organized the institution's first friendly <strong>Rapid Chess Tournament</strong>, bringing together players for an engaging day of competition and community.</p>
+
+    <p>The tournament welcomed <strong>40 players</strong> from different age groups and concluded with an awards ceremony recognizing the top individual performers, special category winners, and participating universities.</p>
+
+    <h3>Individual Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Samir Dhahabi | Lebanese University</li>
+      <li><strong>2nd Place:</strong> Omar Fatfat | Le Cnam Liban</li>
+      <li><strong>3rd Place:</strong> Issam Ibrahim | Lebanese University</li>
+    </ul>
+
+    <h3>Special Awards</h3>
+
+    <ul>
+      <li><strong>Best Female Result:</strong> Nour Assoum</li>
+      <li><strong>Best Junior Result:</strong> Obeida Alwan</li>
+    </ul>
+
+    <h3>University Rankings</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Lebanese University</li>
+      <li><strong>2nd Place:</strong> Beirut Arab University</li>
+      <li><strong>3rd Place:</strong> ISSAE-Cnam Liban</li>
+    </ul>
+
+    <h3>Strengthening University Chess</h3>
+
+    <p>Fianchetto Chess Center congratulates all the winners and participants for their performances and contribution to the success of the tournament.</p>
+
+    <p>We extend our sincere appreciation to <strong>ISSAE-Cnam Liban | Tripoli Center</strong> for its hospitality and collaboration and look forward to continuing this partnership through more chess tournaments and joint activities in the future.</p>
+  `
+},
+  {
   tag: 'Friendly Tournament',
   title: 'Friendly Chess Tournament at Beirut Arab University | Tripoli Branch',
   slug: 'friendly-chess-tournament-beirut-arab-university-tripoli-2025',
