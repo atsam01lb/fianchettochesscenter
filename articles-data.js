@@ -19,13 +19,52 @@
 */
 
 const FIANCHETTO_ARTICLES = [
+  {
+    slug: 'tournament1feb2024',
+    tag: 'University Tournament',
+    title: 'Fianchetto Players Dominate the Takafol Sports Festival Chess Tournament',
+    date: 'February 1, 2024',
+    excerpt: 'Fianchetto Chess Center players claimed all three top positions at the chess tournament of the Takafol Sports Festival, bringing together university students from across North Lebanon.',
+    images: ['article8-1.jpg', 'article8-2.jpg', 'article8-3.jpg', 'article8-4.jpg'],
+    body: `
+   <p>The <strong>Takafol Sports Festival</strong> brought together universities from across North Lebanon through a variety of physical and intellectual sports.</p>
+
+    <p>The festival opened with a chess tournament held at <strong>Al Madina University</strong> and organized by <strong>Coach Mohamad Hamad</strong>.</p>
+
+    <p>The tournament delivered an outstanding result for <strong>Fianchetto Chess Center</strong>, with Fianchetto players securing all three positions on the podium.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li>
+        <strong>1st Place — Nour Asoum:</strong> 6 points out of 7, representing Arab University.
+      </li>
+
+      <li>
+        <strong>2nd Place — Omar Fatfat:</strong> 6 points out of 7, tied on points with first place and representing CNAM University.
+      </li>
+
+      <li>
+        <strong>3rd Place — Mahmoud Tartousi:</strong> 5.5 points, representing LIU.
+      </li>
+    </ul>
+
+    <h3>A Proud Achievement for Fianchetto</h3>
+
+    <p>Having Fianchetto players secure all three top positions was a proud achievement for the center and a reflection of the players' dedication, preparation, and competitive spirit.</p>
+
+    <p>Fianchetto Chess Center extends its special thanks to <strong>Takafol Association</strong> for its efforts in coordinating and organizing the sports festival.</p>
+
+    <p>We look forward to more successful collaborations and joint activities in the future.</p>
+  `
+  },
 {
     slug: 'tournament5jan2024',
     tag: 'Youth Tournaments',
     title: 'A Day of Chess Excellence and Learning',
     date: 'January 5, 2024',
     excerpt: 'Fianchetto Chess Center organized two exciting youth chess tournaments in collaboration with educational centers in Qalamoun and Kfar Akka, bringing together young players for a day of competition and learning.',
-    images: [article7-1.jpg', 'article7-2.jpg', 'article7-3.jpg', 'article7-4.jpg', 'article7-5.jpg'],
+    images: ['article7-1.jpg', 'article7-2.jpg', 'article7-3.jpg', 'article7-4.jpg', 'article7-5.jpg'],
     body: `
      <p>Fianchetto Chess Center proudly organized two exciting chess tournaments dedicated to introducing young players to the principles of competitive chess while providing them with an opportunity to learn, compete, and share valuable experiences.</p>
 
