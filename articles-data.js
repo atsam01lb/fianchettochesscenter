@@ -1,5 +1,35 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'Classical Championship',
+  title: 'North Lebanon Classical Chess Championship 2025 | Final Results',
+  slug: 'north-lebanon-classical-chess-championship-2025',
+  date: 'June 5, 2025',
+  excerpt: 'The 2025 North Lebanon Classical Chess Championship concluded after a competitive event organized by the Lebanese Chess Federation in collaboration with Fianchetto Chess Center.',
+  images: ['article19-1.jpg', 'article19-2.jpg', 'article19-3.jpg', 'article19-4.jpg', 'article19-5.jpg', 'article19-6.jpg', 'article19-7.jpg', 'article19-8.jpg'],
+  body: `
+    <p>The <strong>2025 North Lebanon Classical Chess Championship</strong> officially concluded in the presence of <strong>Eng. Shawki Fatfat</strong>, President of the Order of Engineers, and <strong>Ali Al Houeish</strong>, member of the Lebanese Chess Federation.</p>
+
+    <p>The championship was organized by the <strong>Lebanese Chess Federation</strong> in collaboration with <strong>Fianchetto Chess Center</strong> and hosted by the <strong>Order of Engineers | Tripoli</strong>, under the supervision of Federation Arbiter <strong>Mohamad Hamad</strong>.</p>
+
+    <h3>Championship Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Issam Ibrahim</li>
+      <li><strong>2nd Place:</strong> Abdallah Al Kass</li>
+      <li><strong>3rd Place:</strong> Simon Kattal</li>
+      <li><strong>4th Place:</strong> Omar Fatfat</li>
+    </ul>
+
+    <h3>Closing Ceremony</h3>
+
+    <p>During the closing ceremony, prizes were awarded to the top three finishers in recognition of their outstanding performances and efforts throughout the championship.</p>
+
+    <p>Fianchetto Chess Center extends its sincere appreciation to all participants, guests, organizers, and everyone who contributed to the success of the championship.</p>
+
+    <p>Congratulations to the winners on their achievements, and we look forward to more competitive chess events across North Lebanon.</p>
+  `
+},
+  {
   tag: 'University Championship',
   title: 'Fianchetto Organizes the First North Lebanon Universities Team Chess Championship',
   slug: 'first-north-lebanon-universities-team-chess-championship',
