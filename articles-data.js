@@ -1,5 +1,38 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'Rapid Tournament',
+  title: 'Fianchetto Returns | Rapid Chess Tournament and Community Activities',
+  slug: 'fianchetto-returns-rapid-chess-tournament-community-activities',
+  date: 'December 8, 2024',
+  excerpt: 'After more than four months, Fianchetto Chess Center returned to action with a friendly Rapid Chess Tournament, followed by chess and social activities bringing the Fianchetto community together.',
+  images: ['article13-1.jpg', 'article13-2.jpg', 'article13-3.jpg', 'article13-4.jpg', 'article13-5.jpg'],
+  body: `
+    <p>After more than four months away from organized activities, <strong>Fianchetto Chess Center</strong> proudly returned with a friendly <strong>Rapid Chess Tournament</strong> hosted by the <strong>Cultural Association and Al Wifak Club</strong> in North Lebanon.</p>
+
+    <p>The tournament featured smooth organization and strong competition, bringing players together for an exciting return to competitive chess.</p>
+
+    <h3>Tournament Results</h3>
+
+    <p>The top three positions were secured by:</p>
+
+    <ul>
+      <li><strong>1st Place:</strong> Issam Ibrahim</li>
+      <li><strong>2nd Place:</strong> Samir Dhahabi</li>
+      <li><strong>3rd Place:</strong> Omar Fatfat</li>
+    </ul>
+
+    <h3>More Than Chess</h3>
+
+    <p>Following the tournament, the activities continued at Fianchetto Chess Center with a <strong>friendly chess gathering</strong> for our players.</p>
+
+    <p>The day concluded with a friendly football game, giving our players an opportunity to relax, have fun, and strengthen the social connections within the Fianchetto community.</p>
+
+    <p>At Fianchetto Chess Center, we believe that building a strong chess community goes beyond competition. These activities provide opportunities for our players to develop friendships, connect with one another, and enjoy memorable experiences together.</p>
+
+    <p>We are delighted to be back and look forward to many more tournaments and community activities ahead.</p>
+  `
+},
+  {
   tag: 'Community Event',
   title: 'Two Days of Chess and Community at the Magma Solutions Festival',
   slug: 'chess-community-magma-solutions-festival',
