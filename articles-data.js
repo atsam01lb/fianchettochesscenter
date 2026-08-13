@@ -1,5 +1,41 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'University Tournament',
+  title: 'Jinan University Hosts Rapid Chess Tournament | 52 Players Compete',
+  slug: 'jinan-university-rapid-chess-tournament-2026',
+  date: 'May 4, 2026',
+  excerpt: 'Jinan University, in collaboration with Fianchetto Chess Center, organized a Rapid Chess Tournament in Tripoli, bringing together 52 players from different age groups for an exciting day of competition.',
+  images: ['article30-1.jpg', 'article30-2.jpg', 'article30-3.jpg', 'article30-4.jpg', 'article30-5.jpg', 'article30-6.jpg', 'article30-7.jpg', 'article30-8.jpg', 'article30-9.jpg', 'article30-10.jpg', 'article30-11.jpg'],
+  body: `
+    <p><strong>Jinan University</strong>, in collaboration with <strong>Fianchetto Chess Center</strong>, organized a <strong>Rapid Chess Tournament</strong> in Tripoli, bringing together <strong>52 players</strong> from different age groups in an enthusiastic and competitive atmosphere.</p>
+
+    <p>The tournament reflected a shared commitment to promoting chess as an intellectual activity that develops strategic thinking, planning, concentration, and positive competition among young people.</p>
+
+    <h3>Supporting Intellectual and Youth Activities</h3>
+
+    <p>During the event, <strong>Dr. Alissar Farhat, Dean of Student Affairs</strong>, highlighted the university's commitment to supporting intellectual and cultural activities that contribute to developing students' thinking and planning skills.</p>
+
+    <p><strong>Federation Arbiter Mohamad Hamad</strong> also praised the high level demonstrated by the participants and the organization that contributed to the success of the tournament.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Abdallah Al Kass</li>
+      <li><strong>2nd Place:</strong> Issam Ibrahim</li>
+      <li><strong>3rd Place:</strong> Mohamad Sleiman</li>
+      <li><strong>4th Place:</strong> Mahmoud Maasrani</li>
+      <li><strong>5th Place:</strong> Ahmad Jawad</li>
+      <li><strong>Best Female Result:</strong> Rasha Othman</li>
+    </ul>
+
+    <h3>Celebrating Participation and Achievement</h3>
+
+    <p>At the conclusion of the tournament, prizes were presented to the winners, while certificates of participation were awarded to all competitors in recognition of their efforts and active involvement in the event.</p>
+
+    <p>Fianchetto Chess Center values this collaboration with <strong>Jinan University</strong> and looks forward to organizing more joint activities that strengthen the presence of chess, create new competitive opportunities, and support the development of young players.</p>
+  `
+},
+  {
   tag: 'FIDE Rated Tournament',
   title: 'Fianchetto Hosts Its First Internationally Rated Classical Chess Tournament',
   slug: 'fianchetto-first-fide-rated-classical-chess-tournament-2026',
