@@ -1,6 +1,36 @@
 const FIANCHETTO_ARTICLES = [
   {
   tag: 'Friendly Tournament',
+  title: 'A Rainy Day of Chess | Bikaai Eid Festival',
+  slug: 'bikaai-eid-festival-friendly-chess-tournament',
+  date: 'April 2, 2025',
+  excerpt: 'Fianchetto Chess Center organized a friendly tournament during the Bikaai Eid Festival in Qalamoun, introducing many new participants to competitive chess despite the rainy weather.',
+  images: ['article17-1.jpg', 'article17-2.jpg', 'article17-3.jpg'],
+  body: `
+    <p>Fianchetto Chess Center organized a small and friendly chess tournament during the <strong>Bikaai Eid Festival in Qalamoun</strong>, creating a new and enjoyable experience for many participants who were discovering tournament chess for the first time.</p>
+
+    <p>Despite the rainy weather, the event continued successfully and maintained a positive and enthusiastic atmosphere throughout the day.</p>
+
+    <p>The festival generously provided vouchers as prizes for the top performers, adding an extra element of excitement to the competition.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Issam Ibrahim | who generously donated his prize to the best young player</li>
+      <li><strong>2nd Place:</strong> Abdallah Al Kass</li>
+      <li><strong>3rd Place:</strong> Nour Assoum</li>
+      <li><strong>4th Place:</strong> Hamza Chweikh</li>
+    </ul>
+
+    <h3>A Memorable Community Experience</h3>
+
+    <p>The tournament offered participants a welcoming introduction to competitive chess while bringing people together through a shared passion for the game.</p>
+
+    <p>Fianchetto Chess Center is pleased to have contributed to this festive community event and looks forward to creating more accessible and enjoyable chess experiences in the future.</p>
+  `
+},
+  {
+  tag: 'Friendly Tournament',
   title: 'Fianchetto Players Shine at Batroun Sports Club Friendly Tournament',
   slug: 'fianchetto-players-batroun-sports-club-friendly-tournament',
   date: 'March 17, 2025',
