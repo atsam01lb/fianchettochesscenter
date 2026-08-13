@@ -1,5 +1,42 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'University Championship',
+  title: 'Fianchetto at the Lebanese University North Branch Rapid Chess Championship',
+  slug: 'lebanese-university-north-branch-rapid-chess-championship-2026',
+  date: 'February 2, 2026',
+  excerpt: 'Fianchetto Chess Center collaborated with the Lebanese University to organize the second North Branch Rapid Chess Championship, bringing together 36 university students for a competitive chess event.',
+  images: ['article28-1.jpg', 'article28-2.jpg', 'article28-3.jpg', 'article28-4.jpg', 'article28-5.jpg', 'article28-6.jpg'],
+  body: `
+    <p>For the second consecutive year, <strong>36 male and female students</strong> from different branches of the <strong>Lebanese University in North Lebanon</strong> participated in the university's Rapid Chess Championship.</p>
+
+    <p>The tournament was held at the <strong>Faculty of Engineering | Branch 1</strong> and organized by the university's Chess Club in collaboration with <strong>Fianchetto Chess Center</strong> and the Department of Sports Activities at the Lebanese University.</p>
+
+    <h3>Open Category Results</h3>
+
+    <p>In the open category, <strong>Issam Ibrahim</strong>, a third-year Literature student, secured first place with an impressive score of <strong>5 out of 5 points</strong>.</p>
+
+    <p><strong>Mohamad Sleiman</strong>, a third-year Business Administration student, finished second on tiebreak after also scoring <strong>5 out of 5 points</strong>.</p>
+
+    <h3>Women's Category</h3>
+
+    <p>In the women's category, <strong>Imad</strong>, a third-year Science student, achieved the best female result in the championship.</p>
+
+    <h3>Organization and Recognition</h3>
+
+    <p>The championship was supervised by <strong>Coach Fadi Toubia</strong> from the Department of Sports Activities, in cooperation with students from the university's Chess Club and <strong>Fianchetto Chess Center</strong>.</p>
+
+    <p>At the conclusion of the tournament, the winners received trophies and commemorative medals in recognition of their achievements.</p>
+
+    <p>Commemorative shields were also presented to representatives of the Department of Sports Activities at the Lebanese University, Fianchetto Chess Center, and the administration of the Faculty of Engineering | Branch 1.</p>
+
+    <h3>Path to the Lebanese University Championship</h3>
+
+    <p>This championship served as the <strong>first qualifying stage</strong> for the Lebanese University Championship at the national level, followed by participation in the Universities Chess Championship.</p>
+
+    <p>Fianchetto Chess Center is proud to support university chess and contribute to creating competitive opportunities for students across Lebanon.</p>
+  `
+},
+  {
   tag: 'Community Tournament',
   title: 'Fianchetto Organizes Chess Tournament at Al Mina Municipality',
   slug: 'fianchetto-chess-tournament-al-mina-municipality-2026',
