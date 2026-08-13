@@ -559,6 +559,17 @@
     gap: 1.8rem;
   }
 
+  .programs-cta {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .programs-cta p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+
   .program-card {
     background: var(--paper);
     padding: 2.5rem 2rem;
@@ -1025,12 +1036,14 @@
     object-fit: contain;
     filter: grayscale(100%);
     opacity: 0.55;
-    transition: all 0.35s ease;
+    transform: scale(1);
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .sponsor-tile:hover img {
     filter: grayscale(0%);
     opacity: 1;
+    transform: scale(1.15);
   }
 
   .sponsor-tile-featured {
@@ -1325,27 +1338,31 @@
   }
 
   .social-links a {
-    width: 40px;
-    height: 40px;
+    width: 46px;
+    height: 46px;
+    background: var(--gold);
     border: 1px solid var(--gold);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--gold);
+    color: var(--black);
     transition: all 0.3s ease;
     opacity: 1;
+    box-shadow: 0 4px 12px rgba(201, 169, 97, 0.25);
   }
 
   .social-links a:hover {
-    background: var(--gold);
+    background: var(--cream);
+    border-color: var(--cream);
     color: var(--black);
     transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(201, 169, 97, 0.4);
   }
 
   .social-links svg {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
     fill: currentColor;
   }
 
@@ -1775,9 +1792,14 @@
     <div class="program-card reveal">
       <div class="program-icon">♛</div>
       <h3>Tournaments</h3>
-      <p>From friendly rapid evenings to our flagship Open. Compete, earn rating points, and experience the energy of serious tournament play.</p>
+      <p>From friendly rapid evenings to our flagship Open. Fianchetto organizes tournaments at coffee shops, universities, schools, NGOs, educational centers, and more — bringing competitive chess to venues across the community.</p>
       <span class="program-meta">Monthly · All Levels</span>
     </div>
+  </div>
+
+  <div class="programs-cta reveal">
+    <p>Ready to pick up a piece and start playing?</p>
+    <a href="https://wa.me/96181239487?text=Hi%20Fianchetto%2C%20I%27d%20like%20to%20reserve%20a%20spot%20in%20one%20of%20your%20programs." target="_blank" rel="noopener" class="btn btn-dark">Reserve Your Spot</a>
   </div>
 </section>
 
@@ -1944,6 +1966,7 @@
     <div class="sp-tiers">
       <div class="sp-tier">
         <span class="sp-tier-name">Bronze Knight</span>
+        <span class="sp-tier-price">$100 / month</span>
         <ul>
           <li>Logo as Bronze Knight sponsor on the website</li>
           <li>Brochures at the center (est. 200+ visitors monthly)</li>
@@ -1951,6 +1974,7 @@
       </div>
       <div class="sp-tier">
         <span class="sp-tier-name">Silver Rook</span>
+        <span class="sp-tier-price">$200 / month</span>
         <ul>
           <li>Logo as Silver Rook sponsor on the website</li>
           <li>Brochures at the center (est. 200+ visitors monthly)</li>
@@ -1960,6 +1984,7 @@
       </div>
       <div class="sp-tier">
         <span class="sp-tier-name">Gold Queen</span>
+        <span class="sp-tier-price">$400 / month</span>
         <ul>
           <li>Logo as Gold Queen sponsor on the website</li>
           <li>Brochures at the center (est. 200+ visitors monthly)</li>
@@ -1970,6 +1995,7 @@
       </div>
       <div class="sp-tier sp-tier-diamond">
         <span class="sp-tier-name">Diamond King</span>
+        <span class="sp-tier-price">$500+ / month</span>
         <ul>
           <li>Logo as Diamond King sponsor on the website</li>
           <li>Brochures at the center (est. 200+ visitors monthly)</li>
@@ -2000,7 +2026,7 @@
     <p>Join Fianchetto Chess Center today. Whether you are picking up your first piece or preparing for your next tournament, the board is set, and a seat is waiting for you.</p>
     <div class="cta-actions">
       <a href="https://wa.me/96181239487" target="_blank" rel="noopener" class="btn btn-primary">Get in Touch</a>
-      <a href="/blog" class="btn btn-secondary">Read Our Blog</a>
+      <a href="https://wa.me/96181239487?text=Hi%20Fianchetto%2C%20I%27d%20like%20to%20host%20a%20tournament%20at%20our%20venue." target="_blank" rel="noopener" class="btn btn-secondary">Host a Tournament With Us</a>
     </div>
   </div>
 </section>
@@ -2071,7 +2097,7 @@
           <p>At Colart, we combine creativity, strategy, and technology to help brands communicate better, reach the right audience, and create a strong presence both online and offline.</p>
           <h3>Why Colart Chose Fianchetto</h3>
           <p>Colart chose to sponsor Fianchetto Chess Center because we believe in its mission to develop chess and support new generations of players.</p>
-          <p>Chess represents strategy, focus, creativity, and smart decision-making values that strongly connect with Colart's vision.</p>
+          <p>Chess represents strategy, focus, creativity, and smart decision-making — values that strongly connect with Colart's vision.</p>
           <p>Through this partnership, Colart aims to support Fianchetto's growth, tournaments, activities, and young talents, while helping the center reach a wider community.</p>
           <p>Two brands. One vision: Think. Grow. Achieve.</p>
         `,
@@ -2085,14 +2111,14 @@
         logo: null,
         body: `
           <h3>7 Bastami × Fianchetto Chess Center</h3>
-          <p>7 Bastami Ottawa is a photographer supporting Fianchetto Chess Center, capturing the moments that define the club. From quiet mid-game concentration to the celebration of a hard-earned win.</p>
+          <p>7 Bastami Ottawa is a photographer supporting Fianchetto Chess Center, capturing the moments that define the club — from quiet mid-game concentration to the celebration of a hard-earned win.</p>
           <p>Photography and chess share a similar discipline: both require patience, precision, and an eye for the moment that matters. Through this partnership, 7 Bastami helps preserve and share the story of Fianchetto's tournaments, players, and community, one frame at a time.</p>
           <p>This collaboration reflects a shared appreciation for craft and detail, and a mutual commitment to showing up for the local chess community.</p>
           <p>Together, Fianchetto and 7 Bastami are turning every tournament into a story worth telling.</p>
         `,
         learnMoreLabel: 'Follow 7 Bastami',
         learnMoreUrl: 'https://www.instagram.com/7bastami/',
-        whatsapp: 'https://wa.me/16132937684'
+        whatsapp: 'https://wa.me/'
       }
     };
 
