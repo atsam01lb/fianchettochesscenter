@@ -1,5 +1,34 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'Friendly Tournament',
+  title: 'Fianchetto Players Shine at Batroun Sports Club Friendly Tournament',
+  slug: 'fianchetto-players-batroun-sports-club-friendly-tournament',
+  date: 'March 17, 2025',
+  excerpt: 'Fianchetto Chess Center players achieved strong results at Batroun Sports Club’s first friendly chess tournament, which brought together players of different ages and backgrounds.',
+  images: ['article16-1.jpg', 'article16-2.jpg', 'article16-3.jpg', 'article16-4.jpg'],
+  body: `
+    <p><strong>Batroun Sports Club</strong>, in collaboration with <strong>Fianchetto Chess Center</strong>, hosted its first friendly chess tournament, bringing together players of different ages and backgrounds for a competitive and enjoyable event.</p>
+
+    <p>Fianchetto Chess Center was proud to see its players achieve several notable results across different categories.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place | Open:</strong> Akram Khodr</li>
+      <li><strong>5th Place | Open:</strong> Sيدة Alwan</li>
+      <li><strong>Best Female Result:</strong> Rania Asoum</li>
+      <li><strong>1st Place | Under 12:</strong> Jad Tleis</li>
+      <li><strong>Tied for 1st Place | Under 14:</strong> Issam Al Mulla | also finishing 6th overall in the tournament</li>
+    </ul>
+
+    <h3>A Promising Start</h3>
+
+    <p>Fianchetto Chess Center congratulates all the winners and participants on their performances and competitive spirit throughout the tournament.</p>
+
+    <p>We also extend our sincere appreciation to <strong>Batroun Sports Club</strong> for hosting the event, and we wish them a successful beginning and a promising journey in the chess community.</p>
+  `
+},
+  {
   tag: 'Youth Tournament',
   title: 'Fianchetto Organizes Friendly Chess Tournament at Beirut Arab University',
   slug: 'fianchetto-friendly-chess-tournament-beirut-arab-university',
