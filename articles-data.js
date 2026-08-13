@@ -1,5 +1,34 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'FIDE Rated Tournament',
+  title: 'Fianchetto Hosts Its First Internationally Rated Classical Chess Tournament',
+  slug: 'fianchetto-first-fide-rated-classical-chess-tournament-2026',
+  date: 'February 22, 2026',
+  excerpt: 'Under the patronage of the Lebanese Chess Federation, Fianchetto Chess Center organized its first internationally rated Classical Chess Tournament, bringing together 29 players for eight days of competitive chess.',
+  images: ['article29-1.jpg', 'article29-2.jpg', 'article29-3.jpg', 'article29-4.jpg', 'article29-5.jpg'],
+  body: `
+    <p>Under the patronage of the <strong>Lebanese Chess Federation</strong>, Fianchetto Chess Center organized its <strong>first internationally rated Classical Chess Tournament</strong>, generously hosted by <strong>Al Ghawth Medical Center</strong>.</p>
+
+    <p>The tournament welcomed <strong>29 players</strong> and extended over <strong>8 days</strong> of competitive classical chess, providing participants with an opportunity to test their skills in a professionally organized and internationally rated event.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Akram Khodr</li>
+      <li><strong>2nd Place:</strong> Issam Ibrahim</li>
+      <li><strong>3rd Place:</strong> Obeida Alwan</li>
+    </ul>
+
+    <h3>A Milestone for Fianchetto</h3>
+
+    <p>Hosting our first internationally rated classical tournament represents an important milestone for Fianchetto Chess Center and reflects our continued commitment to developing competitive chess and creating new opportunities for players.</p>
+
+    <p>Fianchetto Chess Center congratulates the winners and all participants for their performances and competitive spirit throughout the eight-day tournament.</p>
+
+    <p>We also extend our sincere appreciation to <strong>Al Ghawth Medical Center</strong> for its generous hospitality and support, and to the <strong>Lebanese Chess Federation</strong> for its patronage of the tournament.</p>
+  `
+},
+  {
   tag: 'University Championship',
   title: 'Fianchetto at the Lebanese University North Branch Rapid Chess Championship',
   slug: 'lebanese-university-north-branch-rapid-chess-championship-2026',
