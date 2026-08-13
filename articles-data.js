@@ -1,5 +1,34 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'Community Event',
+  title: 'Two Days of Chess and Community at the Magma Solutions Festival',
+  slug: 'chess-community-magma-solutions-festival',
+  date: 'May 27, 2024',
+  excerpt: 'Fianchetto Chess Center joined the Magma Solutions Festival for two days of social chess activities, friendly competition, and community engagement.',
+  images: ['article12-1.jpg', 'article12-2.jpg', 'article12-3.jpg'],
+  body: `
+    <p>Fianchetto Chess Center participated in the <strong>Magma Solutions Festival</strong>, bringing two days of fun and engaging social chess activities to the event.</p>
+
+    <p>The festival provided a great opportunity for our team to meet talented chess players, connect with new people, and share our passion for chess with the wider community.</p>
+
+    <p>One of the highlights of the event was a <strong>friendly chess tournament</strong>, which attracted significant interest and created an exciting and competitive atmosphere among the participants.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Issam Ibrahim</li>
+      <li><strong>2nd Place:</strong> Mohamad Mourad</li>
+      <li><strong>3rd Place:</strong> Ahmad Saleh</li>
+    </ul>
+
+    <h3>Chess, Community, and Collaboration</h3>
+
+    <p>Fianchetto Chess Center congratulates all the winners and thanks everyone who participated and helped make these two days memorable.</p>
+
+    <p>We look forward to collaborating on more successful events in the future and continuing to bring people together through the game of chess.</p>
+  `
+},
+  {
   tag: 'Ramadan Chess Festival',
   title: 'Basatine Ramadan Friendly Chess Festival — Bughouse Tournament',
   slug: 'basatine-ramadan-friendly-chess-festival-bughouse-tournament',
