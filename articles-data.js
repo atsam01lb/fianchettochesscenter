@@ -1,4 +1,34 @@
 const FIANCHETTO_ARTICLES = [
+  {
+  tag: 'Ramadan Chess Festival',
+  title: 'Basatine Ramadan Friendly Chess Festival — Bughouse Tournament',
+  slug: 'basatine-ramadan-friendly-chess-festival-bughouse-tournament',
+  date: 'March 31, 2024',
+  excerpt: 'The Basatine Ramadan Friendly Chess Festival continued with an exciting Bughouse Tournament, bringing teams together for seven rounds of strategy, teamwork, and competitive chess.',
+  images: ['article11-1.jpg', 'article11-2.jpg', 'article11-3.jpg', 'article11-4.jpg'],
+  body: `
+    <p>The excitement of the <strong>Basatine Ramadan Friendly Chess Festival</strong> continued with its second event — an action-packed <strong>Bughouse Tournament</strong> organized by Fianchetto Chess Center in collaboration with <strong>Basatine Land</strong>.</p>
+
+    <p>The tournament brought players together for <strong>7 competitive rounds</strong>, with each team facing two matches per round. The unique Bughouse format challenged participants to combine strategic thinking, quick decision-making, communication, and teamwork.</p>
+
+    <h3>Bughouse Tournament Results</h3>
+
+    <p>After an exciting series of matches, the top teams secured the following positions:</p>
+
+    <ul>
+      <li><strong>1st Place:</strong> Akram Khoder & Khaled Al Dahab</li>
+      <li><strong>2nd Place:</strong> Issam Ibrahim & Nour Assoum</li>
+    </ul>
+
+    <h3>Chess, Teamwork, and Community</h3>
+
+    <p>The tournament continued the positive atmosphere of the Ramadan festival, bringing players together through friendly competition while highlighting the importance of teamwork and strategic cooperation in Bughouse chess.</p>
+
+    <p>Fianchetto Chess Center extends its sincere appreciation to <strong>Basatine Land</strong> for its continued support and contribution to the success of the festival.</p>
+
+    <p>We look forward to continuing this journey and creating more opportunities for players and chess enthusiasts to connect, compete, and enjoy the game together.</p>
+  `
+},
 {
   tag: 'Ramadan Chess Festival',
   title: 'Basatine Ramadan Friendly Chess Festival — Day One',
