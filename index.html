@@ -533,7 +533,10 @@
     font-weight: 600;
   }
 
-  .about-content .btn {
+  .about-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
     margin-top: 1.5rem;
   }
 
@@ -1729,7 +1732,10 @@
       <h2 class="section-title">A Home for the <em>Royal Game</em>.</h2>
       <p>Fianchetto Chess Center was founded with a single mission: to grow a community where chess is more than a pastime, it is a discipline, an art form, and a lifelong companion. From our first open in 2015 to the championships we host today, every move forward has been built on that idea.</p>
       <p>We welcome players of every age and rating. Whether you are learning how the knight moves for the first time or preparing for a national tournament, you will find a board, a coach, and an opponent worthy of your time at Fianchetto.</p>
-      <a href="#contact" class="btn btn-dark">Join Our Community</a>
+      <div class="about-actions">
+        <a href="#contact" class="btn btn-dark">Join Our Community</a>
+        <a href="/team" class="btn btn-secondary-dark">Meet the Team</a>
+      </div>
     </div>
   </div>
 </section>
