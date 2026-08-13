@@ -306,7 +306,7 @@ const FIANCHETTO_ARTICLES = [
   slug: 'al-wifak-fianchetto-lebanon-first-division-2025',
   date: 'January 18, 2025',
   excerpt: 'Fianchetto Chess Center players represented Al Wifak Sports Club in Lebanon’s First Division Club Championship, completing an eight-day competition and successfully maintaining their place in the top division.',
-  images: ['article14-1.jpg', 'article14-2.jpg', 'article14-3.jpg'],
+  images: ['article14-01.jpg', 'article14-02.jpg', 'article14-03.jpg'],
   body: `
     <p>Fianchetto Chess Center players proudly represented <strong>Al Wifak Sports Club</strong> in the <strong>Lebanese First Division Club Championship</strong>, following the team's promotion from the Second Division the previous year.</p>
 
