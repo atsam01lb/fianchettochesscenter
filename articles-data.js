@@ -1,4 +1,37 @@
 const FIANCHETTO_ARTICLES = [
+{
+  tag: 'Ramadan Chess Festival',
+  title: 'Basatine Ramadan Friendly Chess Festival — Day One',
+  slug: 'basatine-ramadan-friendly-chess-festival-day-one',
+  date: 'March 24, 2024',
+  excerpt: 'Fianchetto Chess Center, in collaboration with Basatine Land Team, launched the Ramadan Friendly Chess Festival with an exciting Blitz Tournament featuring 21 players across seven competitive rounds.',
+  images: ['article10-1.jpg', 'article10-2.jpg', 'article10-3.jpg', 'article10-4.jpg'],
+  body: `
+    <p>Fianchetto Chess Center proudly launched the <strong>Basatine Ramadan Friendly Chess Festival</strong> in collaboration with <strong>Basatine Land Team</strong>, bringing the community together through chess in a welcoming and competitive atmosphere.</p>
+
+    <p>The opening event received an enthusiastic response, with players and spectators coming together to celebrate the game and strengthen social interaction through chess.</p>
+
+    <h3>Day One — Blitz Tournament</h3>
+
+    <p>The first day of the festival featured an exciting <strong>Blitz Tournament</strong> with <strong>21 players</strong> competing across <strong>7 intense rounds</strong>.</p>
+
+    <p>After a highly competitive tournament, the final standings were:</p>
+
+    <ul>
+      <li><strong>1st Place:</strong> FM Akram Khoder</li>
+      <li><strong>2nd Place:</strong> Samir Dhaybi</li>
+      <li><strong>3rd Place:</strong> Mohamad Hawshar</li>
+    </ul>
+
+    <h3>More Chess to Come</h3>
+
+    <p>The opening day was filled with excitement, competition, and a shared passion for chess. Following the success of the Blitz Tournament, preparations were already underway for the festival's second event — the highly anticipated <strong>Bughouse Tournament</strong>.</p>
+
+    <p>Fianchetto Chess Center extends its sincere appreciation to <strong>Basatine Land</strong> for hosting the event and contributing to the success of this memorable chess gathering.</p>
+
+    <p>We look forward to continuing the festival and creating more opportunities to bring players and the community together through chess.</p>
+  `
+},
   {
     tag: 'Tournament & Friendly Match',
     title: 'North Lebanon Team Qualifiers and a Friendly Chess Exchange',
