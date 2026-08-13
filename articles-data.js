@@ -28,15 +28,32 @@ const FIANCHETTO_ARTICLES = [
     excerpt: 'Al Wifak/Fianchetto completed five rounds undefeated, secured second place, and earned official promotion from Lebanon’s Second Division to the First Division.',
     images: ['article5-1.jpg', 'article5-2.jpg', 'article5-3.jpg', 'article5-4.jpg', 'article5-5.jpg'],
     body: `
-     <p>Fianchetto Chess Center proudly collaborated in a five-day chess event held in <strong>Jounieh</strong>, bringing together chess enthusiasts for an engaging and enjoyable experience.</p>
+     <p>The <strong>Al Wifak/Fianchetto team</strong> delivered an outstanding performance in the Lebanese Chess Clubs Championship, completing five rounds <strong>undefeated</strong>.</p>
 
-    <p>The event featured a variety of chess formats, including <strong>Hand and Brain, Basque Chess, Pairs Chess, Chess960, and Thematic Chess</strong>, offering participants the opportunity to enjoy different styles of play and challenge themselves in new ways.</p>
+    <p>With this impressive result, the team secured <strong>second place</strong>, successfully breaking the tie and earning official promotion from Lebanon’s Second Division to the <strong>First Division</strong>.</p>
 
-    <h3>A Strong Chess Community</h3>
+    <h3>Team Lineup</h3>
 
-    <p>A total of <strong>60 players</strong> took part in the event, contributing to a lively atmosphere filled with competition, learning, and community spirit.</p>
+    <p>The team was led by <strong>coach and team captain, international coach Mohammad Hamad</strong>, and included:</p>
 
-    <p>Fianchetto Chess Center is pleased to have been part of this successful event and looks forward to organizing and supporting more chess activities in the future.</p>
+    <ul>
+      <li><strong>Hossam Ibrahim</strong> — substitute captain during the matches</li>
+      <li><strong>Karim Basha</strong></li>
+      <li><strong>Nour Asoum</strong></li>
+      <li><strong>Mohammad Hassoun</strong></li>
+      <li><strong>Osama Ouwaydah</strong></li>
+      <li><strong>Sara Ouwaydah</strong></li>
+      <li><strong>Mohammad Murad</strong></li>
+      <li><strong>Jason Saroufim</strong></li>
+    </ul>
+
+    <h3>A Well-Deserved Achievement</h3>
+
+    <p>This achievement reflects the dedication, teamwork, and competitive spirit demonstrated by the players throughout the championship.</p>
+
+    <p>Special appreciation goes to <strong>Mr. Ramez Al-Fari</strong>, representative of Al Wifak Club, for his financial support, as well as to <strong>Fianchetto Chess Center</strong> for supporting the team's participation in the championship.</p>
+
+    <p>Congratulations to the entire team on this important achievement and their promotion to the First Division. We wish them continued success and many more accomplishments in the future.</p>
   `
   },
   {
@@ -83,24 +100,16 @@ const FIANCHETTO_ARTICLES = [
     excerpt: 'Fianchetto Chess Center enjoyed a memorable day combining its weekly chess class at Al Iman School with a successful private community event at Al Malik Fahed Park.',
     images: ['article3-1.jpg', 'article3-2.jpg', 'article3-3.jpg', 'article3-4.jpg', 'article3-5.jpg', 'article3-6.jpg'],
     body: `
-      <p>Today marked a memorable and rewarding day for the Fianchetto Chess Center community.</p>
+ <p>Fianchetto Chess Center proudly collaborated in a five-day chess event held in <strong>Jounieh</strong>, bringing together chess enthusiasts for an engaging and enjoyable experience.</p>
 
-        <p>We began our journey with our weekly chess class at <strong>Al Iman School</strong>, where students continued developing their skills, strategic thinking, and passion for the game.</p>
+    <p>The event featured a variety of chess formats, including <strong>Hand and Brain, Basque Chess, Pairs Chess, Chess960, and Thematic Chess</strong>, offering participants the opportunity to enjoy different styles of play and challenge themselves in new ways.</p>
 
-        <p>Later in the day, Fianchetto Chess Center organized a private event at <strong>Al Malik Fahed Park</strong>, which was successfully completed thanks to the enthusiasm and participation of everyone involved.</p>
+    <h3>A Strong Chess Community</h3>
 
-        <h3>Special Thanks</h3>
+    <p>A total of <strong>60 players</strong> took part in the event, contributing to a lively atmosphere filled with competition, learning, and community spirit.</p>
 
-        <p>We extend our sincere appreciation to the entire <strong>Fianchetto team</strong> for their dedication and support throughout the day.</p>
-
-        <p>Special thanks also go to <strong>Tripoli Municipality</strong> and the <strong>Russian Speaking Women Association</strong> for their valuable support and contribution to organizing the event.</p>
-
-        <h3>Welcome to the Fianchetto Family</h3>
-
-        <p>Most importantly, we warmly welcome everyone who joined the <strong>Fianchetto family</strong> on this special day. We look forward to sharing many more chess experiences, events, and memorable moments together.</p>
-
-        <p><strong>Welcome to the Fianchetto family! ♟️</strong></p>
-    `
+    <p>Fianchetto Chess Center is pleased to have been part of this successful event and looks forward to organizing and supporting more chess activities in the future.</p>
+  `
   },
   {
     slug: 'friendly-tournament-2023',
