@@ -1,5 +1,35 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'Community Tournament',
+  title: 'Fianchetto Organizes Chess Tournament at Al Mina Municipality',
+  slug: 'fianchetto-chess-tournament-al-mina-municipality-2026',
+  date: 'January 24, 2026',
+  excerpt: 'Fianchetto Chess Center organized a successful chess tournament in collaboration with the Sports Committee of Al Mina Municipality, bringing together 55 players for an evening of competition and community engagement.',
+  images: ['article26-1.jpg', 'article26-2.jpg', 'article26-3.jpg', 'article26-4.jpg', 'article26-5.jpg'],
+  body: `
+    <p>Fianchetto Chess Center, in collaboration with the <strong>Sports Committee of Al Mina Municipality</strong>, organized a successful chess tournament under the patronage and hosting of <strong>Al Mina Municipality</strong>.</p>
+
+    <p>The event welcomed <strong>55 players</strong> and attracted an enthusiastic audience, creating a competitive and engaging atmosphere that reflected the spirit of sportsmanship and intellectual challenge.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Abdallah Al Kass</li>
+      <li><strong>2nd Place:</strong> Khalil Issa</li>
+      <li><strong>3rd Place:</strong> Reem Khodr | Best Female Result</li>
+      <li><strong>Second Best Female Result:</strong> Safa Imad</li>
+    </ul>
+
+    <h3>Community Support</h3>
+
+    <p>Fianchetto Chess Center extends its appreciation to <strong>Shoppies</strong> for supporting the event through hospitality and prizes, contributing to the overall success of the tournament.</p>
+
+    <p>The tournament represented an important combination of sports, intellectual competition, and community engagement while strengthening cooperation between chess centers and local municipalities.</p>
+
+    <p>Through initiatives like this, Fianchetto Chess Center continues to create opportunities for players to compete, connect, and develop while promoting chess across the community.</p>
+  `
+},
+  {
   tag: 'University Tournament',
   title: 'Fianchetto Collaborates with ISSAE-Cnam Liban | First Friendly Rapid Chess Tournament',
   slug: 'fianchetto-issae-cnam-liban-friendly-rapid-chess-tournament',
