@@ -1,5 +1,32 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'Classical Championship',
+  title: 'North Lebanon Classical Chess Qualifiers | Mohamad Sleiman Takes First Place',
+  slug: 'north-lebanon-classical-chess-qualifiers-2026',
+  date: 'May 24, 2026',
+  excerpt: 'Under the patronage of the Lebanese Chess Federation, Fianchetto Chess Center organized and hosted the North Lebanon Classical Chess Qualifiers, bringing players together for six days of competitive chess.',
+  images: ['article31-1.jpg', 'article31-2.jpg', 'article31-3.jpg', 'article31-4.jpg', 'article31-5.jpg', 'article31-6.jpg'],
+  body: `
+    <p>Under the patronage of the <strong>Lebanese Chess Federation</strong>, Fianchetto Chess Center organized and hosted the <strong>North Lebanon Classical Chess Qualifiers</strong>.</p>
+
+    <p>The championship extended over <strong>6 days</strong> of competitive classical chess, giving players from North Lebanon the opportunity to compete for qualification to the national finals.</p>
+
+    <h3>Championship Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Mohamad Sleiman</li>
+      <li><strong>2nd Place:</strong> Issam Ibrahim</li>
+      <li><strong>3rd Place:</strong> Omar Fatfat</li>
+    </ul>
+
+    <h3>On to the Finals</h3>
+
+    <p>Fianchetto Chess Center congratulates the top finishers on their performances throughout the six-day championship.</p>
+
+    <p>We wish the qualified players the very best as they move forward to the national finals and continue representing North Lebanon in competitive chess.</p>
+  `
+},
+  {
   tag: 'University Tournament',
   title: 'Jinan University Hosts Rapid Chess Tournament | 52 Players Compete',
   slug: 'jinan-university-rapid-chess-tournament-2026',
