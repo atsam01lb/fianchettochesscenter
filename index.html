@@ -34,7 +34,6 @@
     overflow-x: hidden;
   }
 
-  /* ===== HEADER ===== */
   header {
     background: var(--black);
     color: var(--cream);
@@ -134,7 +133,6 @@
     cursor: pointer;
   }
 
-  /* ===== BUTTONS ===== */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -196,7 +194,6 @@
 
   .btn:hover::after { transform: translateX(4px); }
 
-  /* ===== HERO ===== */
   .hero {
     color: var(--cream);
     padding: 7rem 2rem 6rem;
@@ -227,7 +224,6 @@
     opacity: 1;
   }
 
-  /* Dark gradient overlay — readable text on left, photo + logo visible on right */
   .hero::before {
     content: '';
     position: absolute;
@@ -239,7 +235,6 @@
     z-index: 1;
   }
 
-  /* Subtle gold glow on left for warmth */
   .hero::after {
     content: '';
     position: absolute;
@@ -359,7 +354,6 @@
     flex-wrap: wrap;
   }
 
-  /* Subtle text shadow for crisp readability over the photo */
   .hero h1, .hero p.lead {
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
   }
@@ -404,7 +398,6 @@
     50% { transform: scaleY(1); transform-origin: top; }
   }
 
-  /* ===== SECTION COMMON ===== */
   .section {
     max-width: 1400px;
     margin: 0 auto;
@@ -448,7 +441,6 @@
     line-height: 1.7;
   }
 
-  /* ===== ABOUT ===== */
   .about {
     background: var(--paper);
   }
@@ -545,7 +537,6 @@
     margin-top: 1.5rem;
   }
 
-  /* ===== PROGRAMS ===== */
   .programs {
     background: var(--cream);
     position: relative;
@@ -648,7 +639,6 @@
 
   .program-card:hover .program-meta { color: var(--gold); }
 
-  /* ===== FEATURES ===== */
   .features {
     background: var(--paper);
   }
@@ -703,7 +693,6 @@
     line-height: 1.6;
   }
 
-  /* ===== STATS ===== */
   .stats {
     background: var(--black);
     color: var(--cream);
@@ -754,7 +743,6 @@
     font-weight: 500;
   }
 
-  /* ===== BLOG PREVIEW ===== */
   .blog-preview {
     background: var(--cream);
   }
@@ -879,7 +867,6 @@
 
   .blog-mini:hover .blog-mini-read::after { margin-left: 0.4rem; }
 
-  /* ===== TESTIMONIALS ===== */
   .testimonials {
     background: var(--paper);
   }
@@ -975,7 +962,6 @@
     font-weight: 500;
   }
 
-  /* ===== SPONSORS ===== */
   .sponsors {
     background: var(--cream);
   }
@@ -1115,7 +1101,6 @@
     flex-wrap: wrap;
   }
 
-  /* ===== SPONSOR DETAIL MODAL ===== */
   .sponsor-detail-header {
     text-align: center;
     margin-bottom: 1.8rem;
@@ -1190,7 +1175,6 @@
     box-shadow: 0 10px 25px var(--shadow);
   }
 
-  /* ===== CTA BANNER ===== */
   .cta-banner {
     background: var(--black);
     color: var(--cream);
@@ -1268,7 +1252,6 @@
     flex-wrap: wrap;
   }
 
-  /* ===== FOOTER ===== */
   footer {
     background: var(--black);
     color: var(--cream);
@@ -1397,7 +1380,6 @@
     text-decoration: underline;
   }
 
-  /* ===== SPONSORSHIP OFFERS MODAL ===== */
   .sp-modal-overlay {
     position: fixed;
     inset: 0;
@@ -1571,7 +1553,6 @@
     .sp-modal { padding: 4.5rem 1.3rem 2rem; }
   }
 
-  /* ===== WHATSAPP FLOATING BUTTON ===== */
   .whatsapp-float {
     position: fixed;
     bottom: 1.8rem;
@@ -1610,7 +1591,6 @@
     .whatsapp-float svg { width: 26px; height: 26px; }
   }
 
-  /* ===== RESPONSIVE ===== */
   @media (max-width: 1024px) {
     .hero-inner { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
     .hero-content { max-width: 100%; }
@@ -1648,7 +1628,6 @@
     .footer-bottom { flex-direction: column; text-align: center; }
   }
 
-  /* ===== ANIMATIONS ===== */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -1662,7 +1641,6 @@
 
   .hero-visual { animation: fadeUp 0.8s ease 0.3s backwards; }
 
-  /* Scroll-triggered reveal */
   .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -1682,7 +1660,6 @@
 </head>
 <body>
 
-<!-- ============ HEADER ============ -->
 <header>
   <div class="header-inner">
     <a href="/" class="logo-link">
@@ -1708,7 +1685,6 @@
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
 <section class="hero">
   <div class="hero-slides" id="heroSlides">
     <img class="hero-slide active" src="hero.jpg" alt="Fianchetto Chess Center">
@@ -1735,7 +1711,6 @@
   <div class="scroll-indicator">Scroll</div>
 </section>
 
-<!-- ============ ABOUT ============ -->
 <section class="section about" id="about">
   <div class="about-grid">
     <div class="about-visual reveal">
@@ -1759,7 +1734,6 @@
   </div>
 </section>
 
-<!-- ============ PROGRAMS ============ -->
 <section class="section programs" id="programs">
   <div class="programs-header reveal">
     <div>
@@ -1797,7 +1771,6 @@
   </div>
 </section>
 
-<!-- ============ FEATURES ============ -->
 <section class="section features">
   <div class="features-header reveal">
     <span class="section-eyebrow">Why Fianchetto</span>
@@ -1829,7 +1802,6 @@
   </div>
 </section>
 
-<!-- ============ STATS ============ -->
 <section class="stats">
   <div class="stats-inner">
     <div class="stat reveal">
@@ -1851,7 +1823,6 @@
   </div>
 </section>
 
-<!-- ============ BLOG PREVIEW ============ -->
 <section class="section blog-preview">
   <div class="blog-preview-header reveal">
     <div>
@@ -1862,11 +1833,9 @@
   </div>
 
   <div class="blog-preview-grid" id="blogPreviewGrid">
-    <!-- Cards injected by JS from articles-data.js — newest articles first -->
   </div>
 </section>
 
-<!-- ============ TESTIMONIALS ============ -->
 <section class="section testimonials">
   <div class="testimonials-header reveal">
     <span class="section-eyebrow">In Their Words</span>
@@ -1907,7 +1876,6 @@
   </div>
 </section>
 
-<!-- ============ SPONSORS ============ -->
 <section class="section sponsors" id="sponsors">
   <div class="sponsors-header reveal">
     <span class="section-eyebrow">Our Partners</span>
@@ -1939,7 +1907,6 @@
   </div>
 </section>
 
-<!-- ============ SPONSOR DETAIL MODAL ============ -->
 <div class="sp-modal-overlay" id="sponsorModalOverlay">
   <div class="sp-modal sponsor-detail-modal">
     <button class="sp-modal-close" id="sponsorModalClose" aria-label="Close">✕</button>
@@ -1955,7 +1922,6 @@
   </div>
 </div>
 
-<!-- ============ SPONSORSHIP OFFERS MODAL ============ -->
 <div class="sp-modal-overlay" id="spModalOverlay">
   <div class="sp-modal">
     <button class="sp-modal-close" id="spModalClose" aria-label="Close">✕</button>
@@ -2021,8 +1987,6 @@
   </div>
 </div>
 
-
-<!-- ============ CTA BANNER ============ -->
 <section class="cta-banner" id="contact">
   <div class="cta-inner">
     <span class="cta-eyebrow">◆ Your Next Move</span>
@@ -2035,7 +1999,6 @@
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
@@ -2082,7 +2045,6 @@
 </a>
 
 <script>
-  // ===== Mobile menu =====
   const menuToggle = document.getElementById('menuToggle');
   const nav = document.getElementById('nav');
   menuToggle.addEventListener('click', () => nav.classList.toggle('open'));
@@ -2090,7 +2052,6 @@
     a.addEventListener('click', () => nav.classList.remove('open'));
   });
 
-  // ===== Sponsor detail modal =====
   (function initSponsorDetailModal() {
     const SPONSORS_DATA = {
       colart: {
@@ -2176,7 +2137,6 @@
     });
   })();
 
-  // ===== Sponsorship offers modal =====
   (function initSponsorshipModal() {
     const openBtn = document.getElementById('openSponsorshipModal');
     const overlay = document.getElementById('spModalOverlay');
@@ -2199,11 +2159,6 @@
     });
   })();
 
-  // ===== Hero slideshow =====
-  // Cycles through all .hero-slide images every 5 seconds.
-  // Any hero2.jpg / hero3.jpg / hero4.jpg that fails to load removes
-  // itself automatically (see onerror on the <img> tags), so this
-  // still works fine with just one photo.
   (function initHeroSlideshow() {
     const container = document.getElementById('heroSlides');
     if (!container) return;
@@ -2217,13 +2172,10 @@
     }, 5000);
   })();
 
-  // ===== Blog preview (reads from articles-data.js) =====
-  // The newest article in FIANCHETTO_ARTICLES automatically becomes
-  // the featured article here — no manual editing needed.
   (function renderBlogPreview() {
     const grid = document.getElementById('blogPreviewGrid');
     if (!grid || typeof FIANCHETTO_ARTICLES === 'undefined') return;
-    const latest = FIANCHETTO_ARTICLES.slice(0, 2);
+    const latest = FIANCHETTO_ARTICLES.slice(0, 3);
     grid.innerHTML = latest.map(a => `
       <a href="/blog?a=${encodeURIComponent(a.slug || '')}" class="blog-mini reveal">
         <div class="blog-mini-image">
@@ -2240,7 +2192,6 @@
     `).join('');
   })();
 
-  // ===== Scroll reveal =====
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -2252,7 +2203,6 @@
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // ===== Stagger reveal for grids =====
   document.querySelectorAll('.programs-grid, .features-grid, .blog-preview-grid, .testimonials-grid, .stats-inner, .sponsors-grid').forEach(grid => {
     [...grid.children].forEach((child, i) => {
       child.style.transitionDelay = `${i * 0.08}s`;
