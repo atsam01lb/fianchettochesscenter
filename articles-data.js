@@ -1,5 +1,50 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'Community Events',
+  title: 'A Weekend of Chess and Community | Rapid and Blitz Tournaments',
+  slug: 'weekend-chess-community-rapid-blitz-tournaments',
+  date: 'September 9, 2025',
+  excerpt: 'Fianchetto Chess Center organized two friendly chess events in Tripoli and Byblos, combining Rapid and Blitz competition with social activities designed to strengthen connections within the chess community.',
+  images: ['article22-1.jpg', 'article22-2.jpg', 'article22-3.jpg', 'article22-4.jpg', 'article22-5.jpg', 'article22-6.jpg', 'article22-7.jpg'],
+  body: `
+    <p>Fianchetto Chess Center organized two special activities over the weekend, bringing players together through competitive chess and engaging social experiences in <strong>Tripoli</strong> and <strong>Byblos</strong>.</p>
+
+    <h3>Friendly Rapid Chess Tournament | Tripoli</h3>
+
+    <p>The first event was a friendly <strong>Rapid Chess Tournament</strong> hosted by the <strong>Cultural Association in Tripoli</strong>.</p>
+
+    <p>Following an exciting competition, the final standings were:</p>
+
+    <ul>
+      <li><strong>1st Place:</strong> Issam Ibrahim</li>
+      <li><strong>2nd Place:</strong> Abdallah Al Kass</li>
+      <li><strong>3rd Place:</strong> Omar Darniqa</li>
+    </ul>
+
+    <h3>Friendly Blitz Chess Tournament | Byblos</h3>
+
+    <p>The second event featured a friendly <strong>Blitz Chess Tournament</strong> hosted by <strong>Dice and Bites in Byblos</strong>, offering players another opportunity to compete in a fast-paced and enjoyable environment.</p>
+
+    <p>The final standings were:</p>
+
+    <ul>
+      <li><strong>1st Place:</strong> Issam Ibrahim</li>
+      <li><strong>2nd Place:</strong> Omar Darniqa</li>
+      <li><strong>3rd Place:</strong> Omar Basha</li>
+    </ul>
+
+    <h3>Beyond the Chessboard</h3>
+
+    <p>Following the Blitz Tournament, participants enjoyed a variety of individual and group board games, creating a relaxed social atmosphere beyond the competitive chessboard.</p>
+
+    <p>These activities reflect Fianchetto Chess Center's commitment to combining competition with community, providing players with opportunities to develop their skills while building stronger relationships with one another.</p>
+
+    <p>Fianchetto Chess Center extends its sincere appreciation to everyone who contributed to the success of these events and to our hosts for their support and hospitality.</p>
+
+    <p>We look forward to organizing more competitive, social, and memorable chess experiences for our community.</p>
+  `
+},
+  {
   tag: 'National Championship',
   title: 'Akram Khodr Crowned Lebanese Rapid Chess Champion 2025',
   slug: 'akram-khodr-lebanese-rapid-chess-champion-2025',
