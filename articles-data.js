@@ -279,7 +279,7 @@ const FIANCHETTO_ARTICLES = [
   slug: 'fianchetto-friendly-chess-tournament-beirut-arab-university',
   date: 'February 20, 2025',
   excerpt: 'Fianchetto Chess Center organized a friendly closed chess tournament at Beirut Arab University | Tripoli Branch, bringing together 19 young players for an exciting and competitive event.',
-  images: ['article15-1.jfif', 'article15-2.jfif', 'article15-3.jfif', 'article15-4.jfif'],
+  images: ['article15-1.jpg', 'article15-2.jpg', 'article15-3.jpg', 'article15-4.jpg'],
   body: `
     <p><strong>Beirut Arab University | Tripoli Branch</strong> hosted a friendly closed chess tournament organized by <strong>Fianchetto Chess Center</strong>, bringing together <strong>19 young players</strong> for an exciting day of chess.</p>
 
