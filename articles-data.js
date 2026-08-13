@@ -94,32 +94,15 @@ const FIANCHETTO_ARTICLES = [
     excerpt: 'Fianchetto Chess Center collaborated in a five-day chess event in Jounieh, bringing together 60 players for a variety of exciting chess formats.',
     images: ['article4-1.jpg', 'article4-2.jpg', 'article4-3.jpg', 'article4-4.jpg', 'article4-5.jpg'],
     body: `
- <p>The <strong>Al Wifak/Fianchetto team</strong> delivered an outstanding performance in the Lebanese Chess Clubs Championship, completing five rounds <strong>undefeated</strong>.</p>
+ <p>Fianchetto Chess Center proudly collaborated in a five-day chess event held in <strong>Jounieh</strong>, bringing together chess enthusiasts for an engaging and enjoyable experience.</p>
 
-    <p>With this impressive result, the team secured <strong>second place</strong>, successfully breaking the tie and earning official promotion from Lebanon’s Second Division to the <strong>First Division</strong>.</p>
+    <p>The event featured a variety of chess formats, including <strong>Hand and Brain, Basque Chess, Pairs Chess, Chess960, and Thematic Chess</strong>, offering participants the opportunity to enjoy different styles of play and challenge themselves in new ways.</p>
 
-    <h3>Team Lineup</h3>
+    <h3>A Strong Chess Community</h3>
 
-    <p>The team was led by <strong>coach and team captain, international coach Mohammad Hamad</strong>, and included:</p>
+    <p>A total of <strong>60 players</strong> took part in the event, contributing to a lively atmosphere filled with competition, learning, and community spirit.</p>
 
-    <ul>
-      <li><strong>Hossam Ibrahim</strong> — substitute captain during the matches</li>
-      <li><strong>Karim Basha</strong></li>
-      <li><strong>Nour Asoum</strong></li>
-      <li><strong>Mohammad Hassoun</strong></li>
-      <li><strong>Osama Ouwaydah</strong></li>
-      <li><strong>Sara Ouwaydah</strong></li>
-      <li><strong>Mohammad Murad</strong></li>
-      <li><strong>Jason Saroufim</strong></li>
-    </ul>
-
-    <h3>A Well-Deserved Achievement</h3>
-
-    <p>This achievement reflects the dedication, teamwork, and competitive spirit demonstrated by the players throughout the championship.</p>
-
-    <p>Special appreciation goes to <strong>Mr. Ramez Al-Fari</strong>, representative of Al Wifak Club, for his financial support, as well as to <strong>Fianchetto Chess Center</strong> for supporting the team's participation in the championship.</p>
-
-    <p>Congratulations to the entire team on this important achievement and their promotion to the First Division. We wish them continued success and many more accomplishments in the future.</p>
+    <p>Fianchetto Chess Center is pleased to have been part of this successful event and looks forward to organizing and supporting more chess activities in the future.</p>
   `
   },
     {
