@@ -19,7 +19,37 @@
 */
 
 const FIANCHETTO_ARTICLES = [
+{
+    slug: 'fianchetto-opentournament-2sep-2023',
+    tag: 'Open Tournament',
+    title: 'Fianchetto Open Chess Tournament Brings Together 29 Players',
+    date: 'September 2, 2023',
+    excerpt: 'Fianchetto Chess Center organized an open chess tournament with 29 players of different ages, a 4,500,000 LBP prize pool, and a collaborative study with Al Shamiya Academy.',
+    images: ['article6-1.jpg', 'article6-2.jpg', 'article6-3.jpg', 'article6-4.jpg'],
+    body: `
+     <p>Fianchetto Chess Center organized an <strong>Open Chess Tournament</strong>, bringing together <strong>29 players of different ages</strong> for a competitive and engaging chess experience.</p>
 
+    <p>The tournament featured a total prize pool of <strong>4,500,000 LBP</strong>, encouraging players to showcase their skills, strategic thinking, and competitive spirit.</p>
+
+    <p>Alongside the tournament, a study was conducted in collaboration with <strong>Al Shamiya Academy</strong>, exploring the differences in thinking patterns between chess players and non-chess players.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Issam Ibrahim</li>
+      <li><strong>2nd Place:</strong> Mohammad Hassoun</li>
+      <li><strong>3rd Place:</strong> Mohammad Murad — tied with Mahmoud Tartousi and Ahmad Al Masri</li>
+      <li><strong>Best Female Player:</strong> Nour Sharif</li>
+      <li><strong>Youngest Player:</strong> Jad Tleis</li>
+    </ul>
+
+    <h3>Competition, Community, and Research</h3>
+
+    <p>The event successfully combined competition, community, and research, highlighting chess not only as a competitive sport but also as an activity that encourages strategic and analytical thinking.</p>
+
+    <p>Fianchetto Chess Center congratulates all the winners and extends its appreciation to every player who participated and contributed to the success of the tournament.</p>
+  `
+  },
   {
     slug: 'fianchetto-alwifak-aug2023',
     tag: 'Community Event',
