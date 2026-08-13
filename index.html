@@ -217,7 +217,7 @@
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    transition: opacity 1.6s ease;
+    transition: opacity 1s ease;
   }
 
   .hero-slide.active {
@@ -1692,8 +1692,12 @@
   <div class="hero-slides" id="heroSlides">
     <img class="hero-slide active" src="hero.jpg" alt="Fianchetto Chess Center">
     <img class="hero-slide" src="hero2.jpg" alt="Fianchetto Chess Center" onerror="this.remove()">
-    <img class="hero-slide" src="hero3.jpg" alt="Fianchetto Chess Center" onerror="this.remove()">
-    <img class="hero-slide" src="hero4.jpg" alt="Fianchetto Chess Center" onerror="this.remove()">
+    <img class="hero-slide" src="hero3.JPG" alt="Fianchetto Chess Center" onerror="this.remove()">
+    <img class="hero-slide" src="hero4.JPG" alt="Fianchetto Chess Center" onerror="this.remove()">
+    <img class="hero-slide" src="hero5.jpg" alt="Fianchetto Chess Center" onerror="this.remove()">
+    <img class="hero-slide" src="hero6.jpg" alt="Fianchetto Chess Center" onerror="this.remove()">
+    <img class="hero-slide" src="hero7.jpg" alt="Fianchetto Chess Center" onerror="this.remove()">
+    <img class="hero-slide" src="hero8.jpg" alt="Fianchetto Chess Center" onerror="this.remove()">
   </div>
   <div class="hero-inner">
     <div class="hero-content">
@@ -2175,7 +2179,7 @@
       slides[index].classList.remove('active');
       index = (index + 1) % slides.length;
       slides[index].classList.add('active');
-    }, 5000);
+    }, 3000);
   })();
 
   (function renderBlogPreview() {
