@@ -20,6 +20,40 @@
 
 const FIANCHETTO_ARTICLES = [
 {
+    slug: 'tournament5jan2024',
+    tag: 'Youth Tournaments',
+    title: 'A Day of Chess Excellence and Learning',
+    date: 'January 5, 2024',
+    excerpt: 'Fianchetto Chess Center organized two exciting youth chess tournaments in collaboration with educational centers in Qalamoun and Kfar Akka, bringing together young players for a day of competition and learning.',
+    images: [article7-1.jpg', 'article7-2.jpg', 'article7-3.jpg', 'article7-4.jpg', 'article7-5.jpg'],
+    body: `
+     <p>Fianchetto Chess Center proudly organized two exciting chess tournaments dedicated to introducing young players to the principles of competitive chess while providing them with an opportunity to learn, compete, and share valuable experiences.</p>
+
+    <h3>Home School Educational Center — Qalamoun</h3>
+
+    <p>The first tournament was organized in collaboration with <strong>Home School Educational Center in Qalamoun</strong> and welcomed <strong>12 participants</strong>.</p>
+
+    <p>After an engaging competition, <strong>Yahya Al Falou</strong> secured first place, demonstrating excellent performance and determination throughout the tournament.</p>
+
+    <h3>STREAM Station – Active Learning Center</h3>
+
+    <p>The second tournament was held in partnership with <strong>STREAM Station – Active Learning Center in Kfar Akka, Koura</strong>, bringing together <strong>14 players</strong> for another exciting chess competition.</p>
+
+    <p><strong>Coach Issam Ibrahim</strong> also participated as a player, while being excluded from the prizes, allowing him to gain a deeper understanding of the players' needs and experiences to further enhance future chess lessons.</p>
+
+    <p><strong>Mohamad Hassoun</strong> delivered an excellent performance and secured first place in the tournament.</p>
+
+    <h3>Building the Next Generation of Chess Players</h3>
+
+    <p>Both tournaments were organized by <strong>F.I. Mohamad Hamad</strong>, with the assistance of <strong>Coach Issam Ibrahim</strong>.</p>
+
+    <p>At Fianchetto Chess Center, we are delighted with the success of these events and proud to provide young players with opportunities to experience competitive chess in an educational and encouraging environment.</p>
+
+    <p>We look forward to organizing more tournaments, learning experiences, and chess activities as we continue to support and develop the next generation of chess players.</p>
+  `
+  },
+  
+{
     slug: 'fianchetto-opentournament-2sep-2023',
     tag: 'Open Tournament',
     title: 'Fianchetto Open Chess Tournament Brings Together 29 Players',
