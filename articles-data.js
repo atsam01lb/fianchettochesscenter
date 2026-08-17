@@ -130,6 +130,25 @@ const FIANCHETTO_ARTICLES = [
 },
   {
   tag: 'Community Tournament',
+  title: 'Fianchetto Chess Center Partners with the National Bloc for a Chess Tournament in Tripoli',
+  slug: 'fianchetto-national-bloc-chess-tournament-tripoli-2026',
+  date: 'February 1, 2026',
+  excerpt: 'The National Bloc, in partnership with Fianchetto Chess Center, organized a chess tournament at its headquarters in Tripoli, bringing together Lebanese Champion Akram Khodr and North Lebanon Champion Issam Ibrahim.',
+  images: ['article32-1.jpg', 'article32-2.jpg', 'article32-3.jpg', 'article32-4.jpg', 'article32-5.jpg', 'article32-6.jpg', 'article32-7.jpg', 'article32-8.jpg', 'article32-9.jpg', 'article32-10.jpg'],
+  body: `
+    <p>The <strong>National Bloc</strong>, in partnership with <strong>Fianchetto Chess Center</strong>, organized a chess tournament at its headquarters in Tripoli, as part of an initiative aimed at supporting youth and cultural activities while creating positive spaces for dialogue, engagement, and community interaction.</p>
+
+    <p>The tournament was attended by <strong>Mr. Kamil Mourani</strong>, Political Relations Officer at the National Bloc, and featured the participation of Lebanese Champion <strong>Akram Khodr</strong> and North Lebanon Champion <strong>Issam Ibrahim</strong>.</p>
+
+    <p>The event brought players together in an engaging and competitive atmosphere that reflected the values of sportsmanship, fair play, and healthy competition, while highlighting chess as a platform for intellectual development and meaningful social interaction.</p>
+
+    <p>At the conclusion of the tournament, the winners were officially recognized and presented with commemorative shields in appreciation of their participation and achievements.</p>
+
+    <p>Through collaborations such as this, Fianchetto Chess Center continues to promote chess beyond competition by supporting initiatives that connect young people, encourage intellectual development, and strengthen positive engagement within the community.</p>
+  `
+},
+  {
+  tag: 'Community Tournament',
   title: 'Fianchetto Organizes Chess Tournament at Al Mina Municipality',
   slug: 'fianchetto-chess-tournament-al-mina-municipality-2026',
   date: 'January 24, 2026',
@@ -924,13 +943,6 @@ const FIANCHETTO_ARTICLES = [
         <li><strong>Nadim Hammoud</strong>, for providing chess clocks and setting up the Swiss tournament system.</li>
         <li><strong>Ronald Moughames</strong>, for supplying chess sets and clocks.</li>
         <li><strong>Issam Ibrahim</strong>, for serving as tournament arbiter.</li>
-      </ul>
-
-      <h3>Special Recognition</h3>
-      <p>A special note of appreciation goes to:</p>
-      <ul>
-        <li><strong>Nour Sharif</strong>, one of Fianchetto Chess Center's most dedicated and promising players, who worked tirelessly to prepare a vegan, non-allergenic meal for all participants.</li>
-        <li><strong>Issam Ibrahim</strong>, whose exceptional dedication, professionalism, and arbitration efforts played a key role in ensuring the tournament ran smoothly.</li>
       </ul>
 
       <p>The success of this historic event would not have been possible without the commitment of every volunteer, organizer, arbiter, and participant. Fianchetto Chess Center looks forward to organizing many more tournaments and continuing to grow the Bughouse chess community in Lebanon.</p>
