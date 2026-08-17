@@ -1,1465 +1,939 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tournaments | Fianchetto Chess Center</title>
-<link rel="icon" type="image/png" href="logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --gold: #C9A961;
-    --gold-dark: #8B7340;
-    --gold-light: #E0C684;
-    --black: #1a1a1a;
-    --black-soft: #2a2a2a;
-    --cream: #F5F0E6;
-    --cream-dark: #E8DFC9;
-    --paper: #FAF7F0;
-    --shadow: rgba(26, 26, 26, 0.12);
-    --shadow-strong: rgba(26, 26, 26, 0.25);
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Manrope', sans-serif;
-    background: var(--paper);
-    color: var(--black);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  /* ===== HEADER ===== */
-  header {
-    background: var(--black);
-    color: var(--cream);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 2px solid var(--gold);
-    box-shadow: 0 4px 20px var(--shadow-strong);
-  }
-
-  .header-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .logo-link {
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
-    text-decoration: none;
-    color: var(--cream);
-  }
-
-  .logo-link img {
-    height: 58px;
-    width: 58px;
-    object-fit: contain;
-  }
-
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-  }
-
-  .logo-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    color: var(--gold);
-  }
-
-  .logo-sub {
-    font-size: 0.7rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--cream);
-    margin-top: 0.25rem;
-    opacity: 0.85;
-  }
-
-  nav ul {
-    display: flex;
-    list-style: none;
-    gap: 2.5rem;
-  }
-
-  nav a {
-    color: var(--cream);
-    text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 0.5rem 0;
-    position: relative;
-    transition: color 0.3s ease;
-  }
-
-  nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--gold);
-    transition: width 0.3s ease;
-  }
-
-  nav a:hover { color: var(--gold); }
-  nav a:hover::after { width: 100%; }
-
-  nav a.active { color: var(--gold); }
-  nav a.active::after { width: 100%; }
-
-  .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--cream);
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-
-  /* ===== HERO ===== */
-  .hero {
-    background: linear-gradient(135deg, var(--black) 0%, var(--black-soft) 100%);
-    color: var(--cream);
-    padding: 5rem 2rem 4rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -10%;
-    width: 60%;
-    height: 200%;
-    background: radial-gradient(ellipse, rgba(201, 169, 97, 0.15) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -50%;
-    right: -10%;
-    width: 60%;
-    height: 200%;
-    background: radial-gradient(ellipse, rgba(201, 169, 97, 0.08) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
-
-  .hero-eyebrow {
-    font-size: 0.75rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.2rem;
-    display: inline-block;
-  }
-
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.8rem, 6vw, 4.8rem);
-    font-weight: 600;
-    line-height: 1.05;
-    margin-bottom: 1.2rem;
-    letter-spacing: -0.01em;
-  }
-
-  .hero h1 em {
-    color: var(--gold);
-    font-style: italic;
-    font-weight: 500;
-  }
-
-  .hero p {
-    font-size: 1.05rem;
-    max-width: 580px;
-    margin: 0 auto;
-    opacity: 0.85;
-    font-weight: 300;
-  }
-
-  .hero-divider {
-    width: 60px;
-    height: 2px;
-    background: var(--gold);
-    margin: 2rem auto 0;
-  }
-
-  /* ===== BLOG GRID ===== */
-  .blog-section {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 5rem 2rem;
-  }
-
-  .section-header {
-    margin-bottom: 3.5rem;
-    text-align: center;
-  }
-
-  .section-header .eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--gold-dark);
-    margin-bottom: 1rem;
-    display: inline-block;
-  }
-
-  .section-header h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 600;
-    color: var(--black);
-  }
-
-  .articles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 2.5rem;
-  }
-
-  .empty-state {
-    text-align: center;
-    padding: 5rem 2rem;
-    border: 1px dashed var(--cream-dark);
-  }
-
-  .empty-state-icon {
-    display: block;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3.5rem;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    opacity: 0.7;
-  }
-
-  .empty-state h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--black);
-    margin-bottom: 0.6rem;
-  }
-
-  .empty-state p {
-    color: #777;
-    font-size: 0.95rem;
-  }
-
-  .article-card {
-    background: #fff;
-    border: 1px solid var(--cream-dark);
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-
-  .article-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-    z-index: 2;
-  }
-
-  .article-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 50px var(--shadow);
-    border-color: var(--gold);
-  }
-
-  .article-card:hover::before { transform: scaleX(1); }
-
-  .card-image {
-    width: 100%;
-    height: 220px;
-    overflow: hidden;
-    position: relative;
-    background: var(--cream-dark);
-  }
-
-  .card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-  }
-
-  .article-card:hover .card-image img { transform: scale(1.08); }
-
-  .card-tag {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background: var(--black);
-    color: var(--gold);
-    padding: 0.4rem 0.9rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 600;
-    z-index: 1;
-  }
-
-  .card-body {
-    padding: 1.8rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .card-date {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold-dark);
-    margin-bottom: 0.8rem;
-    font-weight: 500;
-  }
-
-  .card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.55rem;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-bottom: 0.9rem;
-    color: var(--black);
-  }
-
-  .card-excerpt {
-    font-size: 0.92rem;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 1.3rem;
-    flex: 1;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .card-read {
-    font-size: 0.78rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--black);
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: color 0.3s ease, gap 0.3s ease;
-  }
-
-  .article-card:hover .card-read {
-    color: var(--gold-dark);
-    gap: 0.9rem;
-  }
-
-  .card-read::after {
-    content: '→';
-    font-size: 1rem;
-  }
-
-  /* ===== MODAL ===== */
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(26, 26, 26, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 1000;
-    display: none;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 2rem 1rem;
-    overflow-y: auto;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .modal-overlay.active {
-    display: flex;
-    opacity: 1;
-  }
-
-  .modal {
-    background: var(--paper);
-    max-width: 900px;
-    width: 100%;
-    margin: auto;
-    position: relative;
-    transform: translateY(30px);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-  }
-
-  .modal-overlay.active .modal { transform: translateY(0); }
-
-  .modal-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 44px;
-    height: 44px;
-    background: var(--black);
-    color: var(--cream);
-    border: none;
-    border-radius: 50%;
-    font-size: 1.3rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .modal-close:hover {
-    background: var(--gold);
-    color: var(--black);
-    transform: rotate(90deg);
-  }
-
-  .modal-header {
-    padding: 3.5rem 3rem 2rem;
-    border-bottom: 1px solid var(--cream-dark);
-  }
-
-  .modal-tag {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--black);
-    padding: 0.4rem 0.9rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 1.2rem;
-  }
-
-  .modal-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    font-weight: 600;
-    line-height: 1.15;
-    color: var(--black);
-    margin-bottom: 1rem;
-  }
-
-  .modal-meta {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold-dark);
-    font-weight: 500;
-    flex-wrap: wrap;
-  }
-
-  .modal-meta span::before {
-    content: '◆';
-    margin-right: 0.6rem;
-    color: var(--gold);
-  }
-
-  .share-btn {
-    margin-left: auto;
-    background: transparent;
-    border: 1px solid var(--gold);
-    color: var(--gold-dark);
-    font-family: 'Manrope', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .share-btn:hover {
-    background: var(--gold);
-    color: var(--black);
-  }
-
-  .share-toast {
-    position: fixed;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%) translateY(20px);
-    background: var(--black);
-    color: var(--gold);
-    padding: 0.9rem 1.6rem;
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    z-index: 2000;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    border: 1px solid var(--gold);
-  }
-
-  .share-toast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-
-  .modal-images {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.6rem;
-    padding: 2rem 3rem 0;
-  }
-
-  .modal-image {
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    position: relative;
-    background: var(--cream-dark);
-  }
-
-  .modal-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-
-  .modal-image:hover img { transform: scale(1.05); }
-
-  .modal-image-more img {
-    filter: blur(6px);
-    transform: scale(1.1);
-  }
-
-  .modal-image-more:hover img {
-    transform: scale(1.15);
-  }
-
-  .modal-image-more::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(26, 26, 26, 0.55);
-  }
-
-  .modal-image-more-count {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--cream);
-  }
-
-  .modal-image-more {
-    cursor: pointer;
-  }
-
-  @media (max-width: 600px) {
-    .modal-images { grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
-    .modal-image-more-count { font-size: 1.3rem; }
-  }
-
-  /* ===== GALLERY MODAL (all photos) ===== */
-  .gallery-modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(10, 10, 10, 0.94);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    z-index: 1100;
-    display: none;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 2rem 1rem;
-    overflow-y: auto;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .gallery-modal-overlay.active {
-    display: flex;
-    opacity: 1;
-  }
-
-  .gallery-modal {
-    max-width: 1100px;
-    width: 100%;
-    margin: auto;
-    position: relative;
-    transform: translateY(20px);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .gallery-modal-overlay.active .gallery-modal { transform: translateY(0); }
-
-  .gallery-modal-close {
-    position: absolute;
-    top: -0.5rem;
-    right: 0;
-    width: 44px;
-    height: 44px;
-    background: var(--gold);
-    color: var(--black);
-    border: none;
-    border-radius: 50%;
-    font-size: 1.3rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .gallery-modal-close:hover {
-    background: var(--cream);
-    transform: rotate(90deg);
-  }
-
-  .gallery-modal-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--cream);
-    margin-bottom: 1.5rem;
-    padding-right: 3.5rem;
-  }
-
-  .gallery-modal-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 0.8rem;
-  }
-
-  .gallery-modal-grid img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    display: block;
-    cursor: pointer;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-
-  .gallery-modal-grid img:hover {
-    transform: scale(1.03);
-    opacity: 0.9;
-  }
-
-  @media (max-width: 600px) {
-    .gallery-modal-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
-    .gallery-modal-close { top: -2.6rem; right: 0.5rem; }
-  }
-
-  /* Clickable images open the full-screen lightbox */
-  .modal-image:not(.modal-image-more) img,
-  .gallery-modal-grid img {
-    cursor: zoom-in;
-  }
-
-  /* ===== IMAGE LIGHTBOX (full-screen single photo) ===== */
-  .lightbox-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.96);
-    z-index: 1200;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    opacity: 0;
-    transition: opacity 0.25s ease;
-  }
-
-  .lightbox-overlay.active {
-    display: flex;
-    opacity: 1;
-  }
-
-  .lightbox-overlay img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-    cursor: default;
-  }
-
-  .lightbox-close {
-    position: absolute;
-    top: 1.2rem;
-    right: 1.2rem;
-    width: 46px;
-    height: 46px;
-    background: var(--gold);
-    color: var(--black);
-    border: none;
-    border-radius: 50%;
-    font-size: 1.3rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .lightbox-close:hover {
-    background: var(--cream);
-    transform: rotate(90deg);
-  }
-
-  @media (max-width: 600px) {
-    .lightbox-overlay { padding: 1rem; }
-    .lightbox-close { top: 0.8rem; right: 0.8rem; width: 40px; height: 40px; }
-  }
-
-  .modal-body {
-    padding: 2.5rem 3rem 3rem;
-  }
-
-  .modal-body .lead {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
-    line-height: 1.5;
-    color: var(--black);
-    font-style: italic;
-    margin-bottom: 2rem;
-    padding-left: 1.2rem;
-    border-left: 3px solid var(--gold);
-  }
-
-  .modal-body p {
-    margin-bottom: 1.3rem;
-    color: #333;
-    font-size: 1rem;
-    line-height: 1.75;
-  }
-
-  .modal-body p:first-of-type::first-letter {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3.5rem;
-    float: left;
-    line-height: 1;
-    padding: 0.3rem 0.7rem 0 0;
-    color: var(--gold-dark);
-    font-weight: 600;
-  }
-
-  .modal-body h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--black);
-    margin: 2rem 0 1rem;
-    padding-top: 0.5rem;
-    border-top: 1px solid var(--cream-dark);
-  }
-
-  .modal-body h3:first-child {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-
-  .modal-body ul {
-    list-style: none;
-    margin-bottom: 1.3rem;
-  }
-
-  .modal-body ul li {
-    position: relative;
-    padding-left: 1.6rem;
-    margin-bottom: 0.9rem;
-    color: #333;
-    font-size: 1rem;
-    line-height: 1.65;
-  }
-
-  .modal-body ul li::before {
-    content: '♟';
-    position: absolute;
-    left: 0;
-    top: -0.1rem;
-    color: var(--gold-dark);
-    font-size: 1rem;
-  }
-
-  .modal-body ul li strong {
-    color: var(--black);
-    font-weight: 600;
-  }
-
-  .modal-body blockquote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-style: italic;
-    line-height: 1.6;
-    color: var(--black);
-    margin: 1.5rem 0;
-    padding: 1.2rem 1.5rem;
-    background: var(--cream);
-    border-left: 3px solid var(--gold);
-  }
-
-  .modal-body blockquote cite {
-    display: block;
-    margin-top: 0.8rem;
-    font-style: normal;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold-dark);
-    font-weight: 600;
-  }
-
-  /* ===== FOOTER ===== */
-  footer {
-    background: var(--black);
-    color: var(--cream);
-    padding: 4rem 2rem 2rem;
-    margin-top: 4rem;
-    border-top: 2px solid var(--gold);
-  }
-
-  .footer-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 3rem;
-  }
-
-  .footer-brand img {
-    height: 70px;
-    width: 70px;
-    margin-bottom: 1rem;
-  }
-
-  .footer-brand h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    color: var(--gold);
-    margin-bottom: 0.8rem;
-    font-weight: 600;
-  }
-
-  .footer-brand p {
-    font-size: 0.9rem;
-    opacity: 0.75;
-    line-height: 1.7;
-    max-width: 320px;
-  }
-
-  .footer-col h4 {
-    font-size: 0.75rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.4rem;
-    font-weight: 600;
-  }
-
-  .footer-col ul {
-    list-style: none;
-  }
-
-  .footer-col li { margin-bottom: 0.7rem; }
-
-  .footer-col a {
-    color: var(--cream);
-    text-decoration: none;
-    font-size: 0.9rem;
-    opacity: 0.75;
-    transition: all 0.3s ease;
-    display: inline-block;
-  }
-
-  .footer-col a:hover {
-    opacity: 1;
-    color: var(--gold);
-    transform: translateX(4px);
-  }
-
-  .social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 0.8rem;
-  }
-
-  .social-links a {
-    width: 56px;
-    height: 56px;
-    background: var(--gold);
-    border: 2px solid var(--gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--black);
-    transition: all 0.3s ease;
-    opacity: 1;
-    box-shadow: 0 4px 14px rgba(201, 169, 97, 0.35);
-  }
-
-  .social-links a:hover {
-    background: var(--cream);
-    border-color: var(--cream);
-    color: var(--black);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(201, 169, 97, 0.4);
-  }
-
-  .social-links svg {
-    width: 30px;
-    height: 30px;
-    fill: currentColor;
-  }
-
-  .social-links .pin-hole {
-    fill: var(--gold);
-  }
-
-  .social-links a:hover .pin-hole {
-    fill: var(--cream);
-  }
-
-  .footer-bottom {
-    max-width: 1400px;
-    margin: 3.5rem auto 0;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(245, 240, 230, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 0.8rem;
-    opacity: 0.6;
-    letter-spacing: 0.1em;
-  }
-
-  .footer-credit {
-    max-width: 1400px;
-    margin: 1rem auto 0;
-    text-align: center;
-    font-size: 0.72rem;
-    letter-spacing: 0.05em;
-    color: var(--cream);
-    opacity: 0.45;
-  }
-
-  .footer-credit a {
-    color: var(--gold);
-    text-decoration: none;
-    opacity: 1;
-  }
-
-  .footer-credit a:hover {
-    text-decoration: underline;
-  }
-
-  /* ===== WHATSAPP FLOATING BUTTON ===== */
-  .whatsapp-float {
-    position: fixed;
-    bottom: 1.8rem;
-    right: 1.8rem;
-    width: 58px;
-    height: 58px;
-    background: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    z-index: 999;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: wa-pulse 2.5s ease-in-out infinite;
-  }
-
-  .whatsapp-float:hover {
-    transform: scale(1.08);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-  }
-
-  .whatsapp-float svg {
-    width: 30px;
-    height: 30px;
-    fill: #fff;
-  }
-
-  @keyframes wa-pulse {
-    0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(37, 211, 102, 0.5); }
-    50% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 0 10px rgba(37, 211, 102, 0); }
-  }
-
-  @media (max-width: 768px) {
-    .whatsapp-float { bottom: 1.2rem; right: 1.2rem; width: 52px; height: 52px; }
-    .whatsapp-float svg { width: 26px; height: 26px; }
-  }
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 900px) {
-    .footer-inner {
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-    .modal-header, .modal-body { padding-left: 1.8rem; padding-right: 1.8rem; }
-    .modal-images { padding: 1.5rem 1.8rem 0; }
-  }
-
-  @media (max-width: 768px) {
-    nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--black); border-top: 1px solid var(--gold); }
-    nav.open { display: block; }
-    nav ul { flex-direction: column; gap: 0; padding: 1rem 2rem; }
-    nav li { border-bottom: 1px solid rgba(201, 169, 97, 0.15); }
-    nav li:last-child { border-bottom: none; }
-    nav a { display: block; padding: 1rem 0; }
-    .menu-toggle { display: block; }
-
-    .logo-link img { height: 48px; width: 48px; }
-    .logo-title { font-size: 1.3rem; }
-    .logo-sub { font-size: 0.6rem; letter-spacing: 0.25em; }
-
-    .articles-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .blog-section { padding: 3rem 1.2rem; }
-
-    .modal-header, .modal-body { padding-left: 1.3rem; padding-right: 1.3rem; }
-    .modal-images { padding: 1.2rem 1.3rem 0; }
-    .modal-header { padding-top: 3rem; }
-
-    .footer-inner { grid-template-columns: 1fr; }
-    .footer-bottom { flex-direction: column; text-align: center; }
-  }
-
-  /* ===== ANIMATIONS ===== */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .article-card {
-    animation: fadeUp 0.6s ease backwards;
-  }
-  .article-card:nth-child(1) { animation-delay: 0.05s; }
-  .article-card:nth-child(2) { animation-delay: 0.15s; }
-  .article-card:nth-child(3) { animation-delay: 0.25s; }
-  .article-card:nth-child(4) { animation-delay: 0.35s; }
-  .article-card:nth-child(5) { animation-delay: 0.45s; }
-
-  body.modal-open { overflow: hidden; }
-</style>
-<script src="articles-data.js"></script>
-</head>
-<body>
-
-<!-- ============ HEADER ============ -->
-<header>
-  <div class="header-inner">
-    <a href="/" class="logo-link">
-      <img src="logo.png" alt="Fianchetto Chess Center logo">
-      <div class="logo-text">
-        <span class="logo-title">Fianchetto</span>
-        <span class="logo-sub">Chess Center</span>
-      </div>
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-    <nav id="nav">
+const FIANCHETTO_ARTICLES = [
+  {
+  tag: 'Classical Championship',
+  title: 'North Lebanon Classical Chess Qualifiers | Mohamad Sleiman Takes First Place',
+  slug: 'north-lebanon-classical-chess-qualifiers-2026',
+  date: 'May 24, 2026',
+  excerpt: 'Under the patronage of the Lebanese Chess Federation, Fianchetto Chess Center organized and hosted the North Lebanon Classical Chess Qualifiers, bringing players together for six days of competitive chess.',
+  images: ['article31-1.jpg', 'article31-2.jpg', 'article31-3.jpg', 'article31-4.jpg', 'article31-5.jpg', 'article31-6.jpg'],
+  body: `
+    <p>Under the patronage of the <strong>Lebanese Chess Federation</strong>, Fianchetto Chess Center organized and hosted the <strong>North Lebanon Classical Chess Qualifiers</strong>.</p>
+
+    <p>The championship extended over <strong>6 days</strong> of competitive classical chess, giving players from North Lebanon the opportunity to compete for qualification to the national finals.</p>
+
+    <h3>Championship Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Mohamad Sleiman</li>
+      <li><strong>2nd Place:</strong> Issam Ibrahim</li>
+      <li><strong>3rd Place:</strong> Omar Fatfat</li>
+    </ul>
+
+    <h3>On to the Finals</h3>
+
+    <p>Fianchetto Chess Center congratulates the top finishers on their performances throughout the six-day championship.</p>
+
+    <p>We wish the qualified players the very best as they move forward to the national finals and continue representing North Lebanon in competitive chess.</p>
+  `
+},
+  {
+  tag: 'University Tournament',
+  title: 'Jinan University Hosts Rapid Chess Tournament | 52 Players Compete',
+  slug: 'jinan-university-rapid-chess-tournament-2026',
+  date: 'May 4, 2026',
+  excerpt: 'Jinan University, in collaboration with Fianchetto Chess Center, organized a Rapid Chess Tournament in Tripoli, bringing together 52 players from different age groups for an exciting day of competition.',
+  images: ['article30-1.jpg', 'article30-2.jpg', 'article30-3.jpg', 'article30-4.jpg', 'article30-5.jpg', 'article30-6.jpg', 'article30-7.jpg', 'article30-8.jpg', 'article30-9.jpg', 'article30-10.jpg', 'article30-11.jpg'],
+  body: `
+    <p><strong>Jinan University</strong>, in collaboration with <strong>Fianchetto Chess Center</strong>, organized a <strong>Rapid Chess Tournament</strong> in Tripoli, bringing together <strong>52 players</strong> from different age groups in an enthusiastic and competitive atmosphere.</p>
+
+    <p>The tournament reflected a shared commitment to promoting chess as an intellectual activity that develops strategic thinking, planning, concentration, and positive competition among young people.</p>
+
+    <h3>Supporting Intellectual and Youth Activities</h3>
+
+    <p>During the event, <strong>Dr. Alissar Farhat, Dean of Student Affairs</strong>, highlighted the university's commitment to supporting intellectual and cultural activities that contribute to developing students' thinking and planning skills.</p>
+
+    <p><strong>Federation Arbiter Mohamad Hamad</strong> also praised the high level demonstrated by the participants and the organization that contributed to the success of the tournament.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Abdallah Al Kass</li>
+      <li><strong>2nd Place:</strong> Issam Ibrahim</li>
+      <li><strong>3rd Place:</strong> Mohamad Sleiman</li>
+      <li><strong>4th Place:</strong> Mahmoud Maasrani</li>
+      <li><strong>5th Place:</strong> Ahmad Jawad</li>
+      <li><strong>Best Female Result:</strong> Rasha Othman</li>
+    </ul>
+
+    <h3>Celebrating Participation and Achievement</h3>
+
+    <p>At the conclusion of the tournament, prizes were presented to the winners, while certificates of participation were awarded to all competitors in recognition of their efforts and active involvement in the event.</p>
+
+    <p>Fianchetto Chess Center values this collaboration with <strong>Jinan University</strong> and looks forward to organizing more joint activities that strengthen the presence of chess, create new competitive opportunities, and support the development of young players.</p>
+  `
+},
+  {
+  tag: 'FIDE Rated Tournament',
+  title: 'Fianchetto Hosts Its First Internationally Rated Classical Chess Tournament',
+  slug: 'fianchetto-first-fide-rated-classical-chess-tournament-2026',
+  date: 'February 22, 2026',
+  excerpt: 'Under the patronage of the Lebanese Chess Federation, Fianchetto Chess Center organized its first internationally rated Classical Chess Tournament, bringing together 29 players for eight days of competitive chess.',
+  images: ['article29-1.jpg', 'article29-2.jpg', 'article29-3.jpg', 'article29-4.jpg', 'article29-5.jpg'],
+  body: `
+    <p>Under the patronage of the <strong>Lebanese Chess Federation</strong>, Fianchetto Chess Center organized its <strong>first internationally rated Classical Chess Tournament</strong>, generously hosted by <strong>Al Ghawth Medical Center</strong>.</p>
+
+    <p>The tournament welcomed <strong>29 players</strong> and extended over <strong>8 days</strong> of competitive classical chess, providing participants with an opportunity to test their skills in a professionally organized and internationally rated event.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Akram Khodr</li>
+      <li><strong>2nd Place:</strong> Issam Ibrahim</li>
+      <li><strong>3rd Place:</strong> Obeida Alwan</li>
+    </ul>
+
+    <h3>A Milestone for Fianchetto</h3>
+
+    <p>Hosting our first internationally rated classical tournament represents an important milestone for Fianchetto Chess Center and reflects our continued commitment to developing competitive chess and creating new opportunities for players.</p>
+
+    <p>Fianchetto Chess Center congratulates the winners and all participants for their performances and competitive spirit throughout the eight-day tournament.</p>
+
+    <p>We also extend our sincere appreciation to <strong>Al Ghawth Medical Center</strong> for its generous hospitality and support, and to the <strong>Lebanese Chess Federation</strong> for its patronage of the tournament.</p>
+  `
+},
+  {
+  tag: 'University Championship',
+  title: 'Fianchetto at the Lebanese University North Branch Rapid Chess Championship',
+  slug: 'lebanese-university-north-branch-rapid-chess-championship-2026',
+  date: 'February 2, 2026',
+  excerpt: 'Fianchetto Chess Center collaborated with the Lebanese University to organize the second North Branch Rapid Chess Championship, bringing together 36 university students for a competitive chess event.',
+  images: ['article28-1.jpg', 'article28-2.jpg', 'article28-3.jpg', 'article28-4.jpg', 'article28-5.jpg', 'article28-6.jpg'],
+  body: `
+    <p>For the second consecutive year, <strong>36 male and female students</strong> from different branches of the <strong>Lebanese University in North Lebanon</strong> participated in the university's Rapid Chess Championship.</p>
+
+    <p>The tournament was held at the <strong>Faculty of Engineering | Branch 1</strong> and organized by the university's Chess Club in collaboration with <strong>Fianchetto Chess Center</strong> and the Department of Sports Activities at the Lebanese University.</p>
+
+    <h3>Open Category Results</h3>
+
+    <p>In the open category, <strong>Issam Ibrahim</strong>, a third-year Literature student, secured first place with an impressive score of <strong>5 out of 5 points</strong>.</p>
+
+    <p><strong>Mohamad Sleiman</strong>, a third-year Business Administration student, finished second on tiebreak after also scoring <strong>5 out of 5 points</strong>.</p>
+
+    <h3>Women's Category</h3>
+
+    <p>In the women's category, <strong>Imad</strong>, a third-year Science student, achieved the best female result in the championship.</p>
+
+    <h3>Organization and Recognition</h3>
+
+    <p>The championship was supervised by <strong>Coach Fadi Toubia</strong> from the Department of Sports Activities, in cooperation with students from the university's Chess Club and <strong>Fianchetto Chess Center</strong>.</p>
+
+    <p>At the conclusion of the tournament, the winners received trophies and commemorative medals in recognition of their achievements.</p>
+
+    <p>Commemorative shields were also presented to representatives of the Department of Sports Activities at the Lebanese University, Fianchetto Chess Center, and the administration of the Faculty of Engineering | Branch 1.</p>
+
+    <h3>Path to the Lebanese University Championship</h3>
+
+    <p>This championship served as the <strong>first qualifying stage</strong> for the Lebanese University Championship at the national level, followed by participation in the Universities Chess Championship.</p>
+
+    <p>Fianchetto Chess Center is proud to support university chess and contribute to creating competitive opportunities for students across Lebanon.</p>
+  `
+},
+  {
+  tag: 'Community Tournament',
+  title: 'Fianchetto Organizes Chess Tournament at Al Mina Municipality',
+  slug: 'fianchetto-chess-tournament-al-mina-municipality-2026',
+  date: 'January 24, 2026',
+  excerpt: 'Fianchetto Chess Center organized a successful chess tournament in collaboration with the Sports Committee of Al Mina Municipality, bringing together 55 players for an evening of competition and community engagement.',
+  images: ['article26-1.jpg', 'article26-2.jpg', 'article26-3.jpg', 'article26-4.jpg', 'article26-5.jpg'],
+  body: `
+    <p>Fianchetto Chess Center, in collaboration with the <strong>Sports Committee of Al Mina Municipality</strong>, organized a successful chess tournament under the patronage and hosting of <strong>Al Mina Municipality</strong>.</p>
+
+    <p>The event welcomed <strong>55 players</strong> and attracted an enthusiastic audience, creating a competitive and engaging atmosphere that reflected the spirit of sportsmanship and intellectual challenge.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Abdallah Al Kass</li>
+      <li><strong>2nd Place:</strong> Khalil Issa</li>
+      <li><strong>3rd Place:</strong> Reem Khodr | Best Female Result</li>
+      <li><strong>Second Best Female Result:</strong> Safa Imad</li>
+    </ul>
+
+    <h3>Community Support</h3>
+
+    <p>Fianchetto Chess Center extends its appreciation to <strong>Shoppies</strong> for supporting the event through hospitality and prizes, contributing to the overall success of the tournament.</p>
+
+    <p>The tournament represented an important combination of sports, intellectual competition, and community engagement while strengthening cooperation between chess centers and local municipalities.</p>
+
+    <p>Through initiatives like this, Fianchetto Chess Center continues to create opportunities for players to compete, connect, and develop while promoting chess across the community.</p>
+  `
+},
+  {
+  tag: 'University Tournament',
+  title: 'Fianchetto Collaborates with ISSAE-Cnam Liban | First Friendly Rapid Chess Tournament',
+  slug: 'fianchetto-issae-cnam-liban-friendly-rapid-chess-tournament',
+  date: 'December 14, 2025',
+  excerpt: 'Fianchetto Chess Center collaborated with ISSAE-Cnam Liban | Tripoli Center to organize its first friendly Rapid Chess Tournament, bringing together 40 players from different age groups.',
+  images: ['article25-1.jpg', 'article25-2.jpg', 'article25-3.jpg', 'article25-4.jpg', 'article25-5.jpg', 'article25-6.jpg'],
+  body: `
+    <p>Fianchetto Chess Center, in collaboration with <strong>ISSAE-Cnam Liban | Tripoli Center</strong>, organized the institution's first friendly <strong>Rapid Chess Tournament</strong>, bringing together players for an engaging day of competition and community.</p>
+
+    <p>The tournament welcomed <strong>40 players</strong> from different age groups and concluded with an awards ceremony recognizing the top individual performers, special category winners, and participating universities.</p>
+
+    <h3>Individual Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Samir Dhahabi | Lebanese University</li>
+      <li><strong>2nd Place:</strong> Omar Fatfat | Le Cnam Liban</li>
+      <li><strong>3rd Place:</strong> Issam Ibrahim | Lebanese University</li>
+    </ul>
+
+    <h3>Special Awards</h3>
+
+    <ul>
+      <li><strong>Best Female Result:</strong> Nour Assoum</li>
+      <li><strong>Best Junior Result:</strong> Obeida Alwan</li>
+    </ul>
+
+    <h3>University Rankings</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Lebanese University</li>
+      <li><strong>2nd Place:</strong> Beirut Arab University</li>
+      <li><strong>3rd Place:</strong> ISSAE-Cnam Liban</li>
+    </ul>
+
+    <h3>Strengthening University Chess</h3>
+
+    <p>Fianchetto Chess Center congratulates all the winners and participants for their performances and contribution to the success of the tournament.</p>
+
+    <p>We extend our sincere appreciation to <strong>ISSAE-Cnam Liban | Tripoli Center</strong> for its hospitality and collaboration and look forward to continuing this partnership through more chess tournaments and joint activities in the future.</p>
+  `
+},
+  {
+  tag: 'Friendly Tournament',
+  title: 'Friendly Chess Tournament at Beirut Arab University | Tripoli Branch',
+  slug: 'friendly-chess-tournament-beirut-arab-university-tripoli-2025',
+  date: 'November 21, 2025',
+  excerpt: 'Fianchetto Chess Center collaborated with Beirut Arab University | Tripoli Branch to organize an internal friendly chess tournament featuring 25 players and a competitive atmosphere.',
+  images: ['article24-1.jpg', 'article24-2.jpg', 'article24-3.jpg', 'article24-4.jpg', 'article24-5.jpg'],
+  body: `
+    <p>Fianchetto Chess Center, in collaboration with <strong>Beirut Arab University | Tripoli Branch</strong>, organized an internal friendly chess tournament that brought together <strong>25 players</strong> for an engaging and competitive chess experience.</p>
+
+    <p>The tournament provided participants with an opportunity to test their skills, gain valuable competitive experience, and connect with fellow chess players in a friendly environment.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Akram Khodr</li>
+      <li><strong>2nd Place:</strong> Karim Al Jundi</li>
+      <li><strong>3rd Place:</strong> Mohamad Hassoun</li>
+      <li><strong>Best Female Result:</strong> Sirine Jebs</li>
+    </ul>
+
+    <h3>Supporting University Chess</h3>
+
+    <p>Fianchetto Chess Center is pleased to continue supporting chess activities within universities and creating opportunities for students to experience competitive chess in an encouraging environment.</p>
+
+    <p>We congratulate all the winners and participants and look forward to more successful collaborations and university chess activities in the future.</p>
+  `
+},
+  {
+  tag: 'Community Event',
+  title: 'Chess, Learning and Community | A Two-Day Social Event',
+  slug: 'chess-learning-community-two-day-social-event',
+  date: 'November 13, 2025',
+  excerpt: 'Fianchetto Chess Center collaborated with Nahnoo Association on a two-day social chess event featuring educational sessions, a friendly tournament, and chess-based activities.',
+  images: ['article23-1.jpg', 'article23-2.jpg', 'article23-3.jpg', 'article23-4.jpg', 'article23-5.jpg', 'article23-6.jpg', 'article23-7.jpg'],
+  body: `
+    <p>Fianchetto Chess Center, in collaboration with <strong>Nahnoo Association</strong>, organized a two-day social chess event that brought together players and chess enthusiasts for an engaging community experience.</p>
+
+    <p>The event featured a variety of activities, including <strong>educational chess sessions, a friendly tournament, and several chess-based games</strong>, creating an environment that combined learning, competition, and social interaction.</p>
+
+    <h3>Bringing Chess Communities Together</h3>
+
+    <p>A delegation of Fianchetto Chess Center players from North Lebanon participated in the event alongside a <strong>Palestinian team from the chess school at Shatila Camp</strong>. A number of participants from the Beirut community also joined the activities.</p>
+
+    <p>The gathering provided players from different communities with an opportunity to meet, compete, exchange experiences, and connect through their shared passion for chess.</p>
+
+    <h3>Friendly Tournament</h3>
+
+    <p>The two-day event concluded with an awards ceremony recognizing the top performers in the friendly chess tournament.</p>
+
+    <p>The event represented another successful community initiative for Fianchetto Chess Center, highlighting the role of chess in education, social interaction, and building connections between players from different backgrounds.</p>
+
+    <p>We look forward to continuing this collaboration and organizing more chess activities and community initiatives in the future.</p>
+  `
+},
+  {
+  tag: 'Community Events',
+  title: 'A Weekend of Chess and Community | Rapid and Blitz Tournaments',
+  slug: 'weekend-chess-community-rapid-blitz-tournaments',
+  date: 'September 9, 2025',
+  excerpt: 'Fianchetto Chess Center organized two friendly chess events in Tripoli and Byblos, combining Rapid and Blitz competition with social activities designed to strengthen connections within the chess community.',
+  images: ['article22-1.jpg', 'article22-2.jpg', 'article22-3.jpg', 'article22-4.jpg', 'article22-5.jpg', 'article22-6.jpg', 'article22-7.jpg'],
+  body: `
+    <p>Fianchetto Chess Center organized two special activities over the weekend, bringing players together through competitive chess and engaging social experiences in <strong>Tripoli</strong> and <strong>Byblos</strong>.</p>
+
+    <h3>Friendly Rapid Chess Tournament | Tripoli</h3>
+
+    <p>The first event was a friendly <strong>Rapid Chess Tournament</strong> hosted by the <strong>Cultural Association in Tripoli</strong>.</p>
+
+    <p>Following an exciting competition, the final standings were:</p>
+
+    <ul>
+      <li><strong>1st Place:</strong> Issam Ibrahim</li>
+      <li><strong>2nd Place:</strong> Abdallah Al Kass</li>
+      <li><strong>3rd Place:</strong> Omar Darniqa</li>
+    </ul>
+
+    <h3>Friendly Blitz Chess Tournament | Byblos</h3>
+
+    <p>The second event featured a friendly <strong>Blitz Chess Tournament</strong> hosted by <strong>Dice and Bites in Byblos</strong>, offering players another opportunity to compete in a fast-paced and enjoyable environment.</p>
+
+    <p>The final standings were:</p>
+
+    <ul>
+      <li><strong>1st Place:</strong> Issam Ibrahim</li>
+      <li><strong>2nd Place:</strong> Omar Darniqa</li>
+      <li><strong>3rd Place:</strong> Omar Basha</li>
+    </ul>
+
+    <h3>Beyond the Chessboard</h3>
+
+    <p>Following the Blitz Tournament, participants enjoyed a variety of individual and group board games, creating a relaxed social atmosphere beyond the competitive chessboard.</p>
+
+    <p>These activities reflect Fianchetto Chess Center's commitment to combining competition with community, providing players with opportunities to develop their skills while building stronger relationships with one another.</p>
+
+    <p>Fianchetto Chess Center extends its sincere appreciation to everyone who contributed to the success of these events and to our hosts for their support and hospitality.</p>
+
+    <p>We look forward to organizing more competitive, social, and memorable chess experiences for our community.</p>
+  `
+},
+  {
+  tag: 'National Championship',
+  title: 'Akram Khodr Crowned Lebanese Rapid Chess Champion 2025',
+  slug: 'akram-khodr-lebanese-rapid-chess-champion-2025',
+  date: 'September 1, 2025',
+  excerpt: 'Akram Khodr claimed first place at the 2025 Lebanese Rapid Chess Championship, while Fianchetto Chess Academy proudly participated with 33 players.',
+  images: ['article21-1.jpg', 'article21-2.jpg', 'article21-3.jpg', 'article21-4.jpg'],
+  body: `
+    <p><strong>Akram Khodr</strong> has been crowned the <strong>2025 Lebanese Rapid Chess Champion</strong> following an outstanding performance at the Lebanese Rapid Chess Championship.</p>
+
+    <p>The championship was organized by the <strong>Lebanese Chess Federation</strong> under the patronage and hosting of <strong>Miziara Youth Club</strong>.</p>
+
+    <p>The event was distinguished by its smooth organization, warm hospitality, and welcoming atmosphere, bringing together players from across Lebanon for an exciting national competition.</p>
+
+    <h3>Strong Fianchetto Participation</h3>
+
+    <p><strong>Fianchetto Chess Academy</strong> proudly participated in the championship with an impressive delegation of <strong>33 players</strong>, demonstrating the academy's strong presence and commitment to competitive chess in Lebanon.</p>
+
+    <h3>Lebanese Rapid Chess Champion</h3>
+
+    <p>Fianchetto proudly congratulates <strong>Akram Khodr</strong> on securing <strong>1st Place</strong> and becoming the 2025 Lebanese Rapid Chess Champion.</p>
+
+    <p>Congratulations to Akram and all the Lebanese champions who competed in the tournament.</p>
+
+    <p>Fianchetto Chess Academy also extends its sincere appreciation to everyone who contributed to the successful organization of the championship for the second consecutive year.</p>
+  `
+},
+  {
+  tag: 'Rapid Tournament',
+  title: 'Miziara Friendly Rapid Chess Tournament | Second Edition',
+  slug: 'miziara-friendly-rapid-chess-tournament-second-edition',
+  date: 'July 21, 2025',
+  excerpt: 'Fianchetto Chess Center, in collaboration with Miziara Youth Club, organized the second edition of the Miziara Friendly Rapid Chess Tournament, bringing together 40 players for a competitive and enjoyable chess experience.',
+  images: ['article20-1.jpg', 'article20-2.jpg', 'article20-3.jpg', 'article20-4.jpg', 'article20-5.jpg', 'article20-6.jpg', 'article20-7.jpg', 'article20-8.jpg'],
+  body: `
+    <p>Under the patronage and hosting of <strong>Miziara Youth Club</strong>, and in collaboration with <strong>Fianchetto Chess Center</strong>, the <strong>Miziara Friendly Rapid Chess Tournament</strong> was organized for the second consecutive year.</p>
+
+    <p>The tournament brought together <strong>40 players</strong> competing under the Swiss system, with a time control of <strong>10 minutes + 5 seconds</strong> per player.</p>
+
+    <p>The event featured smooth organization, strong competition, and a welcoming atmosphere, complemented by a variety of enjoyable activities connected to the world of chess.</p>
+
+    <h3>Final Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Akram Khodr</li>
+      <li><strong>2nd Place:</strong> Issam Ibrahim</li>
+      <li><strong>3rd Place:</strong> Youssef Younes</li>
+      <li><strong>Best Female Result:</strong> Rama Hassoun</li>
+      <li><strong>Best Under 14:</strong> Omar Darniqa | also finishing 4th overall in the tournament</li>
+      <li><strong>Best Under 10:</strong> Zaid Skaff</li>
+      <li><strong>Youngest Participant:</strong> Marco Kousa | 7 years old</li>
+    </ul>
+
+    <h3>More Than a Tournament</h3>
+
+    <p>The event concluded with a friendly chess activities session featuring several entertaining chess formats, including <strong>Queen's Gambit, 4Chess, Crazyhouse, Antichess, Bughouse, Simultaneous Chess</strong>, and more.</p>
+
+    <p>Fianchetto Chess Center extends its sincere appreciation to <strong>Miziara Youth Club</strong> for its exceptional hospitality and for hosting the tournament for the second consecutive year.</p>
+
+    <p>We look forward to more activities, collaborations, and memorable chess experiences together in the near future.</p>
+  `
+},
+  {
+  tag: 'Classical Championship',
+  title: 'North Lebanon Classical Chess Championship 2025 | Final Results',
+  slug: 'north-lebanon-classical-chess-championship-2025',
+  date: 'June 5, 2025',
+  excerpt: 'The 2025 North Lebanon Classical Chess Championship concluded after a competitive event organized by the Lebanese Chess Federation in collaboration with Fianchetto Chess Center.',
+  images: ['article19-1.jpg', 'article19-2.jpg', 'article19-3.jpg', 'article19-4.jpg', 'article19-5.jpg', 'article19-6.jpg', 'article19-7.jpg', 'article19-8.jpg'],
+  body: `
+    <p>The <strong>2025 North Lebanon Classical Chess Championship</strong> officially concluded in the presence of <strong>Eng. Shawki Fatfat</strong>, President of the Order of Engineers, and <strong>Ali Al Houeish</strong>, member of the Lebanese Chess Federation.</p>
+
+    <p>The championship was organized by the <strong>Lebanese Chess Federation</strong> in collaboration with <strong>Fianchetto Chess Center</strong> and hosted by the <strong>Order of Engineers | Tripoli</strong>, under the supervision of Federation Arbiter <strong>Mohamad Hamad</strong>.</p>
+
+    <h3>Championship Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Issam Ibrahim</li>
+      <li><strong>2nd Place:</strong> Abdallah Al Kass</li>
+      <li><strong>3rd Place:</strong> Simon Kattal</li>
+      <li><strong>4th Place:</strong> Omar Fatfat</li>
+    </ul>
+
+    <h3>Closing Ceremony</h3>
+
+    <p>During the closing ceremony, prizes were awarded to the top three finishers in recognition of their outstanding performances and efforts throughout the championship.</p>
+
+    <p>Fianchetto Chess Center extends its sincere appreciation to all participants, guests, organizers, and everyone who contributed to the success of the championship.</p>
+
+    <p>Congratulations to the winners on their achievements, and we look forward to more competitive chess events across North Lebanon.</p>
+  `
+},
+  {
+  tag: 'University Championship',
+  title: 'Fianchetto Organizes the First North Lebanon Universities Team Chess Championship',
+  slug: 'first-north-lebanon-universities-team-chess-championship',
+  date: 'April 18, 2025',
+  excerpt: 'Fianchetto Chess Center, in collaboration with Beirut Arab University | Tripoli Branch, organized the first North Lebanon Universities Team Chess Championship, bringing together nine university teams.',
+  images: ['article18-1.jpg', 'article18-2.jpg', 'article18-3.jpg', 'article18-4.jpg', 'article18-5.jpg', 'article18-6.jpg', 'article18-7.jpg', 'article18-8.jpg'],
+  body: `
+    <p>Fianchetto Chess Center, in collaboration with <strong>Beirut Arab University | Tripoli Branch</strong>, successfully organized the <strong>North Lebanon Universities Team Chess Championship</strong>.</p>
+
+    <p>This event marked an important milestone as the <strong>first championship of its kind in North Lebanon</strong>, bringing university students together through competitive chess.</p>
+
+    <p>A total of <strong>9 teams</strong> representing different universities participated in the championship.</p>
+
+    <h3>University Team Results</h3>
+
+    <ul>
+      <li>
+        <strong>1st Place | Lebanese University</strong><br>
+        Team: Issam Ibrahim, Samir Dhahabi, Osama Ouwaydah, Karim Saleh and Safa Imad
+      </li>
+
+      <li>
+        <strong>2nd Place | CNAM University</strong><br>
+        Team: Omar Fatfat, Omar Ismail, Omar Al Najjar and Reem Al Ibrahim
+      </li>
+
+      <li>
+        <strong>3rd Place | Beirut Arab University | Tripoli Branch</strong><br>
+        The team tied for second place but finished third following the tiebreak.<br>
+        Team: Akram Khodr, Nour Assoum, Karim Al Jundi, Youssef Younes and Omar Mustafa
+      </li>
+    </ul>
+
+    <h3>Individual Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Samir Dhahabi</li>
+      <li><strong>2nd Place:</strong> Akram Khodr</li>
+      <li><strong>3rd Place:</strong> Issam Ibrahim</li>
+      <li><strong>4th Place:</strong> Osama Ouwaydah</li>
+      <li><strong>Best Female Result:</strong> Nour Assoum</li>
+    </ul>
+
+    <h3>A Milestone for University Chess in North Lebanon</h3>
+
+    <p>Fianchetto Chess Center is proud to have organized this first-of-its-kind university team championship and to provide a competitive platform connecting university chess players from across North Lebanon.</p>
+
+    <p>We congratulate all the winning teams and individual players and thank everyone who participated and contributed to the success of this championship.</p>
+  `
+},
+  {
+  tag: 'Friendly Tournament',
+  title: 'A Rainy Day of Chess | Bikaai Eid Festival',
+  slug: 'bikaai-eid-festival-friendly-chess-tournament',
+  date: 'April 2, 2025',
+  excerpt: 'Fianchetto Chess Center organized a friendly tournament during the Bikaai Eid Festival in Qalamoun, introducing many new participants to competitive chess despite the rainy weather.',
+  images: ['article17-1.jpg', 'article17-2.jpg', 'article17-3.jpg'],
+  body: `
+    <p>Fianchetto Chess Center organized a small and friendly chess tournament during the <strong>Bikaai Eid Festival in Qalamoun</strong>, creating a new and enjoyable experience for many participants who were discovering tournament chess for the first time.</p>
+
+    <p>Despite the rainy weather, the event continued successfully and maintained a positive and enthusiastic atmosphere throughout the day.</p>
+
+    <p>The festival generously provided vouchers as prizes for the top performers, adding an extra element of excitement to the competition.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Issam Ibrahim | who generously donated his prize to the best young player</li>
+      <li><strong>2nd Place:</strong> Abdallah Al Kass</li>
+      <li><strong>3rd Place:</strong> Nour Assoum</li>
+      <li><strong>4th Place:</strong> Hamza Chweikh</li>
+    </ul>
+
+    <h3>A Memorable Community Experience</h3>
+
+    <p>The tournament offered participants a welcoming introduction to competitive chess while bringing people together through a shared passion for the game.</p>
+
+    <p>Fianchetto Chess Center is pleased to have contributed to this festive community event and looks forward to creating more accessible and enjoyable chess experiences in the future.</p>
+  `
+},
+  {
+  tag: 'Friendly Tournament',
+  title: 'Fianchetto Players Shine at Batroun Sports Club Friendly Tournament',
+  slug: 'fianchetto-players-batroun-sports-club-friendly-tournament',
+  date: 'March 17, 2025',
+  excerpt: 'Fianchetto Chess Center players achieved strong results at Batroun Sports Club’s first friendly chess tournament, which brought together players of different ages and backgrounds.',
+  images: ['article16-1.jpg', 'article16-2.jpg', 'article16-3.jpg', 'article16-4.jpg'],
+  body: `
+    <p><strong>Batroun Sports Club</strong>, in collaboration with <strong>Fianchetto Chess Center</strong>, hosted its first friendly chess tournament, bringing together players of different ages and backgrounds for a competitive and enjoyable event.</p>
+
+    <p>Fianchetto Chess Center was proud to see its players achieve several notable results across different categories.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place | Open:</strong> Akram Khodr</li>
+      <li><strong>5th Place | Open:</strong> Sيدة Alwan</li>
+      <li><strong>Best Female Result:</strong> Rania Asoum</li>
+      <li><strong>1st Place | Under 12:</strong> Jad Tleis</li>
+      <li><strong>Tied for 1st Place | Under 14:</strong> Issam Al Mulla | also finishing 6th overall in the tournament</li>
+    </ul>
+
+    <h3>A Promising Start</h3>
+
+    <p>Fianchetto Chess Center congratulates all the winners and participants on their performances and competitive spirit throughout the tournament.</p>
+
+    <p>We also extend our sincere appreciation to <strong>Batroun Sports Club</strong> for hosting the event, and we wish them a successful beginning and a promising journey in the chess community.</p>
+  `
+},
+  {
+  tag: 'Youth Tournament',
+  title: 'Fianchetto Organizes Friendly Chess Tournament at Beirut Arab University',
+  slug: 'fianchetto-friendly-chess-tournament-beirut-arab-university',
+  date: 'February 20, 2025',
+  excerpt: 'Fianchetto Chess Center organized a friendly closed chess tournament at Beirut Arab University | Tripoli Branch, bringing together 19 young players for an exciting and competitive event.',
+  images: ['article15-1.jpg', 'article15-2.jpg', 'article15-3.jpg', 'article15-4.jpg'],
+  body: `
+    <p><strong>Beirut Arab University | Tripoli Branch</strong> hosted a friendly closed chess tournament organized by <strong>Fianchetto Chess Center</strong>, bringing together <strong>19 young players</strong> for an exciting day of chess.</p>
+
+    <p>The tournament featured strong competition and an enthusiastic atmosphere, creating a memorable experience for the participating students and providing them with an opportunity to develop their competitive chess skills.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Akram Khodr | 7 points out of 7</li>
+      <li><strong>2nd Place:</strong> Nour Asoum | 6 points out of 7</li>
+      <li><strong>3rd Place:</strong> Omar Mustafa | 5 points out of 7</li>
+    </ul>
+
+    <h3>Building Chess Through Collaboration</h3>
+
+    <p>Fianchetto Chess Center congratulates the winners and all the young players who participated and contributed to the positive and competitive spirit of the tournament.</p>
+
+    <p>We look forward to announcing more collaborative and engaging chess activities in the near future.</p>
+  `
+},
+  {
+  tag: 'National Championship',
+  title: 'Al Wifak / Fianchetto Competes in Lebanon’s First Division',
+  slug: 'al-wifak-fianchetto-lebanon-first-division-2025',
+  date: 'January 18, 2025',
+  excerpt: 'Fianchetto Chess Center players represented Al Wifak Sports Club in Lebanon’s First Division Club Championship, completing an eight-day competition and successfully maintaining their place in the top division.',
+  images: ['article14-01.jpg', 'article14-02.jpg', 'article14-03.jpg'],
+  body: `
+    <p>Fianchetto Chess Center players proudly represented <strong>Al Wifak Sports Club</strong> in the <strong>Lebanese First Division Club Championship</strong>, following the team's promotion from the Second Division the previous year.</p>
+
+    <p>The championship lasted for <strong>8 days</strong> and brought together strong teams and experienced players from across Lebanon.</p>
+
+    <h3>Team Lineup</h3>
+
+    <ul>
+      <li><strong>Mohamad Hamad</strong></li>
+      <li><strong>Issam Ibrahim</strong></li>
+      <li><strong>Nour Asoum</strong></li>
+      <li><strong>Mohamad Hawshar</strong></li>
+      <li><strong>Mohamad Hassoun</strong></li>
+      <li><strong>Omar Basha</strong></li>
+      <li><strong>Omar Fatfat</strong></li>
+      <li><strong>Mohamad Mourad</strong></li>
+      <li><strong>Osama Ouwaydah</strong></li>
+      <li><strong>Samir Dhahabi</strong></li>
+    </ul>
+
+    <h3>Securing Our Place in the First Division</h3>
+
+    <p>Despite facing several challenges throughout the competition, including limited resources, difficult and lengthy travel, and long tournament rounds, the team showed determination and commitment throughout the championship.</p>
+
+    <p>Through their collective effort, the team successfully <strong>secured its place in Lebanon’s First Division</strong>.</p>
+
+    <p>Fianchetto Chess Center extends its sincere appreciation to everyone who contributed, worked hard, and supported the team throughout this important participation.</p>
+  `
+},
+  {
+  tag: 'Rapid Tournament',
+  title: 'Fianchetto Returns | Rapid Chess Tournament and Community Activities',
+  slug: 'fianchetto-returns-rapid-chess-tournament-community-activities',
+  date: 'December 8, 2024',
+  excerpt: 'After more than four months, Fianchetto Chess Center returned to action with a friendly Rapid Chess Tournament, followed by chess and social activities bringing the Fianchetto community together.',
+  images: ['article13-1.jpg', 'article13-2.jpg', 'article13-3.jpg', 'article13-4.jpg', 'article13-5.jpg'],
+  body: `
+    <p>After more than four months away from organized activities, <strong>Fianchetto Chess Center</strong> proudly returned with a friendly <strong>Rapid Chess Tournament</strong> hosted by the <strong>Cultural Association and Al Wifak Club</strong> in North Lebanon.</p>
+
+    <p>The tournament featured smooth organization and strong competition, bringing players together for an exciting return to competitive chess.</p>
+
+    <h3>Tournament Results</h3>
+
+    <p>The top three positions were secured by:</p>
+
+    <ul>
+      <li><strong>1st Place:</strong> Issam Ibrahim</li>
+      <li><strong>2nd Place:</strong> Samir Dhahabi</li>
+      <li><strong>3rd Place:</strong> Omar Fatfat</li>
+    </ul>
+
+    <h3>More Than Chess</h3>
+
+    <p>Following the tournament, the activities continued at Fianchetto Chess Center with a <strong>friendly chess gathering</strong> for our players.</p>
+
+    <p>The day concluded with a friendly football game, giving our players an opportunity to relax, have fun, and strengthen the social connections within the Fianchetto community.</p>
+
+    <p>At Fianchetto Chess Center, we believe that building a strong chess community goes beyond competition. These activities provide opportunities for our players to develop friendships, connect with one another, and enjoy memorable experiences together.</p>
+
+    <p>We are delighted to be back and look forward to many more tournaments and community activities ahead.</p>
+  `
+},
+  {
+  tag: 'Community Event',
+  title: 'Two Days of Chess and Community at the Magma Solutions Festival',
+  slug: 'chess-community-magma-solutions-festival',
+  date: 'May 27, 2024',
+  excerpt: 'Fianchetto Chess Center joined the Magma Solutions Festival for two days of social chess activities, friendly competition, and community engagement.',
+  images: ['article12-1.jpg', 'article12-2.jpg', 'article12-3.jpg'],
+  body: `
+    <p>Fianchetto Chess Center participated in the <strong>Magma Solutions Festival</strong>, bringing two days of fun and engaging social chess activities to the event.</p>
+
+    <p>The festival provided a great opportunity for our team to meet talented chess players, connect with new people, and share our passion for chess with the wider community.</p>
+
+    <p>One of the highlights of the event was a <strong>friendly chess tournament</strong>, which attracted significant interest and created an exciting and competitive atmosphere among the participants.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Issam Ibrahim</li>
+      <li><strong>2nd Place:</strong> Mohamad Mourad</li>
+      <li><strong>3rd Place:</strong> Ahmad Saleh</li>
+    </ul>
+
+    <h3>Chess, Community, and Collaboration</h3>
+
+    <p>Fianchetto Chess Center congratulates all the winners and thanks everyone who participated and helped make these two days memorable.</p>
+
+    <p>We look forward to collaborating on more successful events in the future and continuing to bring people together through the game of chess.</p>
+  `
+},
+  {
+  tag: 'Ramadan Chess Festival',
+  title: 'Basatine Ramadan Friendly Chess Festival | Bughouse Tournament',
+  slug: 'basatine-ramadan-friendly-chess-festival-bughouse-tournament',
+  date: 'March 31, 2024',
+  excerpt: 'The Basatine Ramadan Friendly Chess Festival continued with an exciting Bughouse Tournament, bringing teams together for seven rounds of strategy, teamwork, and competitive chess.',
+  images: ['article11-1.jpg', 'article11-2.jpg', 'article11-3.jpg', 'article11-4.jpg'],
+  body: `
+    <p>The excitement of the <strong>Basatine Ramadan Friendly Chess Festival</strong> continued with its second event — an action-packed <strong>Bughouse Tournament</strong> organized by Fianchetto Chess Center in collaboration with <strong>Basatine Land</strong>.</p>
+
+    <p>The tournament brought players together for <strong>7 competitive rounds</strong>, with each team facing two matches per round. The unique Bughouse format challenged participants to combine strategic thinking, quick decision-making, communication, and teamwork.</p>
+
+    <h3>Bughouse Tournament Results</h3>
+
+    <p>After an exciting series of matches, the top teams secured the following positions:</p>
+
+    <ul>
+      <li><strong>1st Place:</strong> Akram Khoder & Khaled Al Dahab</li>
+      <li><strong>2nd Place:</strong> Issam Ibrahim & Nour Assoum</li>
+    </ul>
+
+    <h3>Chess, Teamwork, and Community</h3>
+
+    <p>The tournament continued the positive atmosphere of the Ramadan festival, bringing players together through friendly competition while highlighting the importance of teamwork and strategic cooperation in Bughouse chess.</p>
+
+    <p>Fianchetto Chess Center extends its sincere appreciation to <strong>Basatine Land</strong> for its continued support and contribution to the success of the festival.</p>
+
+    <p>We look forward to continuing this journey and creating more opportunities for players and chess enthusiasts to connect, compete, and enjoy the game together.</p>
+  `
+},
+  {
+  tag: 'Ramadan Chess Festival',
+  title: 'Basatine Ramadan Friendly Chess Festival | Day One',
+  slug: 'basatine-ramadan-friendly-chess-festival-day-one',
+  date: 'March 24, 2024',
+  excerpt: 'Fianchetto Chess Center, in collaboration with Basatine Land Team, launched the Ramadan Friendly Chess Festival with an exciting Blitz Tournament featuring 21 players across seven competitive rounds.',
+  images: ['article10-1.jpg', 'article10-2.jpg', 'article10-3.jpg', 'article10-4.jpg'],
+  body: `
+    <p>Fianchetto Chess Center proudly launched the <strong>Basatine Ramadan Friendly Chess Festival</strong> in collaboration with <strong>Basatine Land Team</strong>, bringing the community together through chess in a welcoming and competitive atmosphere.</p>
+
+    <p>The opening event received an enthusiastic response, with players and spectators coming together to celebrate the game and strengthen social interaction through chess.</p>
+
+    <h3>Day One — Blitz Tournament</h3>
+
+    <p>The first day of the festival featured an exciting <strong>Blitz Tournament</strong> with <strong>21 players</strong> competing across <strong>7 intense rounds</strong>.</p>
+
+    <p>After a highly competitive tournament, the final standings were:</p>
+
+    <ul>
+      <li><strong>1st Place:</strong> FM Akram Khoder</li>
+      <li><strong>2nd Place:</strong> Samir Dhaybi</li>
+      <li><strong>3rd Place:</strong> Mohamad Hawshar</li>
+    </ul>
+
+    <h3>More Chess to Come</h3>
+
+    <p>The opening day was filled with excitement, competition, and a shared passion for chess. Following the success of the Blitz Tournament, preparations were already underway for the festival's second event — the highly anticipated <strong>Bughouse Tournament</strong>.</p>
+
+    <p>Fianchetto Chess Center extends its sincere appreciation to <strong>Basatine Land</strong> for hosting the event and contributing to the success of this memorable chess gathering.</p>
+
+    <p>We look forward to continuing the festival and creating more opportunities to bring players and the community together through chess.</p>
+  `
+},
+  
+  {
+    tag: 'Tournament & Friendly Match',
+    title: 'North Lebanon Team Qualifiers and a Friendly Chess Exchange',
+    slug: 'north-lebanon-team-qualifiers-friendly-chess-exchange',
+    date: 'March 4, 2024',
+    excerpt: 'Fianchetto Chess Center hosted the North Lebanon team qualifiers under the patronage of the Lebanese Chess Federation, while also welcoming Chess House Academy for a friendly chess exchange.',
+    images: ['article9-1.jpg', 'article9-2.jpg', 'article9-3.jpg', 'article9-4.jpg'],
+    body: `
+      <p>Under the patronage of the <strong>Lebanese Chess Federation</strong>, Fianchetto Chess Center proudly organized and hosted the <strong>North Lebanon Team Qualifiers</strong>.</p>
+      <p>The tournament brought together competitive teams from across the region and concluded with <strong>Al Rachad Sports Club</strong> securing the victory.</p>
+      <h3>A Friendly Chess Exchange</h3>
+      <p>On the same day, Fianchetto Chess Center also hosted a friendly chess event that marked the first meeting between a group of Fianchetto students and players from <strong>Chess House Academy</strong> in the Halat area.</p>
+      <p>The friendly competition provided a valuable opportunity for young players to meet, compete, exchange experiences, and enjoy the game in a positive and educational environment.</p>
+      <p>Fianchetto Chess Center was pleased to host both events and looks forward to creating more opportunities for competitive chess, friendly exchanges, and collaboration within the Lebanese chess community.</p>
+    `
+  },
+  {
+    slug: 'tournament1feb2024',
+    tag: 'University Tournament',
+    title: 'Fianchetto Players Dominate the Takafol Sports Festival Chess Tournament',
+    date: 'February 1, 2024',
+    excerpt: 'Fianchetto Chess Center players claimed all three top positions at the chess tournament of the Takafol Sports Festival, bringing together university students from across North Lebanon.',
+    images: ['article8-1.jpg', 'article8-2.jpg', 'article8-3.jpg', 'article8-4.jpg'],
+    body: `
+   <p>The <strong>Takafol Sports Festival</strong> brought together universities from across North Lebanon through a variety of physical and intellectual sports.</p>
+
+    <p>The festival opened with a chess tournament held at <strong>Al Madina University</strong> and organized by <strong>Coach Mohamad Hamad</strong>.</p>
+
+    <p>The tournament delivered an outstanding result for <strong>Fianchetto Chess Center</strong>, with Fianchetto players securing all three positions on the podium.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li>
+        <strong>1st Place — Nour Asoum:</strong> 6 points out of 7, representing Arab University.
+      </li>
+
+      <li>
+        <strong>2nd Place — Omar Fatfat:</strong> 6 points out of 7, tied on points with first place and representing CNAM University.
+      </li>
+
+      <li>
+        <strong>3rd Place — Mahmoud Tartousi:</strong> 5.5 points, representing LIU.
+      </li>
+    </ul>
+
+    <h3>A Proud Achievement for Fianchetto</h3>
+
+    <p>Having Fianchetto players secure all three top positions was a proud achievement for the center and a reflection of the players' dedication, preparation, and competitive spirit.</p>
+
+    <p>Fianchetto Chess Center extends its special thanks to <strong>Takafol Association</strong> for its efforts in coordinating and organizing the sports festival.</p>
+
+    <p>We look forward to more successful collaborations and joint activities in the future.</p>
+  `
+  },
+{
+    slug: 'tournament5jan2024',
+    tag: 'Youth Tournaments',
+    title: 'A Day of Chess Excellence and Learning',
+    date: 'January 5, 2024',
+    excerpt: 'Fianchetto Chess Center organized two exciting youth chess tournaments in collaboration with educational centers in Qalamoun and Kfar Akka, bringing together young players for a day of competition and learning.',
+    images: ['article7-1.jpg', 'article7-2.jpg', 'article7-3.jpg', 'article7-4.jpg', 'article7-5.jpg'],
+    body: `
+     <p>Fianchetto Chess Center proudly organized two exciting chess tournaments dedicated to introducing young players to the principles of competitive chess while providing them with an opportunity to learn, compete, and share valuable experiences.</p>
+
+    <h3>Home School Educational Center — Qalamoun</h3>
+
+    <p>The first tournament was organized in collaboration with <strong>Home School Educational Center in Qalamoun</strong> and welcomed <strong>12 participants</strong>.</p>
+
+    <p>After an engaging competition, <strong>Yahya Al Falou</strong> secured first place, demonstrating excellent performance and determination throughout the tournament.</p>
+
+    <h3>STREAM Station – Active Learning Center</h3>
+
+    <p>The second tournament was held in partnership with <strong>STREAM Station – Active Learning Center in Kfar Akka, Koura</strong>, bringing together <strong>14 players</strong> for another exciting chess competition.</p>
+
+    <p><strong>Coach Issam Ibrahim</strong> also participated as a player, while being excluded from the prizes, allowing him to gain a deeper understanding of the players' needs and experiences to further enhance future chess lessons.</p>
+
+    <p><strong>Mohamad Hassoun</strong> delivered an excellent performance and secured first place in the tournament.</p>
+
+    <h3>Building the Next Generation of Chess Players</h3>
+
+    <p>Both tournaments were organized by <strong>F.I. Mohamad Hamad</strong>, with the assistance of <strong>Coach Issam Ibrahim</strong>.</p>
+
+    <p>At Fianchetto Chess Center, we are delighted with the success of these events and proud to provide young players with opportunities to experience competitive chess in an educational and encouraging environment.</p>
+
+    <p>We look forward to organizing more tournaments, learning experiences, and chess activities as we continue to support and develop the next generation of chess players.</p>
+  `
+  },
+  
+{
+    slug: 'fianchetto-opentournament-2sep-2023',
+    tag: 'Open Tournament',
+    title: 'Fianchetto Open Chess Tournament Brings Together 29 Players',
+    date: 'September 2, 2023',
+    excerpt: 'Fianchetto Chess Center organized an open chess tournament with 29 players of different ages, a 4,500,000 LBP prize pool, and a collaborative study with Al Shamiya Academy.',
+    images: ['article6-1.jpg', 'article6-2.jpg', 'article6-3.jpg', 'article6-4.jpg'],
+    body: `
+     <p>Fianchetto Chess Center organized an <strong>Open Chess Tournament</strong>, bringing together <strong>29 players of different ages</strong> for a competitive and engaging chess experience.</p>
+
+    <p>The tournament featured a total prize pool of <strong>4,500,000 LBP</strong>, encouraging players to showcase their skills, strategic thinking, and competitive spirit.</p>
+
+    <p>Alongside the tournament, a study was conducted in collaboration with <strong>Al Shamiya Academy</strong>, exploring the differences in thinking patterns between chess players and non-chess players.</p>
+
+    <h3>Tournament Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Issam Ibrahim</li>
+      <li><strong>2nd Place:</strong> Mohammad Hassoun</li>
+      <li><strong>3rd Place:</strong> Mohammad Murad — tied with Mahmoud Tartousi and Ahmad Al Masri</li>
+      <li><strong>Best Female Player:</strong> Nour Sharif</li>
+      <li><strong>Youngest Player:</strong> Jad Tleis</li>
+    </ul>
+
+    <h3>Competition, Community, and Research</h3>
+
+    <p>The event successfully combined competition, community, and research, highlighting chess not only as a competitive sport but also as an activity that encourages strategic and analytical thinking.</p>
+
+    <p>Fianchetto Chess Center congratulates all the winners and extends its appreciation to every player who participated and contributed to the success of the tournament.</p>
+  `
+  },
+  {
+    slug: 'fianchetto-alwifak-aug2023',
+    tag: 'Community Event',
+    title: 'Al Wifak / Fianchetto Earns Promotion to Lebanon’s First Division',
+    date: 'August 20, 2023',
+    excerpt: 'Al Wifak/Fianchetto completed five rounds undefeated, secured second place, and earned official promotion from Lebanon’s Second Division to the First Division.',
+    images: ['article5-1.jpg', 'article5-2.jpg', 'article5-3.jpg', 'article5-4.jpg', 'article5-5.jpg'],
+    body: `
+     <p>The <strong>Al Wifak/Fianchetto team</strong> delivered an outstanding performance in the Lebanese Chess Clubs Championship, completing five rounds <strong>undefeated</strong>.</p>
+
+    <p>With this impressive result, the team secured <strong>second place</strong>, successfully breaking the tie and earning official promotion from Lebanon’s Second Division to the <strong>First Division</strong>.</p>
+
+    <h3>Team Lineup</h3>
+
+    <p>The team was led by <strong>coach and team captain, international coach Mohammad Hamad</strong>, and included:</p>
+
+    <ul>
+      <li><strong>Hossam Ibrahim</strong> — substitute captain during the matches</li>
+      <li><strong>Karim Basha</strong></li>
+      <li><strong>Nour Asoum</strong></li>
+      <li><strong>Mohammad Hassoun</strong></li>
+      <li><strong>Osama Ouwaydah</strong></li>
+      <li><strong>Sara Ouwaydah</strong></li>
+      <li><strong>Mohammad Murad</strong></li>
+      <li><strong>Jason Saroufim</strong></li>
+    </ul>
+
+    <h3>A Well-Deserved Achievement</h3>
+
+    <p>This achievement reflects the dedication, teamwork, and competitive spirit demonstrated by the players throughout the championship.</p>
+
+    <p>Special appreciation goes to <strong>Mr. Ramez Al-Fari</strong>, representative of Al Wifak Club, for his financial support, as well as to <strong>Fianchetto Chess Center</strong> for supporting the team's participation in the championship.</p>
+
+    <p>Congratulations to the entire team on this important achievement and their promotion to the First Division. We wish them continued success and many more accomplishments in the future.</p>
+  `
+  },
+  {
+    slug: 'comunity-event-jounieh',
+    tag: 'Community Event',
+    title: 'Five Days of Chess in Jounieh',
+    date: 'August 15, 2023',
+    excerpt: 'Fianchetto Chess Center collaborated in a five-day chess event in Jounieh, bringing together 60 players for a variety of exciting chess formats.',
+    images: ['article4-1.jpg', 'article4-2.jpg', 'article4-3.jpg', 'article4-4.jpg', 'article4-5.jpg'],
+    body: `
+ <p>Fianchetto Chess Center proudly collaborated in a five-day chess event held in <strong>Jounieh</strong>, bringing together chess enthusiasts for an engaging and enjoyable experience.</p>
+
+    <p>The event featured a variety of chess formats, including <strong>Hand and Brain, Basque Chess, Pairs Chess, Chess960, and Thematic Chess</strong>, offering participants the opportunity to enjoy different styles of play and challenge themselves in new ways.</p>
+
+    <h3>A Strong Chess Community</h3>
+
+    <p>A total of <strong>60 players</strong> took part in the event, contributing to a lively atmosphere filled with competition, learning, and community spirit.</p>
+
+    <p>Fianchetto Chess Center is pleased to have been part of this successful event and looks forward to organizing and supporting more chess activities in the future.</p>
+  `
+  },
+  {
+    slug: 'friendly-tournament-2023',
+    tag: 'Friendly Tournament',
+    title: 'Friendly Tournament at Fianchetto Chess Center',
+    date: 'July 11, 2023',
+    excerpt: 'Fianchetto Chess Center organized a friendly chess tournament bringing together 32 players of all levels, in a spirited, competitive atmosphere marked by enthusiasm and great sportsmanship.',
+    images: ['article1-1.jpg', 'article1-2.jpg', 'article1-3.jpg', 'article1-4.jpg'],
+    body: `
+      <p>Fianchetto Chess Center organized a friendly chess tournament bringing together 32 players of all levels, in a spirited, competitive atmosphere marked by enthusiasm and great sportsmanship.</p>
+      <p>The tournament featured strong competition and closely matched skill levels, producing standout results that reflected the participants' talent and their deep passion for the game of chess.</p>
+      <p>The final standings were as follows:</p>
+      <p>🥇 1st Place: Sarah Kwaidah<br>
+      🥈 2nd Place: Mohammad Murad<br>
+      🥉 3rd Place: Omar Fatfat</p>
+      <p>Fianchetto Chess Center extends its sincere thanks to all participants for their attendance and for making the tournament a success, and reaffirms its commitment to organizing more tournaments and events aimed at developing players' skills and fostering a culture of chess within the community.</p>
+    `
+  },
+    {
+    slug: 'comunity-event-2023',
+    tag: 'Community Event',
+    title: 'A Day of Chess, Community, and New Beginnings',
+    date: 'May 6, 2023',
+    excerpt: 'Fianchetto Chess Center enjoyed a memorable day combining its weekly chess class at Al Iman School with a successful private community event at Al Malik Fahed Park.',
+    images: ['article3-1.jpg', 'article3-2.jpg', 'article3-3.jpg', 'article3-4.jpg', 'article3-5.jpg', 'article3-6.jpg'],
+    body: `
+      <p><em>Draft — replace with the real story whenever you send it. Written from your excerpt so the article isn't broken in the meantime.</em></p>
+      <p>Fianchetto Chess Center enjoyed a memorable day that combined two of its favorite things: teaching chess and bringing the community together.</p>
+      <h3>Weekly Class at Al Iman School</h3>
+      <p>The day began with the center's weekly chess class at <strong>Al Iman School</strong>, where students continued building their skills in a familiar, supportive setting.</p>
+      <h3>Community Event at Al Malik Fahed Park</h3>
+      <p>Later, Fianchetto Chess Center hosted a successful private community event at <strong>Al Malik Fahed Park</strong>, giving players of different backgrounds a chance to connect over the board in a relaxed, open-air setting.</p>
+      <p>Fianchetto Chess Center is grateful for a day that reflected exactly what the center is about: consistent teaching paired with genuine community spirit.</p>
+    `
+  },
+  {
+    slug: 'bughouse-milestone-2022',
+    tag: 'Special Event',
+    title: 'A Historic Milestone for Fianchetto Chess Center',
+    date: 'October 16, 2022',
+    excerpt: 'A remarkable milestone was added to the history of Fianchetto Chess Center with the successful organization of the first Bughouse Chess Tournament in North Lebanon.',
+    images: ['article2-1.jpg', 'article2-2.jpg', 'article2-3.jpg', 'article2-4.jpg'],
+    body: `
+      <p>A remarkable milestone was added to the history of Fianchetto Chess Center with the successful organization of the first Bughouse Chess Tournament in North Lebanon. After weeks of planning and preparation, the event brought together players for an unforgettable day of teamwork, strategy, and competitive spirit.</p>
+      <p>The tournament was praised by Marc Nassar, President of the Lebanese Bughouse Committee, who shared the following message:</p>
+      <blockquote>
+        "The inaugural North Bughouse Tournament concluded after an exciting and memorable day of Bughouse chess. Sixteen teams participated, reflecting the growing interest in Bughouse across Lebanon. It was especially encouraging to see strong youth participation, with one young player even qualifying for the knockout stage. Special thanks go to the members of the Lebanese Bughouse Committee who helped organize the event, the arbiters, and, above all, the players whose enthusiasm made this tournament possible."
+        <cite>Marc Nassar — President, Lebanese Bughouse Committee</cite>
+      </blockquote>
+
+      <h3>Acknowledgments</h3>
+      <p>Fianchetto Chess Center extends its sincere appreciation to everyone who contributed to the success of the tournament:</p>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/#about">About</a></li>
-        <li><a href="/#programs">Programs</a></li>
-        <li><a href="/team">Team</a></li>
-        <li><a href="/#sponsors">Sponsors</a></li>
-        <li><a href="/blog" class="active">Blog</a></li>
-        <li><a href="/shop">Shop</a></li>
-        <li><a href="/#contact">Contact</a></li>
+        <li><strong>Mohamad Hamad</strong>, Founder of Fianchetto Chess Center, for providing the venue, managing the logistics, supplying the equipment, and overseeing the event.</li>
+        <li><strong>Nour Sharif</strong>, for preparing the meals and capturing memorable moments through photography.</li>
+        <li><strong>Karen Chella</strong>, for managing the Swiss pairings and assisting with arbitration.</li>
+        <li><strong>Nadim Hammoud</strong>, for providing chess clocks and setting up the Swiss tournament system.</li>
+        <li><strong>Ronald Moughames</strong>, for supplying chess sets and clocks.</li>
+        <li><strong>Issam Ibrahim</strong>, for serving as tournament arbiter.</li>
       </ul>
-    </nav>
-  </div>
-</header>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="hero-content">
-    <span class="hero-eyebrow">The Fianchetto Journal</span>
-    <h1>Stories from <em>the board</em>.</h1>
-    <p>Tournament recaps, championship moments, and reflections from inside the Fianchetto Chess Center community.</p>
-    <div class="hero-divider"></div>
-  </div>
-</section>
-
-<!-- ============ BLOG ============ -->
-<section class="blog-section">
-  <div class="section-header">
-    <span class="eyebrow">Tournament Coverage</span>
-    <h2>Recent Articles</h2>
-  </div>
-
-  <div class="articles-grid" id="articlesGrid">
-    <!-- Cards injected by JS -->
-  </div>
-
-  <div class="empty-state" id="emptyState" style="display:none;">
-    <span class="empty-state-icon">♟</span>
-    <h3>No Articles Yet</h3>
-    <p>New tournament stories are on the way — check back soon.</p>
-  </div>
-</section>
-
-<!-- ============ MODAL ============ -->
-<div class="modal-overlay" id="modalOverlay">
-  <article class="modal" id="modal">
-    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
-    <div class="modal-header">
-      <span class="modal-tag" id="modalTag">Tournament</span>
-      <h2 class="modal-title" id="modalTitle" dir="auto"></h2>
-      <div class="modal-meta">
-        <span id="modalDate"></span>
-        <span id="modalAuthor">By Fianchetto Editorial</span>
-        <button class="share-btn" id="shareBtn" type="button">Share Article</button>
-      </div>
-    </div>
-    <div class="modal-images" id="modalImages"></div>
-    <div class="modal-body" id="modalBody" dir="auto"></div>
-  </article>
-</div>
-
-<!-- ============ GALLERY MODAL ============ -->
-<div class="gallery-modal-overlay" id="galleryModalOverlay">
-  <div class="gallery-modal">
-    <button class="gallery-modal-close" id="galleryModalClose" aria-label="Close gallery">✕</button>
-    <h3 class="gallery-modal-title" id="galleryModalTitle" dir="auto"></h3>
-    <div class="gallery-modal-grid" id="galleryModalGrid"></div>
-  </div>
-</div>
-
-<!-- ============ IMAGE LIGHTBOX ============ -->
-<div class="lightbox-overlay" id="lightboxOverlay">
-  <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
-  <img id="lightboxImage" src="" alt="">
-</div>
-
-<!-- ============ FOOTER ============ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <img src="logo.png" alt="Fianchetto logo">
-      <h3>Fianchetto Chess Center</h3>
-      <p>A home for players of every level. Where strategy is taught, sharpened, and celebrated through tournaments, training, and community.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Explore</h4>
+      <h3>Special Recognition</h3>
+      <p>A special note of appreciation goes to:</p>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/#about">About Us</a></li>
-        <li><a href="/#programs">Programs</a></li>
-        <li><a href="/team">Team</a></li>
-        <li><a href="/#sponsors">Sponsors</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/shop">Shop</a></li>
-        <li><a href="/#contact">Contact</a></li>
+        <li><strong>Nour Sharif</strong>, one of Fianchetto Chess Center's most dedicated and promising players, who worked tirelessly to prepare a vegan, non-allergenic meal for all participants.</li>
+        <li><strong>Issam Ibrahim</strong>, whose exceptional dedication, professionalism, and arbitration efforts played a key role in ensuring the tournament ran smoothly.</li>
       </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Connect</h4>
-      <ul>
-        <li><a href="mailto:fianchettochesscenter@gmail.com">fianchettochesscenter@gmail.com</a></li>
-        <li><a href="tel:+96181239487">+961 81 239 487</a></li>
-      </ul>
-      <div class="social-links">
-        <a href="https://instagram.com/fianchettochesscenter" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="180.3 167.8 475.3 475.3"><path fill="currentColor" d="M350.88,213.84c44.32,0,88.64,0,132.96,0c0.63,0.26,1.24,0.66,1.89,0.75c0.86,0.12,1.76-0.08,2.63-0.01c8.2,0.61,16.42,1.06,24.59,1.94c10.31,1.11,20.3,3.74,29.99,7.46c21.25,8.17,37.97,21.77,49.48,41.54c9.76,16.77,14.49,34.99,15.42,54.27c0.22,4.67,0.08,9.36,0.37,14.02c0.11,1.87,0.91,3.7,1.4,5.55c0,44.48,0,88.96,0,133.44c-1.37,1.81-1.62,3.95-1.67,6.11c-0.06,3.07-0.07,6.14,0,9.21c0.13,6.24-0.98,12.34-2.11,18.41c-1.01,5.39-2.31,10.75-3.88,16.01c-1.27,4.26-3.08,8.36-4.72,12.51c-4.69,11.87-12.15,21.89-21.01,30.91c-7.97,8.11-17.65,13.78-27.82,18.66c-5.34,2.56-11,4.2-16.68,5.84c-8.12,2.35-16.36,4.03-24.77,4.66c-8.6,0.64-17.22,1.13-25.84,1.41c-8.79,0.29-17.58,0.31-26.37,0.33c-21.08,0.06-42.15,0.06-63.23,0.09c-0.34,0-0.68,0.11-1.03,0.17c-5.12,0-10.24,0-15.36,0c-0.19-0.06-0.37-0.16-0.56-0.17c-7.35-0.25-14.69-0.63-22.04-0.7c-10.36-0.1-20.68-0.52-30.94-2c-10.62-1.54-20.96-4.14-30.88-8.26c-23.9-9.92-41.48-26.43-52.05-50.18c-6.85-15.4-10.14-31.64-11.07-48.38c-0.55-9.97-0.69-19.96-1.03-29.94c-0.04-1.06-0.16-2.12-0.24-3.18c0-18.08,0-36.16,0-54.24c0.06-0.42,0.17-0.84,0.17-1.27c0.01-7.44-0.04-14.88,0.02-22.32c0.09-12.39,0.16-24.79,0.4-37.18c0.1-5.39,0.48-10.77,0.9-16.15c0.43-5.49,0.75-11.01,1.68-16.43c0.98-5.76,2.63-11.41,3.96-17.11c1.88-8.05,5.43-15.41,9.32-22.62c7.61-14.14,18.42-25.33,31.92-33.95c8.88-5.67,18.48-9.65,28.64-12.43c4.69-1.28,9.34-2.69,14.19-3.3c5.3-0.67,10.59-1.51,15.91-1.96c3.65-0.31,7.36-0.01,11.03-0.13C346.65,215.19,348.89,215.02,350.88,213.84z M423,562.56c14.98-0.26,34.54,0.44,54.08-0.64c6.66-0.37,13.33-0.54,20-0.75c8.98-0.29,17.77-1.81,26.43-4.14c14.34-3.85,26.12-11.61,35.15-23.38c4.88-6.37,8.1-13.69,10.35-21.33c2.42-8.23,3.98-16.68,4.41-25.28c0.5-9.81,1.11-19.62,1.36-29.44c0.28-10.83,0.22-21.67,0.26-32.51c0.04-10.8,0.06-21.6-0.01-32.4c-0.08-12.55-0.21-25.11-0.42-37.66c-0.13-7.71-0.42-15.42-0.74-23.12c-0.34-8.01-0.6-16.02-2.38-23.92c-1.78-7.94-4.06-15.67-7.91-22.87c-8.1-15.16-20.62-25.02-36.81-30.23c-5.79-1.86-11.78-3.26-17.78-4.21c-5.42-0.85-10.98-0.85-16.49-1.14c-8.26-0.43-16.52-0.95-24.78-1.12c-9.72-0.21-19.44-0.1-29.16-0.1c-12.28-0.01-24.55-0.1-36.83,0.02c-13.15,0.14-26.3-0.37-39.45,0.46c-6.38,0.4-12.78,0.3-19.17,0.56c-4.47,0.19-8.96,0.36-13.37,0.99c-5.48,0.78-11.01,1.62-16.31,3.14c-8.43,2.42-16.57,5.58-23.69,11.06c-7.3,5.61-13.12,12.39-17.41,20.47c-1.83,3.44-3.67,6.96-4.82,10.65c-1.6,5.13-2.59,10.45-3.76,15.7c-0.62,2.79-1.32,5.61-1.54,8.44c-0.29,3.82-0.07,7.67-0.22,11.51c-0.32,7.98-0.96,15.96-1.06,23.94c-0.19,15.79-0.16,31.59-0.1,47.38c0.09,20.51,0.25,41.02,0.49,61.53c0.09,7.63,0.31,15.26,0.76,22.88c0.55,9.34,2.13,18.48,5.23,27.4c6.87,19.78,19.83,33.51,39.49,40.76c4.48,1.65,9.13,2.85,13.7,4.25c0.22,0.07,0.46,0.04,0.7,0.05c1.55,0.1,3.11,0.13,4.66,0.3c3.45,0.37,6.89,1,10.35,1.18c9.77,0.51,19.55,0.91,29.34,1.21c6.99,0.22,13.99,0.28,20.98,0.32C397.15,562.6,407.79,562.56,423,562.56z"/><path fill="currentColor" d="M319.51,406.02c-0.02-8.39,0.7-16.67,3.05-24.77c1.69-5.82,3.29-11.66,5.97-17.14c6.99-14.28,16.36-26.56,29.04-36.38c9.42-7.29,19.75-12.63,31.01-16.22c4.35-1.39,8.89-2.18,13.36-3.2c0.93-0.21,1.9-0.21,2.86-0.27c5.41-0.35,10.84-1.18,16.22-0.93c24.67,1.15,46.37,9.75,64.44,26.83c15.36,14.53,25.07,32.22,29.06,52.98c1.75,9.13,2.11,18.36,1.27,27.65c-0.81,9.01-2.86,17.7-6.04,26.13c-5.14,13.6-13.26,25.26-23.48,35.51c-5.68,5.7-12.11,10.4-19.29,14.06c-3.05,1.56-5.91,3.48-8.97,5.01c-6.58,3.3-13.73,4.89-20.84,6.51c-8.92,2.03-17.96,2.51-27.04,1.65c-23.13-2.21-43.52-10.61-60.29-27.03c-12.02-11.77-21.16-25.4-25.87-41.67c-1.67-5.77-2.89-11.69-3.89-17.62C319.47,413.5,319.68,409.73,319.51,406.02z M418.6,341.74c-0.88,0-1.76-0.02-2.64,0c-8.48,0.19-16.66,1.82-24.32,5.53c-3.55,1.72-7.17,3.42-10.4,5.65c-4.74,3.28-8.79,7.42-12.47,11.88c-4.74,5.75-8.74,11.99-11.04,19.07c-3.05,9.37-4.51,18.96-3.11,28.9c0.91,6.49,2.22,12.78,5.12,18.71c4.76,9.72,10.85,18.4,19.62,24.9c12.7,9.42,27.03,13.65,42.82,12.6c7.73-0.51,15.2-2.17,22.28-5.5c10.75-5.06,19.67-12.38,26.2-22.21c5.82-8.76,9.91-18.38,10.63-29.13c0.4-5.95,0.91-11.93-0.61-17.76c-1.4-5.39-2.78-10.86-4.97-15.95c-3.11-7.25-7.9-13.52-13.65-18.94c-6.24-5.88-13.11-10.83-21.36-13.58C433.53,343.52,426.3,341.38,418.6,341.74z"/><path fill="currentColor" d="M519.01,325.98c-11.69,0.32-21.88-10.46-21.94-22.68c-0.05-11.8,10.03-23.31,23.13-23.16c13.23,0.15,23.19,11.09,22.95,23.48C542.87,317.73,530.99,325.67,519.01,325.98z"/></svg></a>
-        <a href="https://facebook.com/fianchettochesscenter" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="836.1 815.5 383.8 384.0"><path fill="currentColor" d="M1058.02,1162.41c0-37.69,0-74.29,0-111.32c10.08,0,19.85,0,30.22,0c2.28-14.51,4.5-28.69,6.86-43.72c-15.53,0-30.39,0-45.5,0c0-12.2-0.7-23.71,0.22-35.08c0.73-8.99,7.73-15.34,16.9-16.55c7.06-0.93,14.28-0.7,21.43-0.89c4.29-0.11,8.58-0.02,13.12-0.02c0-12.95,0-25.38,0-38.42c-5.93-0.74-11.81-1.75-17.74-2.15c-12.8-0.85-25.67-1.8-38.24,1.79c-24.46,6.99-38.76,26.08-39.67,53.11c-0.36,10.66-0.12,21.33-0.14,32c0,1.8,0,3.59,0,6.07c-11.86,0-23.26,0-34.81,0c0,14.8,0,28.91,0,43.49c11.45,0,22.72,0,34.39,0c0,37.19,0,73.92,0,111.48c-26.6-4.16-50.78-13.84-71.9-30.5c-33.3-26.26-53.27-60.56-58.61-102.65c-11.98-94.28,57.22-166.65,135.29-175.38c95.2-10.65,171.03,63.8,172.82,149.58c0.95,45.36-14.07,84.53-46.44,116.67C1114.45,1141.55,1088.66,1155.79,1058.02,1162.41z"/></svg></a>
-        <a href="https://maps.app.goo.gl/pJqEqPaYZ6ZbgSBu9?g_st=aw" target="_blank" rel="noopener" aria-label="Location on Google Maps"><svg viewBox="539.1 560.7 284.2 423.0"><path fill="currentColor" d="M690.53,601.61c6.7,1.34,13.58,2.07,20.06,4.12c41.87,13.25,67.38,41.44,76.47,84.49c4.53,21.44-0.57,41.51-8.39,61.2c-13.38,33.7-31.42,64.93-51.51,94.96c-11.38,17.01-23.86,33.29-35.97,49.81c-2.08,2.84-4.81,5.2-7.18,7.83c-1.9,2.11-3.79,2.09-5.59-0.01c-5.7-6.63-11.75-13-16.98-19.99c-27.7-37.06-52.37-76-71.63-118.19c-6.62-14.5-12.39-29.35-15-45.19c-2.87-17.4-0.32-34.32,6.25-50.44c14.43-35.43,40.63-57.46,77.84-66.31c4.28-1.02,8.67-1.53,13.01-2.28C678.11,601.61,684.32,601.61,690.53,601.61z"/><path fill="currentColor" d="M681.19,942.66c-27.21-0.46-54.27-2.11-80.8-8.47c-7.59-1.82-14.96-4.64-22.28-7.42c-2.82-1.07-5.44-3.02-7.75-5.03c-5.03-4.36-5.15-9.79,0.18-13.79c4.09-3.08,8.78-5.61,13.56-7.48c14.52-5.68,29.85-8.02,45.22-10.03c3.73-0.49,7.5-0.7,11.22-1.26c2.37-0.36,3.8,0.39,5.28,2.3c6.42,8.34,12.98,16.56,19.61,24.74c1.66,2.05,3.66,3.87,5.65,5.62c6.97,6.14,13.72,6.28,20.35-0.18c4.98-4.85,9.49-10.22,13.94-15.59c4.09-4.94,7.76-10.24,11.76-15.26c0.69-0.87,2.16-1.73,3.18-1.63c20.83,2.03,41.61,4.44,61.18,12.54c3.34,1.38,6.58,3.23,9.49,5.38c6.35,4.7,6.4,10.39,0.31,15.39c-6.04,4.95-13.31,7.42-20.64,9.56c-17.17,5.02-34.81,7.49-52.6,8.78C705.78,941.73,693.48,942.07,681.19,942.66z"/><path class="pin-hole" d="M681.11,741.37c-19.26-0.04-35.17-16.03-35.04-35.22c0.13-19.42,15.88-34.99,35.29-34.9c19.47,0.09,35.18,15.84,35.05,35.15C716.28,725.72,700.44,741.41,681.11,741.37z"/></svg></a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Fianchetto Chess Center. All rights reserved.</span>
-  </div>
-  <div class="footer-credit">
-    Structured and developed by <a href="https://www.colartdigitalmarketingagency.com" target="_blank" rel="noopener">Colart Digital Marketing Agency</a>
-  </div>
-</footer>
 
-<a href="https://wa.me/96181239487" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat with us on WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.54-13.58zm-5.55 12.2h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.6 6.6 0 0 1 10.31-8.2 6.55 6.55 0 0 1 1.94 4.67 6.62 6.62 0 0 1-6.65 6.62zm3.62-4.95c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.45.1-.13.19-.51.64-.63.78-.11.13-.23.15-.42.05-.2-.1-.83-.3-1.58-.97-.58-.52-.98-1.16-1.09-1.36-.11-.19-.01-.3.09-.4.09-.09.2-.23.3-.34.1-.12.13-.2.2-.33.06-.13.03-.25-.02-.35-.05-.1-.45-1.08-.61-1.48-.16-.38-.33-.33-.45-.34-.11-.01-.25-.01-.38-.01-.13 0-.35.05-.53.25-.18.19-.7.68-.7 1.66s.72 1.93.82 2.06c.1.13 1.4 2.14 3.4 3 .48.2.85.33 1.14.42.48.15.91.13 1.26.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.05-.09-.18-.14-.38-.24z"/></svg>
-</a>
-
-<div class="share-toast" id="shareToast">Link copied to clipboard</div>
-
-<script>
-  // ============ ARTICLES SOURCE ============
-  // Article data now lives in articles-data.js (shared with index.html).
-  // Add new articles there — they'll show up here and on the home page automatically.
-  const articles = (typeof FIANCHETTO_ARTICLES !== 'undefined') ? FIANCHETTO_ARTICLES : [];
-
-  // ============ RENDER CARDS ============
-  const grid = document.getElementById('articlesGrid');
-  const emptyState = document.getElementById('emptyState');
-
-  if (articles.length === 0) {
-    emptyState.style.display = 'block';
-  } else {
-    emptyState.style.display = 'none';
-    articles.forEach((a, i) => {
-      const card = document.createElement('div');
-      card.className = 'article-card';
-      card.dataset.index = i;
-      card.innerHTML = `
-        <div class="card-image">
-          <span class="card-tag">${a.tag}</span>
-          <img src="${a.images[0]}" alt="${a.title}" onerror="this.src='https://images.unsplash.com/photo-1528819622765-d6bcf132f793?w=800&q=80'">
-        </div>
-        <div class="card-body">
-          <span class="card-date">${a.date}</span>
-          <h3 class="card-title" dir="auto">${a.title}</h3>
-          <p class="card-excerpt" dir="auto">${a.excerpt}</p>
-          <span class="card-read">Read Article</span>
-        </div>
-      `;
-      card.addEventListener('click', () => openModal(i, true));
-      grid.appendChild(card);
-    });
+      <p>The success of this historic event would not have been possible without the commitment of every volunteer, organizer, arbiter, and participant. Fianchetto Chess Center looks forward to organizing many more tournaments and continuing to grow the Bughouse chess community in Lebanon.</p>
+    `
   }
-
-  // ============ MODAL LOGIC ============
-  const overlay = document.getElementById('modalOverlay');
-  const modal = document.getElementById('modal');
-  const closeBtn = document.getElementById('modalClose');
-  const shareBtn = document.getElementById('shareBtn');
-  const shareToast = document.getElementById('shareToast');
-  let currentArticle = null;
-
-  function openModal(index, updateUrl) {
-    const a = articles[index];
-    if (!a) return;
-    currentArticle = a;
-    document.getElementById('modalTag').textContent = a.tag;
-    document.getElementById('modalTitle').textContent = a.title;
-    document.getElementById('modalDate').textContent = a.date;
-    document.getElementById('modalBody').innerHTML = a.body || '';
-
-    const imagesContainer = document.getElementById('modalImages');
-    const imgs = a.images || [];
-    const fallback = 'https://images.unsplash.com/photo-1528819622765-d6bcf132f793?w=800&q=80';
-
-    if (imgs.length <= 2) {
-      // 2 or fewer photos — just show them all normally
-      imagesContainer.innerHTML = imgs.map((img, i) => `
-        <div class="modal-image">
-          <img src="${img}" alt="${a.title} — photo ${i + 1}" onerror="this.src='${fallback}'">
-        </div>
-      `).join('');
-    } else {
-      // More than 2 — show first 2 clearly, then a blurred tile with a +N count
-      const remaining = imgs.length - 2;
-      const visible = imgs.slice(0, 2).map((img, i) => `
-        <div class="modal-image">
-          <img src="${img}" alt="${a.title} — photo ${i + 1}" onerror="this.src='${fallback}'">
-        </div>
-      `).join('');
-      const moreTile = `
-        <div class="modal-image modal-image-more" id="modalImageMoreTile">
-          <img src="${imgs[2]}" alt="${a.title} — more photos" onerror="this.src='${fallback}'">
-          <span class="modal-image-more-count">+${remaining}</span>
-        </div>
-      `;
-      imagesContainer.innerHTML = visible + moreTile;
-
-      const moreTileEl = document.getElementById('modalImageMoreTile');
-      if (moreTileEl) {
-        moreTileEl.addEventListener('click', () => openGallery(a));
-      }
-    }
-
-    overlay.classList.add('active');
-    document.body.classList.add('modal-open');
-    overlay.scrollTop = 0;
-
-    // Update the URL so this article has its own shareable link
-    if (updateUrl && a.slug) {
-      const url = new URL(window.location);
-      url.searchParams.set('a', a.slug);
-      history.pushState({ slug: a.slug }, '', url);
-    }
-  }
-
-  function closeModal(updateUrl) {
-    overlay.classList.remove('active');
-    document.body.classList.remove('modal-open');
-    currentArticle = null;
-    if (updateUrl) {
-      const url = new URL(window.location);
-      url.searchParams.delete('a');
-      history.pushState({}, '', url);
-    }
-  }
-
-  closeBtn.addEventListener('click', () => closeModal(true));
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeModal(true);
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal(true);
-  });
-
-  // ============ GALLERY MODAL (all photos) ============
-  const galleryOverlay = document.getElementById('galleryModalOverlay');
-  const galleryClose = document.getElementById('galleryModalClose');
-  const galleryTitle = document.getElementById('galleryModalTitle');
-  const galleryGrid = document.getElementById('galleryModalGrid');
-  const galleryFallback = 'https://images.unsplash.com/photo-1528819622765-d6bcf132f793?w=800&q=80';
-
-  function openGallery(article) {
-    const imgs = article.images || [];
-    galleryTitle.textContent = article.title;
-    galleryGrid.innerHTML = imgs.map((img, i) => `
-      <img src="${img}" alt="${article.title} — photo ${i + 1}" onerror="this.src='${galleryFallback}'">
-    `).join('');
-    galleryOverlay.classList.add('active');
-
-    // Clicking any photo in the gallery opens it full-screen
-    galleryGrid.querySelectorAll('img').forEach(img => {
-      img.addEventListener('click', () => openLightbox(img.src, img.alt));
-    });
-  }
-
-  function closeGallery() {
-    galleryOverlay.classList.remove('active');
-  }
-
-  galleryClose.addEventListener('click', closeGallery);
-  galleryOverlay.addEventListener('click', (e) => {
-    if (e.target === galleryOverlay) closeGallery();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && galleryOverlay.classList.contains('active')) closeGallery();
-  });
-
-  // ============ IMAGE LIGHTBOX (full-screen single photo) ============
-  const lightboxOverlay = document.getElementById('lightboxOverlay');
-  const lightboxImage = document.getElementById('lightboxImage');
-  const lightboxClose = document.getElementById('lightboxClose');
-
-  function openLightbox(src, alt) {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || '';
-    lightboxOverlay.classList.add('active');
-  }
-
-  function closeLightbox() {
-    lightboxOverlay.classList.remove('active');
-  }
-
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightboxOverlay.addEventListener('click', (e) => {
-    if (e.target === lightboxOverlay) closeLightbox();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightboxOverlay.classList.contains('active')) closeLightbox();
-  });
-
-  // Clicking either of the 2 clear photos inside the article modal
-  // also opens the full-screen lightbox (the blurred "+N" tile still
-  // opens the full gallery instead, handled separately above).
-  document.getElementById('modalImages').addEventListener('click', (e) => {
-    const img = e.target.closest('.modal-image:not(.modal-image-more) img');
-    if (img) openLightbox(img.src, img.alt);
-  });
-
-  // Share button — uses native share sheet on mobile, copies link on desktop
-  shareBtn.addEventListener('click', async () => {
-    if (!currentArticle || !currentArticle.slug) return;
-    const url = new URL(window.location);
-    url.searchParams.set('a', currentArticle.slug);
-    const shareUrl = url.toString();
-
-    if (navigator.share) {
-      try {
-        await navigator.share({ title: currentArticle.title, url: shareUrl });
-      } catch (err) { /* user cancelled — no action needed */ }
-    } else {
-      try {
-        await navigator.clipboard.writeText(shareUrl);
-      } catch (err) {
-        const temp = document.createElement('textarea');
-        temp.value = shareUrl;
-        document.body.appendChild(temp);
-        temp.select();
-        document.execCommand('copy');
-        document.body.removeChild(temp);
-      }
-      shareToast.classList.add('show');
-      setTimeout(() => shareToast.classList.remove('show'), 2200);
-    }
-  });
-
-  // Handle browser back/forward when a modal was opened via URL
-  window.addEventListener('popstate', () => {
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get('a');
-    if (slug) {
-      const idx = articles.findIndex(art => art.slug === slug);
-      if (idx !== -1) { openModal(idx, false); return; }
-    }
-    closeModal(false);
-  });
-
-  // On page load, open the article directly if a share link was used
-  (function checkDeepLink() {
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get('a');
-    if (slug) {
-      const idx = articles.findIndex(art => art.slug === slug);
-      if (idx !== -1) openModal(idx, false);
-    }
-  })();
-
-  // ============ MOBILE MENU ============
-  const menuToggle = document.getElementById('menuToggle');
-  const nav = document.getElementById('nav');
-  menuToggle.addEventListener('click', () => nav.classList.toggle('open'));
-</script>
-
-</body>
-</html>
+];
