@@ -919,6 +919,9 @@
     transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     flex: 0 0 calc((100% - 4rem) / 3);
     scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    height: 380px;
   }
 
   .testimonial:hover {
@@ -977,7 +980,7 @@
     }
 
     .testimonials-grid.expanded .testimonial:nth-child(n+4) {
-      display: block;
+      display: flex;
     }
 
     .testimonials-nav {
@@ -1011,10 +1014,62 @@
     font-style: italic;
     line-height: 1.5;
     color: var(--black);
-    margin-bottom: 2rem;
+    margin-bottom: 0.6rem;
     margin-top: 1.5rem;
     position: relative;
     z-index: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .quote-expand-btn {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 1rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--gold-dark);
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .quote-expand-btn:hover {
+    color: var(--gold);
+    text-decoration: underline;
+  }
+
+  .quote-expand-btn.visible {
+    display: inline-block;
+  }
+
+  .quote-modal {
+    max-width: 640px;
+    padding: 3.5rem 2.5rem 2.5rem;
+  }
+
+  .quote-modal-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--black);
+    margin-bottom: 2rem;
+  }
+
+  .quote-modal-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--cream-dark);
   }
 
   .testimonial-author {
@@ -2069,6 +2124,21 @@
   </div>
 </section>
 
+<!-- ============ TESTIMONIAL FULL QUOTE MODAL ============ -->
+<div class="sp-modal-overlay" id="quoteModalOverlay">
+  <div class="sp-modal quote-modal">
+    <button class="sp-modal-close" id="quoteModalClose" aria-label="Close">✕</button>
+    <p class="quote-modal-text" id="quoteModalText" dir="auto"></p>
+    <div class="quote-modal-author">
+      <div class="author-avatar" id="quoteModalAvatar"></div>
+      <div class="author-info">
+        <span class="author-name" id="quoteModalName"></span>
+        <span class="author-role" id="quoteModalRole"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <section class="section sponsors" id="sponsors">
   <div class="sponsors-header reveal">
     <span class="section-eyebrow">Our Partners</span>
@@ -2387,6 +2457,83 @@
         moreWrap.classList.add('hidden');
       });
     }
+  })();
+
+  // ===== Testimonials: Continue Reading popup for long quotes =====
+  (function initQuoteExpand() {
+    const overlay = document.getElementById('quoteModalOverlay');
+    const closeBtn = document.getElementById('quoteModalClose');
+    const textEl = document.getElementById('quoteModalText');
+    const avatarEl = document.getElementById('quoteModalAvatar');
+    const nameEl = document.getElementById('quoteModalName');
+    const roleEl = document.getElementById('quoteModalRole');
+    if (!overlay) return;
+
+    function openQuoteModal(card) {
+      const quote = card.querySelector('.testimonial-quote');
+      const avatar = card.querySelector('.author-avatar');
+      const name = card.querySelector('.author-name');
+      const role = card.querySelector('.author-role');
+      textEl.textContent = quote ? quote.textContent : '';
+      textEl.setAttribute('dir', quote && quote.getAttribute('dir') === 'auto' ? 'auto' : 'ltr');
+      avatarEl.textContent = avatar ? avatar.textContent : '';
+      nameEl.textContent = name ? name.textContent : '';
+      roleEl.textContent = role ? role.textContent : '';
+      overlay.classList.add('active');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeQuoteModal() {
+      overlay.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    }
+
+    closeBtn.addEventListener('click', closeQuoteModal);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeQuoteModal(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('active')) closeQuoteModal();
+    });
+
+    // For every testimonial, check if the clamped quote is actually
+    // being cut off — if so, insert a "Continue Reading" link that
+    // opens the full quote in a popup. Cards hidden on mobile (before
+    // "Check More Reviews" is clicked) report zero height, so this
+    // also re-runs after they're revealed.
+    function checkQuoteOverflow() {
+      document.querySelectorAll('.testimonial').forEach(card => {
+        const quote = card.querySelector('.testimonial-quote');
+        if (!quote || card.dataset.quoteChecked) return;
+        if (quote.offsetParent === null) return; // still hidden — check again later
+
+        card.dataset.quoteChecked = 'true';
+        const existingBtn = quote.nextElementSibling;
+        if (existingBtn && existingBtn.classList.contains('quote-expand-btn')) {
+          existingBtn.remove();
+        }
+        if (quote.scrollHeight > quote.clientHeight + 2) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'quote-expand-btn visible';
+          btn.textContent = 'Continue Reading';
+          btn.addEventListener('click', () => openQuoteModal(card));
+          quote.insertAdjacentElement('afterend', btn);
+        }
+      });
+    }
+
+    requestAnimationFrame(checkQuoteOverflow);
+
+    const moreBtnForQuotes = document.getElementById('testimonialsMoreBtn');
+    if (moreBtnForQuotes) {
+      moreBtnForQuotes.addEventListener('click', () => {
+        requestAnimationFrame(checkQuoteOverflow);
+      });
+    }
+
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.testimonial[data-quote-checked]').forEach(c => delete c.dataset.quoteChecked);
+      requestAnimationFrame(checkQuoteOverflow);
+    });
   })();
 
   (function initHeroSlideshow() {
