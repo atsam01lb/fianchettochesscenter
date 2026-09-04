@@ -1,5 +1,45 @@
 const FIANCHETTO_ARTICLES = [
   {
+  tag: 'Friendly Tournament',
+  title: 'Miziara Youth Club Friendly Chess Tournament | Third Edition',
+  slug: 'miziara-youth-club-friendly-chess-tournament-third-edition',
+  date: '',
+  excerpt: 'The Miziara Youth Club Friendly Chess Tournament was held for the third consecutive year, organized by Fianchetto Chess Center, bringing together players of different ages and experience levels in a competitive and engaging chess environment.',
+  images: ['article33-1.jpg', 'article33-2.jpg', 'article33-3.jpg', 'article33-4.jpg', 'article33-5.jpg', 'article33-6.jpg', 'article33-7.jpg', 'article33-8.jpg', 'article33-9.jpg', 'article33-10.jpg', 'article33-11.jpg'],
+  body: `
+    <p>The <strong>Miziara Youth Club Friendly Chess Tournament</strong> was held for the <strong>third consecutive year</strong>, organized by <strong>Fianchetto Chess Center</strong>.</p>
+
+    <p>The tournament brought together chess players of different ages and experience levels in a competitive and engaging environment, providing participants with an opportunity to test their skills and enjoy the spirit of friendly competition.</p>
+
+    <h3>Final Results</h3>
+
+    <ul>
+      <li><strong>1st Place:</strong> Akram Khodr</li>
+      <li><strong>2nd Place:</strong> Issam Ibrahim | secured second place on tiebreak</li>
+      <li><strong>3rd Place:</strong> Elias El Khoury</li>
+      <li><strong>4th Place:</strong> Ralph Abboud</li>
+      <li><strong>5th Place:</strong> Issam Al Ali</li>
+    </ul>
+
+    <h3>Special Awards</h3>
+
+    <ul>
+      <li><strong>Best Female Result:</strong> Rama Hassoun</li>
+      <li><strong>Best Under 14 Result:</strong> Issam Al Ali</li>
+      <li><strong>Best Under 10 Result:</strong> Yasmine Frangieh</li>
+      <li><strong>Youngest Participant:</strong> Michael Makhlouf</li>
+    </ul>
+
+    <h3>Celebrating Chess and Community</h3>
+
+    <p>The third edition of the tournament once again highlighted the importance of creating opportunities for players to compete, develop their skills, and connect with the wider chess community.</p>
+
+    <p>Fianchetto Chess Center congratulates all the winners and participants for their performances and sportsmanship throughout the tournament.</p>
+
+    <p>We look forward to continuing this successful tradition and creating more competitive and engaging chess experiences in the future.</p>
+  `
+},
+  {
   tag: 'Classical Championship',
   title: 'North Lebanon Classical Chess Qualifiers | Mohamad Sleiman Takes First Place',
   slug: 'north-lebanon-classical-chess-qualifiers-2026',
