@@ -3,7 +3,7 @@ const FIANCHETTO_ARTICLES = [
   tag: 'Friendly Tournament',
   title: 'Miziara Youth Club Friendly Chess Tournament | Third Edition',
   slug: 'miziara-youth-club-friendly-chess-tournament-third-edition',
-  date: '',
+  date: 'September 02, 2026',
   excerpt: 'The Miziara Youth Club Friendly Chess Tournament was held for the third consecutive year, organized by Fianchetto Chess Center, bringing together players of different ages and experience levels in a competitive and engaging chess environment.',
   images: ['article33-1.jpg', 'article33-2.jpg', 'article33-3.jpg', 'article33-4.jpg', 'article33-5.jpg', 'article33-6.jpg', 'article33-7.jpg', 'article33-8.jpg', 'article33-9.jpg', 'article33-10.jpg', 'article33-11.jpg'],
   body: `
